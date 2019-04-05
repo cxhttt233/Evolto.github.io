@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://evolto.xyz">
-  <title>一只哈维要下蛋 | LinkSpider的博客</title>
+  <title>算法导论学习笔记(六) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to my blog, enter password to read.">
-<meta name="keywords" content="随笔,心情">
+  <meta name="description" content="天气追忆似水年华中说到，环境会让人想起过去的记忆，如味道能让人想起童年时吃的饼干，和那时的场景。体验最深的是，天气的变化，会带给人重重叠叠的回忆，回环往复。温度和阳光的感触，会让人彻底回到那个熟悉的季节。这回忆仿佛隐藏身体深处，不靠大脑，而靠感官铭记。一到春夏之交，这么多年来的这个时节的感触，一下子涌到身上来，仿佛自己在与过去的自己同步，一举一动，都牵扯着过去的自己。古人最易感时伤怀，感觉到过去">
+<meta name="keywords" content="算法导论,算法,笔记,公开课">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一只哈维要下蛋">
-<meta property="og:url" content="https://evolto.xyz/2019/04/04/diary/index.html">
+<meta property="og:title" content="算法导论学习笔记(六)">
+<meta property="og:url" content="https://evolto.xyz/2019/04/05/algorithm6/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
-<meta property="og:description" content="Welcome to my blog, enter password to read.">
+<meta property="og:description" content="天气追忆似水年华中说到，环境会让人想起过去的记忆，如味道能让人想起童年时吃的饼干，和那时的场景。体验最深的是，天气的变化，会带给人重重叠叠的回忆，回环往复。温度和阳光的感触，会让人彻底回到那个熟悉的季节。这回忆仿佛隐藏身体深处，不靠大脑，而靠感官铭记。一到春夏之交，这么多年来的这个时节的感触，一下子涌到身上来，仿佛自己在与过去的自己同步，一举一动，都牵扯着过去的自己。古人最易感时伤怀，感觉到过去">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-04T13:45:39.432Z">
+<meta property="og:image" content="https://evolto.xyz/2019/04/05/algorithm6/img/algorithm6.jpg">
+<meta property="og:updated_time" content="2019-04-05T06:43:52.607Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一只哈维要下蛋">
-<meta name="twitter:description" content="Welcome to my blog, enter password to read.">
+<meta name="twitter:title" content="算法导论学习笔记(六)">
+<meta name="twitter:description" content="天气追忆似水年华中说到，环境会让人想起过去的记忆，如味道能让人想起童年时吃的饼干，和那时的场景。体验最深的是，天气的变化，会带给人重重叠叠的回忆，回环往复。温度和阳光的感触，会让人彻底回到那个熟悉的季节。这回忆仿佛隐藏身体深处，不靠大脑，而靠感官铭记。一到春夏之交，这么多年来的这个时节的感触，一下子涌到身上来，仿佛自己在与过去的自己同步，一举一动，都牵扯着过去的自己。古人最易感时伤怀，感觉到过去">
+<meta name="twitter:image" content="https://evolto.xyz/2019/04/05/algorithm6/img/algorithm6.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LinkSpider的博客" type="application/atom+xml">
   
@@ -162,40 +164,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-diary" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-algorithm6" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      一只哈维要下蛋
+      算法导论学习笔记(六)
     </h1>
   
 
         
-        <a href="/2019/04/04/diary/" class="archive-article-date">
-  	<time datetime="2019-04-04T12:57:36.712Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
+        <a href="/2019/04/05/algorithm6/" class="archive-article-date">
+  	<time datetime="2019-04-05T06:22:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<div id="hbe-security">
-  <div class="hbe-input-container">
-  <input type="password" class="hbe-form-control" id="pass" placeholder="<br>Welcome to my blog, enter password to read.">
-    <label for="pass"><br>Welcome to my blog, enter password to read.</label>
-    <div class="bottom-line"></div>
-  </div>
-</div>
-<div id="decryptionError" style="display: none;">Incorrect Password!</div>
-<div id="noContentError" style="display: none;">No content to display!</div>
-<div id="encrypt-blog" style="display:none">
-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
-</div>
-<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <p><img src="./img/algorithm6.jpg" alt></p>
+<h3 id="天气"><a href="#天气" class="headerlink" title="天气"></a>天气</h3><p>追忆似水年华中说到，环境会让人想起过去的记忆，如味道能让人想起童年时吃的饼干，和那时的场景。<br>体验最深的是，天气的变化，会带给人重重叠叠的回忆，回环往复。温度和阳光的感触，会让人彻底回到那个熟悉的季节。这回忆仿佛隐藏身体深处，不靠大脑，而靠感官铭记。一到春夏之交，这么多年来的这个时节的感触，一下子涌到身上来，仿佛自己在与过去的自己同步，一举一动，都牵扯着过去的自己。<br>古人最易感时伤怀，感觉到过去与现在的密切联系，总会给人带来精神的改变，不免让人感到淡忧、惆怅。想到过去对未来的担忧，却又感到很好笑。但是给我感触最深的，还是夏。<br>从小学中午放学跑回家看动画，到初二暑假晚上的思考，到高考前夏天的寂静，这些夏天都以同样的温度，同样的热量，同样的感触包围着我。今天的夏天，想必也会成为未来自己感觉中的一部分，想到这里，就浑身充满了力量。</p>
+<p>第六讲主要是顺序统计的均值。</p>
+<a id="more"></a>
+
       
 
       
@@ -239,11 +232,19 @@ U2FsdGVkX18xKEYjxvSJuyZ7cis1/mfvltN0um0x+rk6Pz4Pitw5PnuXgOA6j1I29hLknDTidmQkiMQ0
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">心情</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">公开课</a>
         		</li>
       		
 		</ul>
@@ -299,7 +300,7 @@ U2FsdGVkX18xKEYjxvSJuyZ7cis1/mfvltN0um0x+rk6Pz4Pitw5PnuXgOA6j1I29hLknDTidmQkiMQ0
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://evolto.xyz/2019/04/04/diary/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://evolto.xyz/2019/04/05/algorithm6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +314,9 @@ U2FsdGVkX18xKEYjxvSJuyZ7cis1/mfvltN0um0x+rk6Pz4Pitw5PnuXgOA6j1I29hLknDTidmQkiMQ0
   
 <nav id="article-nav">
   
-    <a href="/2019/04/05/algorithm6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          算法导论学习笔记(六)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/04/04/algorithm5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">算法导论学习笔记(五)</div>
+    <a href="/2019/04/04/diary/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一只哈维要下蛋</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -351,7 +343,7 @@ U2FsdGVkX18xKEYjxvSJuyZ7cis1/mfvltN0um0x+rk6Pz4Pitw5PnuXgOA6j1I29hLknDTidmQkiMQ0
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#天气"><span class="toc-number">1.</span> <span class="toc-text">天气</span></a></li></ol>
                     </div>
                 </span>
             </div>
