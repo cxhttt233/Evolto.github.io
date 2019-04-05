@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm5.jpg">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm5.2.png">
-<meta property="og:updated_time" content="2019-04-05T03:26:30.972Z">
+<meta property="og:updated_time" content="2019-04-05T03:40:05.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(五)">
 <meta name="twitter:description" content="第五讲是线性时间排序Netflix 的爱，死亡与机器人居然是动画片。有点刺激。另外，真是sun了dog了，我才发现typora直接enter是下一段，shift+enter才是下一行。v3: nmd为什么.jpg">
@@ -215,7 +215,7 @@
 <h5 id="stability"><a href="#stability" class="headerlink" title="stability"></a>stability</h5><p>counting sort is stable sort, which preserve the relative order of equal elements.<br>stable sort: bubble sort, insertion sort, merge sort.<br>unstable: quicksort,  selection sort, heap sort.<br>稳定性的好处：第二个键的排序可以为第一个所用</p>
 <h4 id="Radix-sort"><a href="#Radix-sort" class="headerlink" title="Radix sort"></a>Radix sort</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ex:</span><br><span class="line"></span><br><span class="line">3 2 9          1 2 3         1 2 3        1 2 3</span><br><span class="line"></span><br><span class="line">1 2 3    -&gt;    4 3 5   -&gt;    3 2 9   -&gt;   3 2 9</span><br><span class="line"> </span><br><span class="line">4 3 5          3 2 9         4 3 5        4 3 5</span><br></pre></td></tr></table></figure>
 <p> 单位排序是稳定排序保证在当前位相同时，前面的排序结果可用。</p>
-<h5 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h5><p>输入为n个数，每个数有 b bits。我们将b分为r个数位，每个数位为b/r bits<br>使用countsort 来辅助单位排序。那么共需要 $b/r(n+2^r)$ 的时间。<br>这个式子可以通过求导得到。大概取 r = lgn<br>所以最后复杂度$O(bn/lgn)$<br>number in range 0..$(2^b -1)$<br>if number in range (n^d - 1)<br>复杂度为O(dn)<br>if d = O(1),则为linear 复杂度，d &lt;=  lgn, 就比比较排序好。<br>也就是说range 为 n^lgn-1 我们就能用该算法。<br>b为lgn就很开心，因为d=1，所以为线性。<br>时间中基数排序因为缓存原因不是特别快除非数字特别小。</p>
+<h5 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h5><p>输入为n个数，每个数有 b bits。我们将b分为r个数位，每个数位为b/r bits<br>使用countsort 来辅助单位排序。那么共需要 $b/r(n+2^r)$ 的时间。<br>这个式子可以通过求导得到。大概取 r = lgn<br>所以最后复杂度$O(bn/lgn)$<br>number in range 0..$(2^b -1)$<br>if number in range (n^d - 1)<br>复杂度为O(dn)<br>if d = O(1),则为linear 复杂度，d &lt;=  lgn, 就比比较排序好。<br>也就是说range 为 n^lgn-1 我们就能用该算法。<br>b为lgn就很开心，因为d=1，所以为线性。<br>实践中基数排序因为缓存原因不是特别快除非数字特别小。</p>
 
       
 
