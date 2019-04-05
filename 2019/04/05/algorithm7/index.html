@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm7.jpg">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm7.2.png">
-<meta property="og:updated_time" content="2019-04-05T11:56:03.505Z">
+<meta property="og:updated_time" content="2019-04-05T13:57:03.382Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(七)">
 <meta name="twitter:description" content="赛博朋克：高科技，低生活赛博朋克最吸引人的一点, 就是在高度发展的科学技术下，错综城市和混乱群居中那温暖的人性和人情关系。银翼杀手里面的这种特质很明显，在科技高度的发展的混乱社会，有摩天大楼，有热闹的东方集市，还有大广告牌上浮现的日本模特，也有贫民窟，也有犯罪和死亡。">
@@ -196,12 +196,32 @@
 <p> 第七节主要是hashing</p>
 </blockquote>
 <h5 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h5><p>操作：插入，删除，查找<br>直接存取table： 每个元素要不同，keys要在0…n-1的范围之内<br>在array[0…n-1]中，用keys 当索引，直接存到内存中。<br>operation：$\Theta(1)$ time</p>
-<h3 id="Hashing："><a href="#Hashing：" class="headerlink" title="Hashing："></a>Hashing：</h3><p>#####Hashing </p>
-<p>Hash fun 随机将键映射到table 的slot中, 所以keys 数量少于 slots 数量<br>当一个记录被插入到已经有记录的slot中，collsion就发生了</p>
+<h3 id="Hashing："><a href="#Hashing：" class="headerlink" title="Hashing："></a>Hashing：</h3><p>Hash fun 随机将键映射到table 的slot中<br>当一个记录被插入到已经有记录的slot中，collsion就发生了</p>
 <h4 id="Resolving-collisions-by-chaining"><a href="#Resolving-collisions-by-chaining" class="headerlink" title="Resolving collisions by chaining"></a>Resolving collisions by chaining</h4><p>用链表把冲突项连接起来。<br>Ex:<br><img src="/img/algorithm7.2.png" alt></p>
-<h5 id="worst-case"><a href="#worst-case" class="headerlink" title="worst case"></a>worst case</h5><p>所有的键映射到同一个槽中</p>
-<p>access time $\Theta(n)$ if length of S is n</p>
-<h5 id="average-case"><a href="#average-case" class="headerlink" title="average case"></a>average case</h5><h4 id="Resolving-collisions-by-open-addressing"><a href="#Resolving-collisions-by-open-addressing" class="headerlink" title="Resolving collisions by open addressing"></a>Resolving collisions by open addressing</h4>
+<h5 id="worst-case"><a href="#worst-case" class="headerlink" title="worst case"></a>worst case</h5><p>所有的键映射到同一个槽中<br>access time $\Theta(n)​$ if length of S is n</p>
+<h5 id="average-case"><a href="#average-case" class="headerlink" title="average case"></a>average case</h5><p>Assumption of simple uniform hashing: mapping equally from keys to slot and indep of other keys<br>假设有n个keys, m个slot，平均插入的概率就是  α = n/m<br>$\therefore E(T) = \Theta(1+\alpha)$, in which 1 is time of hashing and accessing slot, α is time of searching the list.<br>only when $ n=O(m), \ α=O(1),\  E(T) = Θ(1) $</p>
+<h4 id="choosing-a-hashing-function"><a href="#choosing-a-hashing-function" class="headerlink" title="choosing a hashing function"></a>choosing a hashing function</h4><ol>
+<li>should distribute keys uniformly into slots.</li>
+<li>keys 分布特性，不会影响在哈希表的均匀性</li>
+</ol>
+<h5 id="division-method"><a href="#division-method" class="headerlink" title="division method"></a>division method</h5><p>h(k) = k mod m<br>根据上面两条性质我们得出了</p>
+<blockquote>
+<p>不要取较小的divisor</p>
+</blockquote>
+<p>假如取d=4，而且所有的key都是偶数，那么偶数和4取余之后得到的1.范围很小，增加冲突的可能性2.值为偶数，所有的奇数slot 都将浪费。<br>假设取d=$2^r$, 那么r之前的位全部都被废弃不用，增加了冲突的可能性</p>
+<blockquote>
+<p>取质数是一个比较好的选择</p>
+</blockquote>
+<p>不要选太接近2或10的幂的质数</p>
+<h5 id="multiplication-method"><a href="#multiplication-method" class="headerlink" title="multiplication method"></a>multiplication method</h5><p>比除法出色，但除法更易嵌进代码里<br>假设： num of slot：m=$2^r$  计算机字长：w bit<br>$Hash(k) = (A*k\ mod\ 2^w)\ * rsh (w-r) $,  rsh means right shift<br>$2^{w-r}&lt;A&lt;2^w$<br>简单来说，就是A乘以key，然后mod 取到计算机字长，再右移保留到槽的位数</p>
+<p>Don’t pick A too close to  2的幂<br>上述计算在计算机中比除法哈希要快</p>
+<h4 id="Resolving-collisions-by-open-addressing"><a href="#Resolving-collisions-by-open-addressing" class="headerlink" title="Resolving collisions by open addressing"></a>Resolving collisions by open addressing</h4><p>当进行探查时发现已经有冲突了，就寻找下一个可用的地方<br>不需要存储链表，这个方法将会把全域的key一个一个映射到slot中<br>keys 数量少于 slots 数量<br>希望这些key在slot中随机排列<br>删除操作在开址法中很困难，因为删除会导致搜索时发现不一样继续搜索的情况变成发现为空</p>
+<p>搜索操作：<br>当发现key时，返回结果<br>key不一样继续探查<br>发现为空，返回nil</p>
+<h5 id="探测策略："><a href="#探测策略：" class="headerlink" title="探测策略："></a>探测策略：</h5><p>linear $h(k, i) = (h(k, 0)+i)\ \ mod\ \ m​$<br>但是会发生群集现象(clustering)<br>一次群集(primary clustering)表示哈希表的一段的槽都被占满，每次探测到这一段，都需要把每一个槽都探查一遍，并且被填满的槽会越来越长。</p>
+<p>double hashing：<br>$h(k, i) = (h_1(k)+i* h_2(k))$ mod m<br>这是一个excellent method<br>usually we pick $m=2^r$ and $h_2(k)$ odd </p>
+<h5 id="analysis-of-open-addressing"><a href="#analysis-of-open-addressing" class="headerlink" title="analysis of open addressing"></a>analysis of open addressing</h5><p>假设：<br>为简单均匀哈希，所有键均等的有m！种探查序列，每个键探查序列与其他键独立<br>那么，<br>$E(probe) \leq 1/(1-\alpha), \ \ \ \ if \ \alpha\lt 1,\ \ \ i.e.\ n&lt;m$<br>$Proof: uncessful\ probe$<br>$1st$ probe: $n/m$ collsion<br>$2nd$ probe: $(n-1)/(m-1)$<br>$ith$ probe: $(n-i)/(m-i)$<br>note that  $(n-i)/(m-i)&lt;n/m =\alpha, \ \ \ \ for\ i=1…m-1$</p>
+<p>因此<br>$$<br>\begin{aligned}<br>E[probe] &amp;= 1+n/m(1+(n-1)/(m-1)*(…(1+1/(m-n))))\\<br>&amp;\le 1+\alpha(1+\alpha(…(1+\alpha)))\\<br>&amp;\le 1+ \alpha + \alpha^2+….+\alpha^n\\<br>&amp;= \Sigma^ \infty_{i=0}\alpha^i\\<br>&amp;=1/(1-\alpha)<br>\end{aligned}<br>$$<br>α 为装载因子，是一个常数<br>当α&lt;1时，结果为O(1)<br>当α = 50％, 平均需要2次探查<br>当α = 90％，平均需要10次探查<br>随着哈希表密度的增大，探查时间将会急剧增加，因此不需要太稠密的哈希表</p>
+
       
 
       
@@ -356,7 +376,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#赛博朋克：高科技，低生活"><span class="toc-number">1.</span> <span class="toc-text">赛博朋克：高科技，低生活</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Table"><span class="toc-number">1.0.1.</span> <span class="toc-text">Table</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#Hashing："><span class="toc-number">2.</span> <span class="toc-text">Hashing：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Resolving-collisions-by-chaining"><span class="toc-number">2.1.</span> <span class="toc-text">Resolving collisions by chaining</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#worst-case"><span class="toc-number">2.1.1.</span> <span class="toc-text">worst case</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#average-case"><span class="toc-number">2.1.2.</span> <span class="toc-text">average case</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Resolving-collisions-by-open-addressing"><span class="toc-number">2.2.</span> <span class="toc-text">Resolving collisions by open addressing</span></a></li></ol></li>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#赛博朋克：高科技，低生活"><span class="toc-number">1.</span> <span class="toc-text">赛博朋克：高科技，低生活</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Table"><span class="toc-number">1.0.1.</span> <span class="toc-text">Table</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#Hashing："><span class="toc-number">2.</span> <span class="toc-text">Hashing：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Resolving-collisions-by-chaining"><span class="toc-number">2.1.</span> <span class="toc-text">Resolving collisions by chaining</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#worst-case"><span class="toc-number">2.1.1.</span> <span class="toc-text">worst case</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#average-case"><span class="toc-number">2.1.2.</span> <span class="toc-text">average case</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#choosing-a-hashing-function"><span class="toc-number">2.2.</span> <span class="toc-text">choosing a hashing function</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#division-method"><span class="toc-number">2.2.1.</span> <span class="toc-text">division method</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#multiplication-method"><span class="toc-number">2.2.2.</span> <span class="toc-text">multiplication method</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Resolving-collisions-by-open-addressing"><span class="toc-number">2.3.</span> <span class="toc-text">Resolving collisions by open addressing</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#探测策略："><span class="toc-number">2.3.1.</span> <span class="toc-text">探测策略：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#analysis-of-open-addressing"><span class="toc-number">2.3.2.</span> <span class="toc-text">analysis of open addressing</span></a></li></ol></li></ol></li>
                     </div>
                 </span>
             </div>
