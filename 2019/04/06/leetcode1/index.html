@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://evolto.xyz">
   <title>Leetcode刷题记录(一) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="夏天来了武汉标志性的热和初夏淡淡石楠花的味道，让人心情复杂。   整理一下至今刷过的一点题。">
+  <meta name="description" content="夏天来了武汉标志性的热和初夏空气中淡淡石楠花的味道，让人心情复杂。   整理一下至今刷过的一点题。">
 <meta name="keywords" content="算法,笔记,leetcode,刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode刷题记录(一)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/06/leetcode1/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
-<meta property="og:description" content="夏天来了武汉标志性的热和初夏淡淡石楠花的味道，让人心情复杂。   整理一下至今刷过的一点题。">
+<meta property="og:description" content="夏天来了武汉标志性的热和初夏空气中淡淡石楠花的味道，让人心情复杂。   整理一下至今刷过的一点题。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/leetcode1.jpg">
-<meta property="og:updated_time" content="2019-04-06T08:37:17.410Z">
+<meta property="og:updated_time" content="2019-04-06T11:54:54.201Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode刷题记录(一)">
-<meta name="twitter:description" content="夏天来了武汉标志性的热和初夏淡淡石楠花的味道，让人心情复杂。   整理一下至今刷过的一点题。">
+<meta name="twitter:description" content="夏天来了武汉标志性的热和初夏空气中淡淡石楠花的味道，让人心情复杂。   整理一下至今刷过的一点题。">
 <meta name="twitter:image" content="https://evolto.xyz/img/leetcode1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LinkSpider的博客" type="application/atom+xml">
@@ -185,8 +185,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="/img/leetcode1.jpg" alt></p>
-<h3 id="夏天来了"><a href="#夏天来了" class="headerlink" title="夏天来了"></a>夏天来了</h3><p>武汉标志性的热和初夏淡淡石楠花的味道，让人心情复杂。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="550" height="86" src="//music.163.com/outchain/player?type=2&id=611653&auto=1&height=66"></iframe>
+<h3 id="夏天来了"><a href="#夏天来了" class="headerlink" title="夏天来了"></a>夏天来了</h3><p>武汉标志性的热和初夏空气中淡淡石楠花的味道，让人心情复杂。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="550" height="86" src="//music.163.com/outchain/player?type=2&id=611653&auto=0&height=66"></iframe>
 
 <p>整理一下至今刷过的一点题。</p>
 <a id="more"></a>
@@ -200,10 +200,36 @@
 <p>输入 字符串<br>输出 32bit int 数字<br>读取字符串，读取第一个遇到的非空格字符尽可能多的数字，如果不是数字或+/-号，返回0</p>
 </blockquote>
 <p>读取数字逻辑简单，读就完事了<br>把符号记录下来，累乘，加起来时判断是否溢出</p>
-<h3 id="Palindrome-Number"><a href="#Palindrome-Number" class="headerlink" title="Palindrome Number"></a>Palindrome Number</h3><blockquote>
+<h3 id="9-Palindrome-Number"><a href="#9-Palindrome-Number" class="headerlink" title="9 Palindrome Number"></a>9 Palindrome Number</h3><blockquote>
 <p>判断一个数字是否回文<br>输入：int<br>输出：bool<br>要求：不能转换为string，不然就和上面的回文字符串重复了</p>
 </blockquote>
-<p>首先，负数必不回文，所以只考虑正数<br>感觉可以通过从后到到前反转数字<br>一直进行到当前数字</p>
+<p>首先，负数必不回文，所以只考虑正数<br>感觉可以通过从后到到前反转数字，反转一半<br>即一直进行到反转数字(a)大于原数每次/10得到的数字(b)<br>返回 a==b || a==b/10  (偶数位，奇数位) </p>
+<p>干扰这个算法思考的就是能被10整除的数，因为我们不能积累反转的数字从而无法判断现在是否到一半了，因为以0结尾的数字除了0不可能回文，所以直接去掉干扰就好了。</p>
+<h3 id="10-Regular-Expression"><a href="#10-Regular-Expression" class="headerlink" title="10 Regular Expression"></a>10 Regular Expression</h3><blockquote>
+<p>给定字符s，给定正则p，判断是否匹配<br>输入：s(小写字母组成), p(小写字母和’*’、’.’组成)<br>输出：bool</p>
+</blockquote>
+<p>这道题有点难度，因为之前也没学过算法，接触过动态规划，就没做出来。<br><a href="https://www.youtube.com/watch?v=l3hda49XcDE" target="_blank" rel="noopener">https://www.youtube.com/watch?v=l3hda49XcDE</a><br><a href="https://www.youtube.com/watch?v=qza1UKNHAys" target="_blank" rel="noopener">https://www.youtube.com/watch?v=qza1UKNHAys</a><br>这是我看到将这道题最清楚的两个视频，第一个讲了怎么做，一目了然，第二个讲了为什么还具体解释了动态规划的思想，建议都看一下。</p>
+<p>这道题让我见识了动态规划的魅力。可以利用大问题逐步分解，将问题逐渐细化。然后到达初始化内容。<br>计算的时候通过小问题的答案一步一步计算，获得大的问题。重点是得到递归关系式。</p>
+<p>额外存储 bool A [p.len+1][s.len+1] 记为 bool A[a][b]<br>A[i][j]表示p.substr(0,i) 和 s.substr(0,j)是否匹配<br>这道题的递归关系式为：<br>$$<br>T[i][j]=<br>\begin{cases}<br>T[i-1][j-1]&amp;if\ p[i-1]=s[j-1]\ ||\ p[i-1]=”.”   \\<br>T[i-2][j]\ || &amp;if\ p[i-1]= “*“        \\<br>T[i][j-1]&amp; if\ p[i-1]= “*“ \&amp;\&amp;(p[i-2]==s[j-1]\ ||\ p[i-2]==”.”)\\\<br>False&amp; otherwise<br>\end{cases}<br>$$<br>上述的A[0][0]指的是空串和空串<br>第二个和第三个之间是||的关系，为了使情况好理解就分开写了。</p>
+<p>初始化条件A[0][0]=false, 因为””match”‘’<br>A[0][] = false 因为 空的p不能匹配任何string</p>
+<p>i从1开始，j从0开始循环，直到获得A[a][b]即为我们想要的结果</p>
+<h3 id="11-Container-with-Most-water"><a href="#11-Container-with-Most-water" class="headerlink" title="11 Container with Most water"></a>11 Container with Most water</h3><blockquote>
+<p>输入： int 数组A = {a1….an}<br>输出： ai 和 aj 使得 S = ai*(aj-ai)最大，ai&lt;aj</p>
+</blockquote>
+<p>运用双指针法，l从左边开始，r从右边开始，往中间方向移动<br>每次移动指向数字比较小的指针，计算S=(r-l)*max(A[l],[r]) ,并不断更新最大S对应的指针<br>当两个指针相遇，表示程序结束</p>
+<p>移动短指针的用来平衡短数字对面积的限制，从而保证一定可以得到最优解。</p>
+<h3 id="12-Integer-to-Roman"><a href="#12-Integer-to-Roman" class="headerlink" title="12 Integer to Roman"></a>12 Integer to Roman</h3><blockquote>
+<p>将数字转化为罗马数字<br>输入：数字<br>输出：罗马数字字符串<br>L:50, C:100, D:500, M:1000<br>3444:MMMCDXLIV</p>
+</blockquote>
+<p>列出来 M, CM, D, CD, C, XC, L, XL, X, IX, V, IV, I对应的数字<br>然后从大到小进行取余<br>3444 % 1000 = 444 % 400 = 44 % 40 = 4 /% 4  = 0<br>3*M+1*CD+1*XL+1*IV</p>
+<p>所以，对罗马数字进行循环，如果被除数大于罗马数字，就进行除法，并且字符串加上商*罗马数字字符，余数作为被除数继续循环</p>
+<h3 id="13-Roman-to-Integer"><a href="#13-Roman-to-Integer" class="headerlink" title="13 Roman to Integer"></a>13 Roman to Integer</h3><blockquote>
+<p>输入：罗马数字字符串<br>输出：数字</p>
+</blockquote>
+<p>从最高的罗马字符开始，如果当前匹配，就继续读取，累加数字，如果不匹配，就进入小一个级别的罗马字符，直到罗马数字字符串读取完毕</p>
+<h3 id="14-Longest-common-prefix"><a href="#14-Longest-common-prefix" class="headerlink" title="14 Longest common prefix"></a>14 Longest common prefix</h3><blockquote>
+<p>输入： 字符串数组<br>输出：最长共同前缀字符串<br>所有字符都以小写字母形式给出</p>
+</blockquote>
 
       
 
@@ -359,7 +385,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#夏天来了"><span class="toc-number">1.</span> <span class="toc-text">夏天来了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-reverse-Integer"><span class="toc-number">2.</span> <span class="toc-text">7 reverse Integer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-a-to-i"><span class="toc-number">3.</span> <span class="toc-text">8 a to i</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Palindrome-Number"><span class="toc-number">4.</span> <span class="toc-text">Palindrome Number</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#夏天来了"><span class="toc-number">1.</span> <span class="toc-text">夏天来了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-reverse-Integer"><span class="toc-number">2.</span> <span class="toc-text">7 reverse Integer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-a-to-i"><span class="toc-number">3.</span> <span class="toc-text">8 a to i</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-Palindrome-Number"><span class="toc-number">4.</span> <span class="toc-text">9 Palindrome Number</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-Regular-Expression"><span class="toc-number">5.</span> <span class="toc-text">10 Regular Expression</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-Container-with-Most-water"><span class="toc-number">6.</span> <span class="toc-text">11 Container with Most water</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-Integer-to-Roman"><span class="toc-number">7.</span> <span class="toc-text">12 Integer to Roman</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-Roman-to-Integer"><span class="toc-number">8.</span> <span class="toc-text">13 Roman to Integer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-Longest-common-prefix"><span class="toc-number">9.</span> <span class="toc-text">14 Longest common prefix</span></a></li></ol>
                     </div>
                 </span>
             </div>
