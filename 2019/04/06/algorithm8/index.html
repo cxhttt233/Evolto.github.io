@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm8.jpg">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm8.2.png">
-<meta property="og:updated_time" content="2019-04-06T14:11:01.992Z">
+<meta property="og:updated_time" content="2019-04-06T14:18:42.931Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(八)">
 <meta name="twitter:description" content="Hash Ⅱ第八讲是全域哈希和完全哈希。">
@@ -192,11 +192,12 @@
 <h3 id="universal-hashing"><a href="#universal-hashing" class="headerlink" title="universal hashing"></a>universal hashing</h3><p>定义：U是键的全集，H是有限个哈希函数的集合，将U映射到{0…m-1}, H 是全域的<br>$$<br>if\ \forall x,y\in U\ where\ x\ne y,\ \ \ \ \ \ |{h\in H, h(x)=h(y)}| = |H|/m<br>$$<br>$i.e.$ 如果从H中随机选择哈希函数，那么between x &amp; y 冲突的概率是 1/m</p>
 <h5 id="Theorem"><a href="#Theorem" class="headerlink" title="Theorem:"></a>Theorem:</h5><p>从H随机选择哈希函数h， n keys 映射到 m slots，对于给定的key x , $E[collision with x]&lt;n/m​$<br>这说明了键在table中分布均匀</p>
 <h5 id="Proof"><a href="#Proof" class="headerlink" title="Proof:"></a>Proof:</h5><p>let $C_X​$ 作为代表在T中的键与x冲突的数目的r.v.,  and $c_{xy}= \begin{cases}1&amp;if\ h(x)=h(y)\\0&amp;otherwise\end{cases}​$<br>note  $E(c_{xy}) = 1/m​$ and $C_x = \Sigma_{y\in T-{x}} c_{xy}​$<br>$$<br>\begin{aligned}<br>\therefore E[C_x]<br>&amp;= E[\Sigma_{y\in T-{x}} c_{xy}]      \\<br>&amp;= \Sigma_{y\in T-{x}}E(c_{xy})          \\<br>&amp;= \Sigma_{y\in T-{x}}1/m             \\<br>&amp;= {n-1}/m                            \\<br>&amp;\lt n/m<br>\end{aligned}<br>$$</p>
-<h3 id="Constructing-a-universal-hash-function"><a href="#Constructing-a-universal-hash-function" class="headerlink" title="Constructing a universal hash function"></a>Constructing a universal hash function</h3><p>取m为质数，并且将key给分解为r+1位<br>$k =&lt;k_0, k_1….,k_r&gt;$ where  0$\le k_i \le m-1$<br>相当于用m进制表示k<br>随机选择 a = $&lt;a_0, a_1,…,a_r&gt;$ ，每个$a_i$都是从{0,1…,m-1}中选出来的<br>define $h_a(k) = (\Sigma_{i=0}^ra_ik_i)\ mod\ m$<br>H = {$h_a$}是全域哈希<br>总共有</p>
+<h3 id="Constructing-a-universal-hash-function"><a href="#Constructing-a-universal-hash-function" class="headerlink" title="Constructing a universal hash function"></a>Constructing a universal hash function</h3><p>取m为质数，并且将key给分解为r+1位<br>$k =&lt;k_0, k_1….,k_r&gt;$ where  0$\le k_i \le m-1$<br>相当于用m进制表示k<br>随机选择 a = $&lt;a_0, a_1,…,a_r&gt;$ ，每个$a_i$都是从{0,1…,m-1}中选出来的<br>define $h_a(k) = (\Sigma_{i=0}^ra_ik_i)\ mod\ m$<br>H = {$h_a$}是全域哈希<br>H的大小为$m^{r+1}$,总共有r+1个a，每个a都有m种选择</p>
+<p>证明：略略略，打出来至少要花我半小时。</p>
 <p>H = {$h_a$} </p>
 <h3 id="Perfect-Hashing"><a href="#Perfect-Hashing" class="headerlink" title="Perfect Hashing"></a>Perfect Hashing</h3><p>n个key，构建一个搜索时间为O(1)，空间为O(m)的哈希表<br>主要思想：2层全域哈希结构， 第二层没有冲突</p>
 <p><img src="/img/algorithm8.2.png" alt></p>
-<p>如果有$n_i$个项映射到 $ith $ slot中，$m_i= {n_i}^2$</p>
+<p>如果有$n_i​$个项映射到 $ith ​$ slot中，$m_i= {n_i}^2​$</p>
 <h5 id="analysis-lv2"><a href="#analysis-lv2" class="headerlink" title="analysis lv2"></a>analysis lv2</h5><p>将n keys 映射到$n^2$ slot中，使用随机在全域哈希集合H中选择哈希函数<br>$\Rightarrow E[collisions] &lt; 1/2$<br>ps. prob of 2 given keys collide under h is $1/{n^2}$ = 1/m<br>一共有$C_n^2$ 对keys  $\therefore E[ \sharp collisions] = C_n^2 *  1/{n^2} = n(n-1)/2 * 1/{n^2} \lt 1/2$</p>
 <h5 id="markov-ireq"><a href="#markov-ireq" class="headerlink" title="markov ireq"></a>markov ireq</h5><p>for r.v. $x\ge 0, Pr{x\ge t}\le E(x)/t$<br>所以，$Pr{\ge1\ collision} \le E(collision)/1 &lt; 1/2$</p>
 <p>所以有一半的函数都可以保证不会冲突，可以快速找到</p>
@@ -714,8 +715,7 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title='╭(°A°`)╮ 页面崩溃啦 ~',clearTimeout(st)):(document.title='(ฅ>ω<*ฅ) 噫又好了~' + OriginTitile,st=setTimeout(function(){document.title=OriginTitile},3e3))})</script>
-<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"position":"right","width":100,"height":200,"hOffset":70,"vOffset":-20},"mobile":{"show":true,"scale":1},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title='╭(°A°`)╮ 页面崩溃啦 ~',clearTimeout(st)):(document.title='(ฅ>ω<*ฅ) 噫又好了~' + OriginTitile,st=setTimeout(function(){document.title=OriginTitile},3e3))})</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -732,5 +732,6 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"position":"right","width":100,"height":200,"hOffset":70,"vOffset":-20},"mobile":{"show":true,"scale":1},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>
