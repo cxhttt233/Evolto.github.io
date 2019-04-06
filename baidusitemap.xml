@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://evolto.xyz/2019/04/06/leetcode1/</loc>
+    <loc>https://evolto.xyz/2019/04/06/algorithm8/</loc>
     <lastmod>2019-04-06</lastmod>
   </url>  <url>
     <loc>https://evolto.xyz/2019/04/05/algorithm7/</loc>
+    <lastmod>2019-04-06</lastmod>
+  </url>  <url>
+    <loc>https://evolto.xyz/2019/04/06/leetcode1/</loc>
     <lastmod>2019-04-06</lastmod>
   </url>  <url>
     <loc>https://evolto.xyz/2019/04/05/algorithm6/</loc>

@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://evolto.xyz/2019/04/06/leetcode1/</loc>
+    <loc>https://evolto.xyz/2019/04/06/algorithm8/</loc>
     
-    <lastmod>2019-04-06T11:54:54.201Z</lastmod>
+    <lastmod>2019-04-06T14:11:01.992Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://evolto.xyz/2019/04/05/algorithm7/</loc>
     
-    <lastmod>2019-04-06T09:17:05.724Z</lastmod>
+    <lastmod>2019-04-06T12:24:51.660Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://evolto.xyz/2019/04/06/leetcode1/</loc>
+    
+    <lastmod>2019-04-06T11:54:54.201Z</lastmod>
     
   </url>
   
