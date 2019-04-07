@@ -6,23 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://evolto.xyz">
-  <title>算法导论学习笔记(八) | LinkSpider的博客</title>
+  <title>Archives | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hash Ⅱ第八讲是全域哈希和完全哈希。">
-<meta name="keywords" content="算法导论,算法,笔记,公开课">
-<meta property="og:type" content="article">
-<meta property="og:title" content="算法导论学习笔记(八)">
-<meta property="og:url" content="https://evolto.xyz/2019/04/06/algorithm8/index.html">
+  <meta name="description" content="武汉大学2016级">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LinkSpider的博客">
+<meta property="og:url" content="https://evolto.xyz/archives/page/2/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
-<meta property="og:description" content="Hash Ⅱ第八讲是全域哈希和完全哈希。">
+<meta property="og:description" content="武汉大学2016级">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://evolto.xyz/img/algorithm8.jpg">
-<meta property="og:image" content="https://evolto.xyz/img/algorithm8.2.png">
-<meta property="og:updated_time" content="2019-04-06T14:20:36.205Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法导论学习笔记(八)">
-<meta name="twitter:description" content="Hash Ⅱ第八讲是全域哈希和完全哈希。">
-<meta name="twitter:image" content="https://evolto.xyz/img/algorithm8.jpg">
+<meta name="twitter:title" content="LinkSpider的博客">
+<meta name="twitter:description" content="武汉大学2016级">
   
     <link rel="alternative" href="/atom.xml" title="LinkSpider的博客" type="application/atom+xml">
   
@@ -165,81 +160,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-algorithm8" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      算法导论学习笔记(八)
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/04/01/algorithm1/" class="archive-article-date">
+  	<time datetime="2019-04-01T12:23:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/04/01/algorithm1/">算法导论学习笔记(一)</a>
     </h1>
   
 
-        
-        <a href="/2019/04/06/algorithm8/" class="archive-article-date">
-  	<time datetime="2019-04-06T12:24:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/algorithm8.jpg" alt></p>
-<h3 id="Hash-Ⅱ"><a href="#Hash-Ⅱ" class="headerlink" title="Hash Ⅱ"></a>Hash Ⅱ</h3><p>第八讲是全域哈希和完全哈希。</p>
-<a id="more"></a>
-<h5 id="weakness-of-hash"><a href="#weakness-of-hash" class="headerlink" title="weakness of hash"></a>weakness of hash</h5><p>上节课讲的哈希的弱点是，无论选择什么哈希形式，都会有一组bad keys导致所有的key到映射到同一个slot中。所以核心思路是随机选择哈希函数，使其独立于keys。</p>
-<h3 id="universal-hashing"><a href="#universal-hashing" class="headerlink" title="universal hashing"></a>universal hashing</h3><p>定义：U是键的全集，H是有限个哈希函数的集合，将U映射到{0…m-1}, H 是全域的<br>$$<br>if\ \forall x,y\in U\ where\ x\ne y,\ \ \ \ \ \ |{h\in H, h(x)=h(y)}| = |H|/m<br>$$<br>$i.e.$ 如果从H中随机选择哈希函数，那么between x &amp; y 冲突的概率是 1/m</p>
-<h5 id="Theorem"><a href="#Theorem" class="headerlink" title="Theorem:"></a>Theorem:</h5><p>从H随机选择哈希函数h， n keys 映射到 m slots，对于给定的key x , $E[collision with x]&lt;n/m​$<br>这说明了键在table中分布均匀</p>
-<h5 id="Proof"><a href="#Proof" class="headerlink" title="Proof:"></a>Proof:</h5><p>let $C_X​$ 作为代表在T中的键与x冲突的数目的r.v.,  and $c_{xy}= \begin{cases}1&amp;if\ h(x)=h(y)\\0&amp;otherwise\end{cases}​$<br>note  $E(c_{xy}) = 1/m​$ and $C_x = \Sigma_{y\in T-{x}} c_{xy}​$<br>$$<br>\begin{aligned}<br>\therefore E[C_x]<br>&amp;= E[\Sigma_{y\in T-{x}} c_{xy}]      \\<br>&amp;= \Sigma_{y\in T-{x}}E(c_{xy})          \\<br>&amp;= \Sigma_{y\in T-{x}}1/m             \\<br>&amp;= {n-1}/m                            \\<br>&amp;\lt n/m<br>\end{aligned}<br>$$</p>
-<h3 id="Constructing-a-universal-hash-function"><a href="#Constructing-a-universal-hash-function" class="headerlink" title="Constructing a universal hash function"></a>Constructing a universal hash function</h3><p>取m为质数，并且将key给分解为r+1位<br>$k =&lt;k_0, k_1….,k_r&gt;$ where  0$\le k_i \le m-1$<br>相当于用m进制表示k<br>随机选择 a = $&lt;a_0, a_1,…,a_r&gt;$ ，每个$a_i$都是从{0,1…,m-1}中选出来的<br>define $h_a(k) = (\Sigma_{i=0}^ra_ik_i)\ mod\ m$<br>H = {$h_a$}是全域哈希<br>H的大小为$m^{r+1}$,总共有r+1个a，每个a都有m种选择</p>
-<p>证明：略略略，打出来至少要花我半小时。</p>
-<h3 id="Perfect-Hashing"><a href="#Perfect-Hashing" class="headerlink" title="Perfect Hashing"></a>Perfect Hashing</h3><p>n个key，构建一个搜索时间为O(1)，空间为O(m)的哈希表<br>主要思想：2层全域哈希结构， 第二层没有冲突</p>
-<p><img src="/img/algorithm8.2.png" alt></p>
-<p>如果有$n_i​$个项映射到 $ith ​$ slot中，$m_i= {n_i}^2​$</p>
-<h5 id="analysis-lv2"><a href="#analysis-lv2" class="headerlink" title="analysis lv2"></a>analysis lv2</h5><p>将n keys 映射到$n^2$ slot中，使用随机在全域哈希集合H中选择哈希函数<br>$\Rightarrow E[collisions] &lt; 1/2$<br>ps. prob of 2 given keys collide under h is $1/{n^2}$ = 1/m<br>一共有$C_n^2$ 对keys  $\therefore E[ \sharp collisions] = C_n^2 *  1/{n^2} = n(n-1)/2 * 1/{n^2} \lt 1/2$</p>
-<h5 id="markov-ireq"><a href="#markov-ireq" class="headerlink" title="markov ireq"></a>markov ireq</h5><p>for r.v. $x\ge 0, Pr{x\ge t}\le E(x)/t$<br>所以，$Pr{\ge1\ collision} \le E(collision)/1 &lt; 1/2$</p>
-<p>所以有一半的函数都可以保证不会冲突，可以快速找到</p>
-<h5 id="analysis-of-storage"><a href="#analysis-of-storage" class="headerlink" title="analysis of storage"></a>analysis of storage</h5><p>lv1: m=n,  lv2:$m_i = {n_i}^2$<br>$\therefore E[total storage] = n+E[\Sigma_{i=0}^{m-1}\Theta({n_i}^2)] = \Theta(n)$<br>by bucket-sort analysis.</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>我，可爱，打钱<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wepay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -263,164 +213,22 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://evolto.xyz/2019/04/06/algorithm8/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/04/07/algorithm9/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          算法导论学习笔记(九)
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/04/06/leetcode1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Leetcode刷题记录(一)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hash-Ⅱ"><span class="toc-number">1.</span> <span class="toc-text">Hash Ⅱ</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#weakness-of-hash"><span class="toc-number">1.0.1.</span> <span class="toc-text">weakness of hash</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#universal-hashing"><span class="toc-number">2.</span> <span class="toc-text">universal hashing</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Theorem"><span class="toc-number">2.0.1.</span> <span class="toc-text">Theorem:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Proof"><span class="toc-number">2.0.2.</span> <span class="toc-text">Proof:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Constructing-a-universal-hash-function"><span class="toc-number">3.</span> <span class="toc-text">Constructing a universal hash function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perfect-Hashing"><span class="toc-number">4.</span> <span class="toc-text">Perfect Hashing</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#analysis-lv2"><span class="toc-number">4.0.1.</span> <span class="toc-text">analysis lv2</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#markov-ireq"><span class="toc-number">4.0.2.</span> <span class="toc-text">markov ireq</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#analysis-of-storage"><span class="toc-number">4.0.3.</span> <span class="toc-text">analysis of storage</span></a></li></ol></li>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
-  
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div>
-<script src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'true' == true ? true : false;
-   var verify = 'true' == true ? true : false;
-   new Valine({
-            av: AV,
-            el: '#vcomment',
-            notify: notify,
-            verify: verify,
-            app_id: "5OCqvN2cpSjdwDKShqLpknmf-gzGzoHsz",
-            app_key: "g7E6jVCf8Qi6u9cWplMfXfAN",
-            placeholder: "一飞冲天啊，我",
-            avatar: "",
-            avatar_cdn: "https://sdn.geekzu.org/avatar/",
-            pageSize: 15
-    });
-    if(window.location.hash){
-          var checkExist = setInterval(function() {
-            if (document.getElementById(window.location.hash.replace("#",""))) {
-              location.href = window.location.hash;
-              clearInterval(checkExist);
-            }
-          }, 250);
-        }
-</script>
-  </section>
-  
-  
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -465,8 +273,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

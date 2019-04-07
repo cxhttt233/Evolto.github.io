@@ -6,23 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://evolto.xyz">
-  <title>算法导论学习笔记(八) | LinkSpider的博客</title>
+  <title>算法导论学习笔记(九) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hash Ⅱ第八讲是全域哈希和完全哈希。">
+  <meta name="description" content="binary search tree这一节主要内容是binary search tree 乌合之众《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。   代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群">
 <meta name="keywords" content="算法导论,算法,笔记,公开课">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法导论学习笔记(八)">
-<meta property="og:url" content="https://evolto.xyz/2019/04/06/algorithm8/index.html">
+<meta property="og:title" content="算法导论学习笔记(九)">
+<meta property="og:url" content="https://evolto.xyz/2019/04/07/algorithm9/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
-<meta property="og:description" content="Hash Ⅱ第八讲是全域哈希和完全哈希。">
+<meta property="og:description" content="binary search tree这一节主要内容是binary search tree 乌合之众《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。   代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://evolto.xyz/img/algorithm8.jpg">
-<meta property="og:image" content="https://evolto.xyz/img/algorithm8.2.png">
-<meta property="og:updated_time" content="2019-04-06T14:20:36.205Z">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm9.jpg">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm9.2.png">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm9.3.png">
+<meta property="og:updated_time" content="2019-04-07T14:30:55.914Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法导论学习笔记(八)">
-<meta name="twitter:description" content="Hash Ⅱ第八讲是全域哈希和完全哈希。">
-<meta name="twitter:image" content="https://evolto.xyz/img/algorithm8.jpg">
+<meta name="twitter:title" content="算法导论学习笔记(九)">
+<meta name="twitter:description" content="binary search tree这一节主要内容是binary search tree 乌合之众《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。   代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群">
+<meta name="twitter:image" content="https://evolto.xyz/img/algorithm9.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LinkSpider的博客" type="application/atom+xml">
   
@@ -165,42 +166,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-algorithm8" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-algorithm9" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      算法导论学习笔记(八)
+      算法导论学习笔记(九)
     </h1>
   
 
         
-        <a href="/2019/04/06/algorithm8/" class="archive-article-date">
-  	<time datetime="2019-04-06T12:24:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-06</time>
+        <a href="/2019/04/07/algorithm9/" class="archive-article-date">
+  	<time datetime="2019-04-07T13:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/algorithm8.jpg" alt></p>
-<h3 id="Hash-Ⅱ"><a href="#Hash-Ⅱ" class="headerlink" title="Hash Ⅱ"></a>Hash Ⅱ</h3><p>第八讲是全域哈希和完全哈希。</p>
+        <p><img src="/img/algorithm9.jpg" alt></p>
+<h3 id="binary-search-tree"><a href="#binary-search-tree" class="headerlink" title="binary search tree"></a>binary search tree</h3><p>这一节主要内容是binary search tree</p>
+<h3 id="乌合之众"><a href="#乌合之众" class="headerlink" title="乌合之众"></a>乌合之众</h3><p>《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=4888325&auto=0&height=66"></iframe>
+
+<p>代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群体的狂热会导致群体理智的下降。</p>
+<p>整个恶魔人就好像一个社会实验一样，人类的互相猜疑，不信任，群体陷入无组织的混乱形式，造成了结果是人类互相残杀，即使是邻居、同学、昔日的好友。而仅凭自己的主观认为一个人有迹象可能是恶魔，就会发起攻击。这种类似的事件其实在历史上并不少见，群体易受暗示和轻信。</p>
 <a id="more"></a>
-<h5 id="weakness-of-hash"><a href="#weakness-of-hash" class="headerlink" title="weakness of hash"></a>weakness of hash</h5><p>上节课讲的哈希的弱点是，无论选择什么哈希形式，都会有一组bad keys导致所有的key到映射到同一个slot中。所以核心思路是随机选择哈希函数，使其独立于keys。</p>
-<h3 id="universal-hashing"><a href="#universal-hashing" class="headerlink" title="universal hashing"></a>universal hashing</h3><p>定义：U是键的全集，H是有限个哈希函数的集合，将U映射到{0…m-1}, H 是全域的<br>$$<br>if\ \forall x,y\in U\ where\ x\ne y,\ \ \ \ \ \ |{h\in H, h(x)=h(y)}| = |H|/m<br>$$<br>$i.e.$ 如果从H中随机选择哈希函数，那么between x &amp; y 冲突的概率是 1/m</p>
-<h5 id="Theorem"><a href="#Theorem" class="headerlink" title="Theorem:"></a>Theorem:</h5><p>从H随机选择哈希函数h， n keys 映射到 m slots，对于给定的key x , $E[collision with x]&lt;n/m​$<br>这说明了键在table中分布均匀</p>
-<h5 id="Proof"><a href="#Proof" class="headerlink" title="Proof:"></a>Proof:</h5><p>let $C_X​$ 作为代表在T中的键与x冲突的数目的r.v.,  and $c_{xy}= \begin{cases}1&amp;if\ h(x)=h(y)\\0&amp;otherwise\end{cases}​$<br>note  $E(c_{xy}) = 1/m​$ and $C_x = \Sigma_{y\in T-{x}} c_{xy}​$<br>$$<br>\begin{aligned}<br>\therefore E[C_x]<br>&amp;= E[\Sigma_{y\in T-{x}} c_{xy}]      \\<br>&amp;= \Sigma_{y\in T-{x}}E(c_{xy})          \\<br>&amp;= \Sigma_{y\in T-{x}}1/m             \\<br>&amp;= {n-1}/m                            \\<br>&amp;\lt n/m<br>\end{aligned}<br>$$</p>
-<h3 id="Constructing-a-universal-hash-function"><a href="#Constructing-a-universal-hash-function" class="headerlink" title="Constructing a universal hash function"></a>Constructing a universal hash function</h3><p>取m为质数，并且将key给分解为r+1位<br>$k =&lt;k_0, k_1….,k_r&gt;$ where  0$\le k_i \le m-1$<br>相当于用m进制表示k<br>随机选择 a = $&lt;a_0, a_1,…,a_r&gt;$ ，每个$a_i$都是从{0,1…,m-1}中选出来的<br>define $h_a(k) = (\Sigma_{i=0}^ra_ik_i)\ mod\ m$<br>H = {$h_a$}是全域哈希<br>H的大小为$m^{r+1}$,总共有r+1个a，每个a都有m种选择</p>
-<p>证明：略略略，打出来至少要花我半小时。</p>
-<h3 id="Perfect-Hashing"><a href="#Perfect-Hashing" class="headerlink" title="Perfect Hashing"></a>Perfect Hashing</h3><p>n个key，构建一个搜索时间为O(1)，空间为O(m)的哈希表<br>主要思想：2层全域哈希结构， 第二层没有冲突</p>
-<p><img src="/img/algorithm8.2.png" alt></p>
-<p>如果有$n_i​$个项映射到 $ith ​$ slot中，$m_i= {n_i}^2​$</p>
-<h5 id="analysis-lv2"><a href="#analysis-lv2" class="headerlink" title="analysis lv2"></a>analysis lv2</h5><p>将n keys 映射到$n^2$ slot中，使用随机在全域哈希集合H中选择哈希函数<br>$\Rightarrow E[collisions] &lt; 1/2$<br>ps. prob of 2 given keys collide under h is $1/{n^2}$ = 1/m<br>一共有$C_n^2$ 对keys  $\therefore E[ \sharp collisions] = C_n^2 *  1/{n^2} = n(n-1)/2 * 1/{n^2} \lt 1/2$</p>
-<h5 id="markov-ireq"><a href="#markov-ireq" class="headerlink" title="markov ireq"></a>markov ireq</h5><p>for r.v. $x\ge 0, Pr{x\ge t}\le E(x)/t$<br>所以，$Pr{\ge1\ collision} \le E(collision)/1 &lt; 1/2$</p>
-<p>所以有一半的函数都可以保证不会冲突，可以快速找到</p>
-<h5 id="analysis-of-storage"><a href="#analysis-of-storage" class="headerlink" title="analysis of storage"></a>analysis of storage</h5><p>lv1: m=n,  lv2:$m_i = {n_i}^2$<br>$\therefore E[total storage] = n+E[\Sigma_{i=0}^{m-1}\Theta({n_i}^2)] = \Theta(n)$<br>by bucket-sort analysis.</p>
+<p>美树的每一条推特下面的大量评论都反映出了人类的阴暗面，和现在的网络暴力如出一辙。人类的行为在不受监管的情况下下限是很低的。只不过在现实中，有着群体道德和法律的监管，人们就会学着收敛。但在网络这种监管还不严的地方，就只能靠个人道德维持。</p>
+<p>在混乱的群体中，不负责任的群体的道德是很可怕的。就如《狗镇》中，小镇的每个人都对女主实施民主化的暴力，仅因为女主长得像一个逃犯。人们推卸到自己的责任，彻底地释放自己的本能，因为他们把群体的价值观当作正确的价值观。正如《Legal High》著名的台词：“真正的恶魔，正是无限膨胀的民意。是坚信自己是善人，对落入阴沟的肮脏野狗进行群殴的，善良的市民。”</p>
+<h3 id="Runway-problem"><a href="#Runway-problem" class="headerlink" title="Runway problem"></a>Runway problem</h3><p>飞机跑道紧张，因此要对着陆时间进行计划。<br>将landing time T 加入到集合R中，当T的前后间隔k分钟内没有其他t在R中。<br>当飞机着陆时，把T从R删除<br>我们的目标是操作进行的时间为O(lgn) (|R|=n)</p>
+<p><img src="/img/algorithm9.2.png" alt></p>
+<p>假设k = 3<br>插入52.5， ok<br>插入44， not allowed<br>插入20， not allowed(past)</p>
+<h5 id="some-data-structure"><a href="#some-data-structure" class="headerlink" title="some data structure"></a>some data structure</h5><blockquote>
+<p>unsorted list/array:</p>
+</blockquote>
+<p>it’s search time is linear.</p>
+<blockquote>
+<p>Sorted array:</p>
+</blockquote>
+<p>search: binary search, O(lgn)<br>insert time: O(n)</p>
+<blockquote>
+<p>Heaps:</p>
+</blockquote>
+<p>insert time:O(lgn) time<br>element that  k or k : O(n)<br>because heap’s iv can not use in the problem, and we need to look at every node</p>
+<p>so what we want is insertion fast into sorted array</p>
+<h5 id="binary-search-tree-1"><a href="#binary-search-tree-1" class="headerlink" title="binary search tree"></a>binary search tree</h5><p>Invariant:<br>for all node x, if y is in the left subtree of x, key(y) $\le$ key(x)<br>for all node x, if y is in the right subtree of x, key(y) $\ge$ key(x)</p>
+<p><img src="/img/algorithm9.3.png" alt></p>
+<p>Insert 42:<br>compare 42&amp;49,  &gt;3, left<br>compare 42&amp;46,  &gt;3, left<br>compare 42&amp;41,  &lt;3, ×</p>
+<p>h:height of tree</p>
 
       
 
@@ -313,7 +328,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://evolto.xyz/2019/04/06/algorithm8/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://evolto.xyz/2019/04/07/algorithm9/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -327,18 +342,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/04/07/algorithm9/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          算法导论学习笔记(九)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/04/06/leetcode1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Leetcode刷题记录(一)</div>
+    <a href="/2019/04/06/algorithm8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法导论学习笔记(八)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -365,7 +371,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hash-Ⅱ"><span class="toc-number">1.</span> <span class="toc-text">Hash Ⅱ</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#weakness-of-hash"><span class="toc-number">1.0.1.</span> <span class="toc-text">weakness of hash</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#universal-hashing"><span class="toc-number">2.</span> <span class="toc-text">universal hashing</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Theorem"><span class="toc-number">2.0.1.</span> <span class="toc-text">Theorem:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Proof"><span class="toc-number">2.0.2.</span> <span class="toc-text">Proof:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Constructing-a-universal-hash-function"><span class="toc-number">3.</span> <span class="toc-text">Constructing a universal hash function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perfect-Hashing"><span class="toc-number">4.</span> <span class="toc-text">Perfect Hashing</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#analysis-lv2"><span class="toc-number">4.0.1.</span> <span class="toc-text">analysis lv2</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#markov-ireq"><span class="toc-number">4.0.2.</span> <span class="toc-text">markov ireq</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#analysis-of-storage"><span class="toc-number">4.0.3.</span> <span class="toc-text">analysis of storage</span></a></li></ol></li>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#binary-search-tree"><span class="toc-number">1.</span> <span class="toc-text">binary search tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#乌合之众"><span class="toc-number">2.</span> <span class="toc-text">乌合之众</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Runway-problem"><span class="toc-number">3.</span> <span class="toc-text">Runway problem</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#some-data-structure"><span class="toc-number">3.0.1.</span> <span class="toc-text">some data structure</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#binary-search-tree-1"><span class="toc-number">3.0.2.</span> <span class="toc-text">binary search tree</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
