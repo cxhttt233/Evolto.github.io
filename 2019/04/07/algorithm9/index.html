@@ -19,7 +19,10 @@
 <meta property="og:image" content="https://evolto.xyz/img/algorithm9.jpg">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm9.2.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm9.3.png">
-<meta property="og:updated_time" content="2019-04-07T14:30:55.914Z">
+<meta property="og:image" content="https://evolto.xyz/2019/04/07/img/algorithm9.4.png">
+<meta property="og:image" content="https://evolto.xyz/2019/04/07/img/algorithm9.5.png">
+<meta property="og:image" content="https://evolto.xyz/2019/04/07/img/algorithm9.6.png">
+<meta property="og:updated_time" content="2019-04-08T11:50:31.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(九)">
 <meta name="twitter:description" content="binary search tree这一节主要内容是binary search tree 乌合之众《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。   代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群">
@@ -192,7 +195,7 @@
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=4888325&auto=0&height=66"></iframe>
 
 <p>代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群体的狂热会导致群体理智的下降。</p>
-<p>整个恶魔人就好像一个社会实验一样，人类的互相猜疑，不信任，群体陷入无组织的混乱形式，造成了结果是人类互相残杀，即使是邻居、同学、昔日的好友。而仅凭自己的主观认为一个人有迹象可能是恶魔，就会发起攻击。这种类似的事件其实在历史上并不少见，群体易受暗示和轻信。</p>
+<p>整个恶魔人就好像一个社会实验，人类的互相猜疑，不信任，群体陷入无组织的混乱形式，造成了结果是人类互相残杀，即使是邻居、同学、昔日的好友。而仅凭自己的主观认为一个人有迹象可能是恶魔，就会发起攻击。这种类似的事件其实在历史上并不少见，群体易受暗示和轻信。</p>
 <a id="more"></a>
 <p>美树的每一条推特下面的大量评论都反映出了人类的阴暗面，和现在的网络暴力如出一辙。人类的行为在不受监管的情况下下限是很低的。只不过在现实中，有着群体道德和法律的监管，人们就会学着收敛。但在网络这种监管还不严的地方，就只能靠个人道德维持。</p>
 <p>在混乱的群体中，不负责任的群体的道德是很可怕的。就如《狗镇》中，小镇的每个人都对女主实施民主化的暴力，仅因为女主长得像一个逃犯。人们推卸到自己的责任，彻底地释放自己的本能，因为他们把群体的价值观当作正确的价值观。正如《Legal High》著名的台词：“真正的恶魔，正是无限膨胀的民意。是坚信自己是善人，对落入阴沟的肮脏野狗进行群殴的，善良的市民。”</p>
@@ -215,7 +218,23 @@
 <h5 id="binary-search-tree-1"><a href="#binary-search-tree-1" class="headerlink" title="binary search tree"></a>binary search tree</h5><p>Invariant:<br>for all node x, if y is in the left subtree of x, key(y) $\le$ key(x)<br>for all node x, if y is in the right subtree of x, key(y) $\ge$ key(x)</p>
 <p><img src="/img/algorithm9.3.png" alt></p>
 <p>Insert 42:<br>compare 42&amp;49,  &gt;3, left<br>compare 42&amp;46,  &gt;3, left<br>compare 42&amp;41,  &lt;3, ×</p>
-<p>h:height of tree</p>
+<p>h:height of the tree<br>insert time:O(h)<br>min:go to left until leaf O(h) complexity</p>
+<h5 id="Augment-tree"><a href="#Augment-tree" class="headerlink" title="Augment tree"></a>Augment tree</h5><p>new requirement:<br>Rank(t): how many planes land before t?<br><img src="../img/algorithm9.4.png" alt></p>
+<p>add size property.</p>
+<ol>
+<li>walk down the tree to find desire time          </li>
+<li>add in the nodes that are smaller</li>
+<li>add in the subtree to the left</li>
+</ol>
+<p>t:79<br>49, add 1<br>add 2(subtree 46)<br>79, add 1<br>add 1(subtree 64)<br>so there are 5 planes land before 79</p>
+<h5 id="Review-class"><a href="#Review-class" class="headerlink" title="Review class"></a>Review class</h5><p>repinvarint-数据结构的不变性<br>check_ri 检查数据结构的不变性，每次调用insert or delete之后调用ri保证数据结构的实现正确，并且在最后提交代码的时候删除check_ri</p>
+<h5 id="random-built-binary-search-trees-BSTs"><a href="#random-built-binary-search-trees-BSTs" class="headerlink" title="random built binary search  trees (BSTs)"></a>random built binary search  trees (BSTs)</h5><p>binary sort:建立bst并进行中序遍历<br>Ex:3182675<br>建立bst：<br><img src="../img/algorithm9.5.png" alt></p>
+<p>中序遍历：123456<br>time:O(n) for the walk,  Ω(n) for the insert<br>当树最平衡的时候，构建花费的时间最短，为O(nlgn)<br>当输入元素完全有序的状态下，构建花的时间最长，为$\Sigma_{x\in T}depth(x) = O(n^2)$</p>
+<h5 id="the-relation-to-quicksort"><a href="#the-relation-to-quicksort" class="headerlink" title="the relation to quicksort"></a>the relation to quicksort</h5><p>bst and quicksort make same comparision in different order.<br><img src="..\img\algorithm9.6.png" alt></p>
+<h5 id="randomized-bst"><a href="#randomized-bst" class="headerlink" title="randomized bst"></a>randomized bst</h5><p>1 randomized permute A<br>2 call BST_sort(A)<br>E(BST_sort) = E(quicksort) = nlgn</p>
+<h5 id="randomly-built-BST"><a href="#randomly-built-BST" class="headerlink" title="randomly built BST:"></a>randomly built BST:</h5><p>the tree resulting from rand Bst sort<br>Time(BST sort) = $\Sigma_{x\in T}depth(x)$<br>$E(\Sigma_{x\in T}depth(x)/n) = nlgn/n = lgn​$<br>所以随机二叉搜索树的平均深度为lgn，但是树的高度由最大深度决定</p>
+<p>E(average height) = lgn</p>
+<p>证明就略了，一节公开课70多分钟，50分钟的证明，顶不住，看了看书上的证明，就不整理了。</p>
 
       
 
@@ -371,7 +390,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#binary-search-tree"><span class="toc-number">1.</span> <span class="toc-text">binary search tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#乌合之众"><span class="toc-number">2.</span> <span class="toc-text">乌合之众</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Runway-problem"><span class="toc-number">3.</span> <span class="toc-text">Runway problem</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#some-data-structure"><span class="toc-number">3.0.1.</span> <span class="toc-text">some data structure</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#binary-search-tree-1"><span class="toc-number">3.0.2.</span> <span class="toc-text">binary search tree</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#binary-search-tree"><span class="toc-number">1.</span> <span class="toc-text">binary search tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#乌合之众"><span class="toc-number">2.</span> <span class="toc-text">乌合之众</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Runway-problem"><span class="toc-number">3.</span> <span class="toc-text">Runway problem</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#some-data-structure"><span class="toc-number">3.0.1.</span> <span class="toc-text">some data structure</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#binary-search-tree-1"><span class="toc-number">3.0.2.</span> <span class="toc-text">binary search tree</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Augment-tree"><span class="toc-number">3.0.3.</span> <span class="toc-text">Augment tree</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Review-class"><span class="toc-number">3.0.4.</span> <span class="toc-text">Review class</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#random-built-binary-search-trees-BSTs"><span class="toc-number">3.0.5.</span> <span class="toc-text">random built binary search  trees (BSTs)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#the-relation-to-quicksort"><span class="toc-number">3.0.6.</span> <span class="toc-text">the relation to quicksort</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#randomized-bst"><span class="toc-number">3.0.7.</span> <span class="toc-text">randomized bst</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#randomly-built-BST"><span class="toc-number">3.0.8.</span> <span class="toc-text">randomly built BST:</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -580,19 +599,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心情</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
             
             <div class="clearfix"></div>
@@ -729,7 +748,8 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title='╭(°A°`)╮ 页面崩溃啦 ~',clearTimeout(st)):(document.title='(ฅ>ω<*ฅ) 噫又好了~' + OriginTitile,st=setTimeout(function(){document.title=OriginTitile},3e3))})</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title='╭(°A°`)╮ 页面崩溃啦 ~',clearTimeout(st)):(document.title='(ฅ>ω<*ฅ) 噫又好了~' + OriginTitile,st=setTimeout(function(){document.title=OriginTitile},3e3))})</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"position":"right","width":100,"height":200,"hOffset":70,"vOffset":-20},"mobile":{"show":true,"scale":1},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -746,6 +766,5 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"position":"right","width":100,"height":200,"hOffset":70,"vOffset":-20},"mobile":{"show":true,"scale":1},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+<!-- hexo-inject:end --></body>
 </html>
