@@ -19,10 +19,10 @@
 <meta property="og:image" content="https://evolto.xyz/img/algorithm9.jpg">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm9.2.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm9.3.png">
-<meta property="og:image" content="https://evolto.xyz/2019/04/07/img/algorithm9.4.png">
-<meta property="og:image" content="https://evolto.xyz/2019/04/07/img/algorithm9.5.png">
-<meta property="og:image" content="https://evolto.xyz/2019/04/07/img/algorithm9.6.png">
-<meta property="og:updated_time" content="2019-04-08T11:50:31.305Z">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm9.4.png">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm9.5.png">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm9.6.png">
+<meta property="og:updated_time" content="2019-04-08T11:52:59.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(九)">
 <meta name="twitter:description" content="binary search tree这一节主要内容是binary search tree 乌合之众《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。   代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群">
@@ -219,7 +219,7 @@
 <p><img src="/img/algorithm9.3.png" alt></p>
 <p>Insert 42:<br>compare 42&amp;49,  &gt;3, left<br>compare 42&amp;46,  &gt;3, left<br>compare 42&amp;41,  &lt;3, ×</p>
 <p>h:height of the tree<br>insert time:O(h)<br>min:go to left until leaf O(h) complexity</p>
-<h5 id="Augment-tree"><a href="#Augment-tree" class="headerlink" title="Augment tree"></a>Augment tree</h5><p>new requirement:<br>Rank(t): how many planes land before t?<br><img src="../img/algorithm9.4.png" alt></p>
+<h5 id="Augment-tree"><a href="#Augment-tree" class="headerlink" title="Augment tree"></a>Augment tree</h5><p>new requirement:<br>Rank(t): how many planes land before t?<br><img src="/img/algorithm9.4.png" alt></p>
 <p>add size property.</p>
 <ol>
 <li>walk down the tree to find desire time          </li>
@@ -228,9 +228,9 @@
 </ol>
 <p>t:79<br>49, add 1<br>add 2(subtree 46)<br>79, add 1<br>add 1(subtree 64)<br>so there are 5 planes land before 79</p>
 <h5 id="Review-class"><a href="#Review-class" class="headerlink" title="Review class"></a>Review class</h5><p>repinvarint-数据结构的不变性<br>check_ri 检查数据结构的不变性，每次调用insert or delete之后调用ri保证数据结构的实现正确，并且在最后提交代码的时候删除check_ri</p>
-<h5 id="random-built-binary-search-trees-BSTs"><a href="#random-built-binary-search-trees-BSTs" class="headerlink" title="random built binary search  trees (BSTs)"></a>random built binary search  trees (BSTs)</h5><p>binary sort:建立bst并进行中序遍历<br>Ex:3182675<br>建立bst：<br><img src="../img/algorithm9.5.png" alt></p>
+<h5 id="random-built-binary-search-trees-BSTs"><a href="#random-built-binary-search-trees-BSTs" class="headerlink" title="random built binary search  trees (BSTs)"></a>random built binary search  trees (BSTs)</h5><p>binary sort:建立bst并进行中序遍历<br>Ex:3182675<br>建立bst：<br><img src="/img/algorithm9.5.png" alt></p>
 <p>中序遍历：123456<br>time:O(n) for the walk,  Ω(n) for the insert<br>当树最平衡的时候，构建花费的时间最短，为O(nlgn)<br>当输入元素完全有序的状态下，构建花的时间最长，为$\Sigma_{x\in T}depth(x) = O(n^2)$</p>
-<h5 id="the-relation-to-quicksort"><a href="#the-relation-to-quicksort" class="headerlink" title="the relation to quicksort"></a>the relation to quicksort</h5><p>bst and quicksort make same comparision in different order.<br><img src="..\img\algorithm9.6.png" alt></p>
+<h5 id="the-relation-to-quicksort"><a href="#the-relation-to-quicksort" class="headerlink" title="the relation to quicksort"></a>the relation to quicksort</h5><p>bst and quicksort make same comparision in different order.<br><img src="\img\algorithm9.6.png" alt></p>
 <h5 id="randomized-bst"><a href="#randomized-bst" class="headerlink" title="randomized bst"></a>randomized bst</h5><p>1 randomized permute A<br>2 call BST_sort(A)<br>E(BST_sort) = E(quicksort) = nlgn</p>
 <h5 id="randomly-built-BST"><a href="#randomly-built-BST" class="headerlink" title="randomly built BST:"></a>randomly built BST:</h5><p>the tree resulting from rand Bst sort<br>Time(BST sort) = $\Sigma_{x\in T}depth(x)$<br>$E(\Sigma_{x\in T}depth(x)/n) = nlgn/n = lgn​$<br>所以随机二叉搜索树的平均深度为lgn，但是树的高度由最大深度决定</p>
 <p>E(average height) = lgn</p>
