@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://evolto.xyz">
-  <title>算法竞赛进阶指南(一) | LinkSpider的博客</title>
+  <title>算法导论学习笔记(十) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天《算法竞赛进阶指南导论》到了。看了0x01位运算。   主要内容：补码，二进制的表示，算数移位，逻辑移位">
-<meta name="keywords" content="算法竞赛进阶指南,算法,笔记,刷题">
+  <meta name="keywords" content="算法,笔记,算法导论,公开课">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法竞赛进阶指南(一)">
-<meta property="og:url" content="https://evolto.xyz/2019/04/08/alcontest1/index.html">
+<meta property="og:title" content="算法导论学习笔记(十)">
+<meta property="og:url" content="https://evolto.xyz/2019/04/09/algorithm10/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
-<meta property="og:description" content="今天《算法竞赛进阶指南导论》到了。看了0x01位运算。   主要内容：补码，二进制的表示，算数移位，逻辑移位">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://evolto.xyz/img/alcontest1.png">
-<meta property="og:updated_time" content="2019-04-08T13:08:27.171Z">
+<meta property="og:image" content="https://evolto.xyz/2019/04/09/algorithm10/img/algorithm10.jpg">
+<meta property="og:updated_time" content="2019-04-09T11:05:46.341Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法竞赛进阶指南(一)">
-<meta name="twitter:description" content="今天《算法竞赛进阶指南导论》到了。看了0x01位运算。   主要内容：补码，二进制的表示，算数移位，逻辑移位">
-<meta name="twitter:image" content="https://evolto.xyz/img/alcontest1.png">
+<meta name="twitter:title" content="算法导论学习笔记(十)">
+<meta name="twitter:image" content="https://evolto.xyz/2019/04/09/algorithm10/img/algorithm10.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LinkSpider的博客" type="application/atom+xml">
   
@@ -164,47 +161,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-alcontest1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-algorithm10" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      算法竞赛进阶指南(一)
+      算法导论学习笔记(十)
     </h1>
   
 
         
-        <a href="/2019/04/08/alcontest1/" class="archive-article-date">
-  	<time datetime="2019-04-08T11:54:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-08</time>
+        <a href="/2019/04/09/algorithm10/" class="archive-article-date">
+  	<time datetime="2019-04-09T11:02:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/alcontest1.png" alt></p>
-<p>今天《算法竞赛进阶指南导论》到了。看了0x01位运算。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=528270278&auto=0&height=66"></iframe>
-
-<p>主要内容：<br>补码，二进制的表示，算数移位，逻辑移位</p>
+        <p><img src="img/algorithm10.jpg" alt></p>
 <a id="more"></a>
-<h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><p>题目：a，b，p是32int，求a^b%p，$1\le a，b\le10^9$<br>如果一位一位的乘，要10^9, 会超时<br>所以要使用将b二进制分解，对于其每一位累加，从而将数量级降到O(lgn)<br>值得注意的是，在运算过程中要利用long long int来防止溢出：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans = ans * <span class="number">1l</span>l * a% p;</span><br></pre></td></tr></table></figure>
-<p>要将ans初始化为1%p</p>
-<h3 id="64位整数算法"><a href="#64位整数算法" class="headerlink" title="64位整数算法"></a>64位整数算法</h3><p>题目：$1\le a,b \le 10^{18}​$,  求$a*b\%p​$<br> 利用快速幂的方法，把b拆分。a，b,  p都是long long 型的</p>
-<h3 id="二进制状态压缩"><a href="#二进制状态压缩" class="headerlink" title="二进制状态压缩"></a>二进制状态压缩</h3><p>将一个长度为m的数组用一个m位二进制整数来表示<br>操作：<br>将n的第k位取反：  n xor (1&lt;&lt;k)<br>将n的第k位赋值0：n &amp; ~(1&lt;&lt;k)</p>
-<p>哈密顿算法：<br>np完全问题，无法在多项式级别求解<br>如果用朴素(brute-force 即暴力求解) 做法，枚举路线的全排列，以及产生它，需要花费O(n*!n)的时间</p>
-<p>采用压缩dp算法，优化到O($n^22^n$)<br>用数组$F[(1&lt;&lt;n)-1][n-1]$来保存状态，$F[i][j]​$中，i代替bool数组，用来保存地点是否被走过，j表示当前未知。<br>因此递归式为：<br>$$<br>f[i][j] = min(f[i][j], f[i\wedge 1 &lt;&lt;j][k]+weight[k][j])<br>$$<br>需要注意的是，初始化的时候使用</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(f));</span><br></pre></td></tr></table></figure>
-<p>memset赋值出每8位都相同的int，所以0x7f7f7f7f是memset语句能够初始化出来的最大数值。当我们想要把数组的数值初始化为正无穷时，为了避免加法上溢，经常赋值0x3f3f3f3f来代替</p>
-<h3 id="成对变换"><a href="#成对变换" class="headerlink" title="成对变换"></a>成对变换</h3><p> 对于非负整数n，<br>如果n是奇数，n xor 1 = n -1<br>如果n是偶数，n xor 1 = n+1</p>
-<p>所以 0/1 成对，2/3成对，4/5成对..<br>用于图论中邻接表的存储，通过xor 1获得反向的边的储存位置。</p>
-<h3 id="low-bit-运算"><a href="#low-bit-运算" class="headerlink" title="low bit 运算"></a>low bit 运算</h3><p>low bit 指的是，获得一个二进制整数，最低位的1和后面跟着的0<br>取反+1把后k位变成原来的10000，前面的位正好相反。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lowbit(n) = n &amp; (~n+<span class="number">1</span>) = n &amp; (-n)</span><br></pre></td></tr></table></figure>
-<p>low bit 可以找出整数所有为1的位。每次得到lowbit之后用原来的数字减去lowbit，直到数字为0<br>然后把每次lowbit之后得到的数，通过求log方式得到位数。但是求位数c++复杂度较大，所以用hash表映射。 </p>
-<p>例如建立一个长度为37的数组H, 令H[$2^k$ mod 37] = k，这里利用了$2^k$mod 37不相等，恰好取遍整数1-36。</p>
 
       
 
@@ -249,10 +227,6 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法竞赛进阶指南</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
@@ -261,7 +235,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">公开课</a>
         		</li>
       		
 		</ul>
@@ -317,7 +295,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://evolto.xyz/2019/04/08/alcontest1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://evolto.xyz/2019/04/09/algorithm10/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -331,18 +309,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/04/09/algorithm10/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          算法导论学习笔记(十)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/04/07/algorithm9/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">算法导论学习笔记(九)</div>
+    <a href="/2019/04/08/alcontest1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法竞赛进阶指南(一)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -369,7 +338,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#快速幂"><span class="toc-number">1.</span> <span class="toc-text">快速幂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#64位整数算法"><span class="toc-number">2.</span> <span class="toc-text">64位整数算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二进制状态压缩"><span class="toc-number">3.</span> <span class="toc-text">二进制状态压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成对变换"><span class="toc-number">4.</span> <span class="toc-text">成对变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#low-bit-运算"><span class="toc-number">5.</span> <span class="toc-text">low bit 运算</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
