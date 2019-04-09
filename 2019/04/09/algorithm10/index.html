@@ -8,17 +8,24 @@
   <link rel="dns-prefetch" href="https://evolto.xyz">
   <title>算法导论学习笔记(十) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="算法,笔记,算法导论,公开课">
+  <meta name="description" content="Balanced tree这一节：平衡树包括AVL树和红黑树。">
+<meta name="keywords" content="算法,笔记,算法导论,公开课">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法导论学习笔记(十)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/09/algorithm10/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
+<meta property="og:description" content="Balanced tree这一节：平衡树包括AVL树和红黑树。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://evolto.xyz/2019/04/09/algorithm10/img/algorithm10.jpg">
-<meta property="og:updated_time" content="2019-04-09T11:05:46.341Z">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm10.jpg">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm10.2.png">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm10.3.png">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm10.4.png">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm10.5.png">
+<meta property="og:updated_time" content="2019-04-09T12:42:53.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(十)">
-<meta name="twitter:image" content="https://evolto.xyz/2019/04/09/algorithm10/img/algorithm10.jpg">
+<meta name="twitter:description" content="Balanced tree这一节：平衡树包括AVL树和红黑树。">
+<meta name="twitter:image" content="https://evolto.xyz/img/algorithm10.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LinkSpider的博客" type="application/atom+xml">
   
@@ -181,8 +188,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="img/algorithm10.jpg" alt></p>
+        <p><img src="/img/algorithm10.jpg" alt></p>
+<h3 id="Balanced-tree"><a href="#Balanced-tree" class="headerlink" title="Balanced tree"></a>Balanced tree</h3><p>这一节：平衡树<br>包括AVL树和红黑树。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=862099550&auto=0&height=66"></iframe>
+
 <a id="more"></a>
+<p>h:height of tree<br>当h = $\Theta$(lgn)的时候，树是平衡的<br>height of balanced tree<br>从该节点下降到叶子的最长路径</p>
+<p>为了保持平衡，我们增强数据结构，给bst加上高度的属性<br>并且定义叶子的高度为-1</p>
+<h3 id="AVL-tree"><a href="#AVL-tree" class="headerlink" title="AVL tree"></a>AVL tree</h3><p>定义：bst，对于树中的每一个节点，都需要左孩子和右孩子的高度相差不超过一，即 |hl - hr|&lt;1</p>
+<h5 id="avl-树是平衡树："><a href="#avl-树是平衡树：" class="headerlink" title="avl 树是平衡树："></a>avl 树是平衡树：</h5><p>考虑worst case： 右子树的高度比左子树的高度大一<br>$N_n$ = 高为h的avl树最小的节点数目<br>可以得到：<br>$$<br>N_{O(1)} = O(1)\\<br>N_h = 1+N_{h-1}+N_{h-2}<br>$$<br>1.通过fibonacci求解：<br>$n = N_n \gt F_h = \Phi^h/\sqrt{ 5}​$<br>$h &lt; log_{\Phi}^n \approx 1.44lgn​$</p>
+<p>2。通过递归求解：<br>$N_h = 1+N_h + N_{h-2} \ge 1+2N_{h-2} \gt 2N_{h-2} = \Theta(2^ {n/2})$<br>$\therefore h &lt;2lgn$</p>
+<h5 id="AVL-insert"><a href="#AVL-insert" class="headerlink" title="AVL insert"></a>AVL insert</h5><p>1.simple BST insert<br>2.fix AVL property from the changed node up</p>
+<h5 id="Rotation"><a href="#Rotation" class="headerlink" title="Rotation:"></a>Rotation:</h5><p>单旋：</p>
+<p><img src="\img\algorithm10.2.png" alt></p>
+<p>双旋：</p>
+<p><img src="\img\algorithm10.3.png" alt></p>
+<p>A rotation can be performed in O(1) time.</p>
+<h5 id="AVL-sort"><a href="#AVL-sort" class="headerlink" title="AVL sort"></a>AVL sort</h5><p>1.insert n items: $\Theta(nlgn) = n* av_depth​$<br>2.in-order-traversal: $\Theta (n)​$</p>
+<h5 id="ADT"><a href="#ADT" class="headerlink" title="ADT"></a>ADT</h5><p>堆和AVL tree 都能实现优先权队列，两者比较：<br>插入，删除，两者都是$\Theta(lgn)$<br>但是next-smaller/next larger 堆都是$\Theta (n)$, 而AVL树为$\Theta(lgn)$</p>
+<p>每次插入节点之后，更新高度必须从底部开始</p>
+<h3 id="Red-Black-tree"><a href="#Red-Black-tree" class="headerlink" title="Red-Black tree"></a>Red-Black tree</h3><p>rb tree is BST with extra color field for each node.</p>
+<h5 id="red-black-property"><a href="#red-black-property" class="headerlink" title="red black property"></a>red black property</h5><p>1.every node is red or black<br>2.the root and leaves(nil) are black<br>3.the parent of red nodes is black<br>4.All path from a node x to the descendent leaf of x have same number of black nodes</p>
+<p>the black-height(x)不计算节点自身<br><img src="\img\algorithm10.4.png" alt></p>
+<h5 id="红黑树的高度："><a href="#红黑树的高度：" class="headerlink" title="红黑树的高度："></a>红黑树的高度：</h5><p>n keys的红黑树的高度h&lt;2lg(n+1)<br>证明：<br>1.merge the red node with black parent.<br><img src="\img\algorithm10.5.png" alt><br>2.#leaves = #internal nodes +1 = n+1(所有的叶节点都是leaves)<br>因为 每个数都有2，3，4个孩子，所以<br>$2^h\le$ #leaves = n+1$\le 4^h$<br>$h \le2lg(n+1)​$</p>
+<p>$\Rightarrow$ Queries: search, min, max, successor, predecessor  ran in O(lgn) time in red-black tree with n nodes</p>
+<h5 id="Rotations"><a href="#Rotations" class="headerlink" title="Rotations"></a>Rotations</h5><p>just like before.</p>
+<h5 id="RB-insert"><a href="#RB-insert" class="headerlink" title="RB-insert"></a>RB-insert</h5><p>IDEA:<br>-Tree-insert(x)<br>-color node red<br> problem: parent might be red(violation rule 3)<br>-move violation up the tree via recoloring tree until we can fix violation by rotation and recoloring</p>
 
       
 
@@ -309,6 +340,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/04/09/alcontest2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          算法竞赛进阶指南(二)
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/04/08/alcontest1/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">算法竞赛进阶指南(一)</div>
@@ -338,7 +378,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Balanced-tree"><span class="toc-number">1.</span> <span class="toc-text">Balanced tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AVL-tree"><span class="toc-number">2.</span> <span class="toc-text">AVL tree</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#avl-树是平衡树："><span class="toc-number">2.0.1.</span> <span class="toc-text">avl 树是平衡树：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AVL-insert"><span class="toc-number">2.0.2.</span> <span class="toc-text">AVL insert</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Rotation"><span class="toc-number">2.0.3.</span> <span class="toc-text">Rotation:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AVL-sort"><span class="toc-number">2.0.4.</span> <span class="toc-text">AVL sort</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ADT"><span class="toc-number">2.0.5.</span> <span class="toc-text">ADT</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#Red-Black-tree"><span class="toc-number">3.</span> <span class="toc-text">Red-Black tree</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#red-black-property"><span class="toc-number">3.0.1.</span> <span class="toc-text">red black property</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#红黑树的高度："><span class="toc-number">3.0.2.</span> <span class="toc-text">红黑树的高度：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Rotations"><span class="toc-number">3.0.3.</span> <span class="toc-text">Rotations</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#RB-insert"><span class="toc-number">3.0.4.</span> <span class="toc-text">RB-insert</span></a></li></ol></li>
                     </div>
                 </span>
             </div>
