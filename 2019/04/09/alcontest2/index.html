@@ -8,15 +8,20 @@
   <link rel="dns-prefetch" href="https://evolto.xyz">
   <title>算法竞赛进阶指南(二) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="算法竞赛进阶指南,算法,笔记,刷题">
+  <meta name="description" content="0x02 递推与递归直到开始码代码，才知道自己不会码代码，直到开始学算法，才知道自己不会算法">
+<meta name="keywords" content="算法竞赛进阶指南,算法,笔记,刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法竞赛进阶指南(二)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/09/alcontest2/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
+<meta property="og:description" content="0x02 递推与递归直到开始码代码，才知道自己不会码代码，直到开始学算法，才知道自己不会算法">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-09T12:54:39.545Z">
+<meta property="og:image" content="https://evolto.xyz/img/alcontest2.png">
+<meta property="og:updated_time" content="2019-04-09T13:42:29.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南(二)">
+<meta name="twitter:description" content="0x02 递推与递归直到开始码代码，才知道自己不会码代码，直到开始学算法，才知道自己不会算法">
+<meta name="twitter:image" content="https://evolto.xyz/img/alcontest2.png">
   
     <link rel="alternative" href="/atom.xml" title="LinkSpider的博客" type="application/atom+xml">
   
@@ -179,7 +184,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <p><img src="/img/alcontest2.png" alt></p>
+<h3 id="0x02-递推与递归"><a href="#0x02-递推与递归" class="headerlink" title="0x02 递推与递归"></a>0x02 递推与递归</h3><p>直到开始码代码，才知道自己不会码代码，直到开始学算法，才知道自己不会算法</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=26214750&auto=0&height=66"></iframe>
+
+<a id="more"></a>
+<h3 id="递归和递归的宏观描述："><a href="#递归和递归的宏观描述：" class="headerlink" title="递归和递归的宏观描述："></a>递归和递归的宏观描述：</h3><p>1.缩小问题<br>2.求解问题<br>3.扩展问题</p>
+<p>问题边界：已知的路线<br>还原现场：消除操作带来的影响，让后面的递归具有同样的初始条件</p>
+<h5 id="CHO1-递归实现指数型枚举"><a href="#CHO1-递归实现指数型枚举" class="headerlink" title="CHO1 递归实现指数型枚举"></a>CHO1 递归实现指数型枚举</h5><p>利用递归，将每一种选择给找出来，然后利用问题边界输出。唯一需要注意的是，还原现场的代码<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s.push_back(x);</span><br><span class="line">cal(x+<span class="number">1</span>);</span><br><span class="line">s.pop_back();</span><br></pre></td></tr></table></figure></p>
+<p>CHO2 CHO3 实现排列、组合型枚举同6上。</p>
+
       
 
       
@@ -334,7 +348,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02-递推与递归"><span class="toc-number">1.</span> <span class="toc-text">0x02 递推与递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归和递归的宏观描述："><span class="toc-number">2.</span> <span class="toc-text">递归和递归的宏观描述：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CHO1-递归实现指数型枚举"><span class="toc-number">2.0.1.</span> <span class="toc-text">CHO1 递归实现指数型枚举</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
