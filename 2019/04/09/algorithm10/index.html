@@ -9,7 +9,7 @@
   <title>算法导论学习笔记(十) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Balanced tree这一节：平衡树包括AVL树和红黑树。">
-<meta name="keywords" content="算法,笔记,算法导论,公开课">
+<meta name="keywords" content="算法导论,算法,笔记,公开课">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法导论学习笔记(十)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/09/algorithm10/index.html">
@@ -21,7 +21,10 @@
 <meta property="og:image" content="https://evolto.xyz/img/algorithm10.3.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm10.4.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm10.5.png">
-<meta property="og:updated_time" content="2019-04-09T12:42:53.486Z">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm10.6.png">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm10.7.png">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm10.8.png">
+<meta property="og:updated_time" content="2019-04-13T11:35:24.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(十)">
 <meta name="twitter:description" content="Balanced tree这一节：平衡树包括AVL树和红黑树。">
@@ -214,6 +217,21 @@
 <p>$\Rightarrow$ Queries: search, min, max, successor, predecessor  ran in O(lgn) time in red-black tree with n nodes</p>
 <h5 id="Rotations"><a href="#Rotations" class="headerlink" title="Rotations"></a>Rotations</h5><p>just like before.</p>
 <h5 id="RB-insert"><a href="#RB-insert" class="headerlink" title="RB-insert"></a>RB-insert</h5><p>IDEA:<br>-Tree-insert(x)<br>-color node red<br> problem: parent might be red(violation rule 3)<br>-move violation up the tree via recoloring tree until we can fix violation by rotation and recoloring</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">RB-Insert(T.x):</span><br><span class="line">	Tree-Insert(T.x)</span><br><span class="line">	color[x]&lt;-RED</span><br><span class="line">	while x!=Root[T] and color[x]==RED</span><br><span class="line">	do if p[x]==left[p[p[x]]] </span><br><span class="line">		then y=right[p[p[x]]]</span><br><span class="line">		if color[y]==RED</span><br><span class="line">		then &lt;CASE 1&gt;</span><br><span class="line">		else if x==right[p[x]]</span><br><span class="line">		then &lt;CASE 2&gt;</span><br><span class="line">		&lt;CASE 3&gt;</span><br><span class="line">	else PLAN B: </span><br><span class="line">		same as PLAN A, but reversing left&lt;-&gt;right</span><br><span class="line">	color[root[T]]&lt;-BLACK</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> CASE 1:</p>
+</blockquote>
+<p><img src="/img/algorithm10.6.png" alt></p>
+<blockquote>
+<p> CASE 2:</p>
+</blockquote>
+<p><img src="/img/algorithm10.7.png" alt></p>
+<blockquote>
+<p> CASE 3:</p>
+</blockquote>
+<p><img src="/img/algorithm10.8.png" alt></p>
+<h5 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h5><p>case1: 每次x上升两层，所以执行次数最多是高度的一半，即 $O(lgn)$<br>case2, 3：都是$O(1)$</p>
+<p>所以在一次RB-insert中，最多有两次rotation， 其余的都是recolor.</p>
 
       
 
@@ -258,15 +276,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -378,7 +396,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Balanced-tree"><span class="toc-number">1.</span> <span class="toc-text">Balanced tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AVL-tree"><span class="toc-number">2.</span> <span class="toc-text">AVL tree</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#avl-树是平衡树："><span class="toc-number">2.0.1.</span> <span class="toc-text">avl 树是平衡树：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AVL-insert"><span class="toc-number">2.0.2.</span> <span class="toc-text">AVL insert</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Rotation"><span class="toc-number">2.0.3.</span> <span class="toc-text">Rotation:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AVL-sort"><span class="toc-number">2.0.4.</span> <span class="toc-text">AVL sort</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ADT"><span class="toc-number">2.0.5.</span> <span class="toc-text">ADT</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#Red-Black-tree"><span class="toc-number">3.</span> <span class="toc-text">Red-Black tree</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#red-black-property"><span class="toc-number">3.0.1.</span> <span class="toc-text">red black property</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#红黑树的高度："><span class="toc-number">3.0.2.</span> <span class="toc-text">红黑树的高度：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Rotations"><span class="toc-number">3.0.3.</span> <span class="toc-text">Rotations</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#RB-insert"><span class="toc-number">3.0.4.</span> <span class="toc-text">RB-insert</span></a></li></ol></li>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Balanced-tree"><span class="toc-number">1.</span> <span class="toc-text">Balanced tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AVL-tree"><span class="toc-number">2.</span> <span class="toc-text">AVL tree</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#avl-树是平衡树："><span class="toc-number">2.0.1.</span> <span class="toc-text">avl 树是平衡树：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AVL-insert"><span class="toc-number">2.0.2.</span> <span class="toc-text">AVL insert</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Rotation"><span class="toc-number">2.0.3.</span> <span class="toc-text">Rotation:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AVL-sort"><span class="toc-number">2.0.4.</span> <span class="toc-text">AVL sort</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ADT"><span class="toc-number">2.0.5.</span> <span class="toc-text">ADT</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#Red-Black-tree"><span class="toc-number">3.</span> <span class="toc-text">Red-Black tree</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#red-black-property"><span class="toc-number">3.0.1.</span> <span class="toc-text">red black property</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#红黑树的高度："><span class="toc-number">3.0.2.</span> <span class="toc-text">红黑树的高度：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Rotations"><span class="toc-number">3.0.3.</span> <span class="toc-text">Rotations</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#RB-insert"><span class="toc-number">3.0.4.</span> <span class="toc-text">RB-insert</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Analysis"><span class="toc-number">3.0.5.</span> <span class="toc-text">Analysis</span></a></li></ol></li>
                     </div>
                 </span>
             </div>
@@ -571,7 +589,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,15 +601,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4"><!-- more --></a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1"><https: raw.githubusercontent.com cxhttt233 pic_cdn master></https:></a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">

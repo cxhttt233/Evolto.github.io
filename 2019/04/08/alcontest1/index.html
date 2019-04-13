@@ -9,7 +9,7 @@
   <title>算法竞赛进阶指南(一) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今天《算法竞赛进阶指南导论》到了。看了0x01位运算。   主要内容：补码，二进制的表示，算数移位，逻辑移位">
-<meta name="keywords" content="算法竞赛进阶指南,算法,笔记,刷题">
+<meta name="keywords" content="算法,笔记,算法竞赛进阶指南,刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法竞赛进阶指南(一)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/08/alcontest1/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="今天《算法竞赛进阶指南导论》到了。看了0x01位运算。   主要内容：补码，二进制的表示，算数移位，逻辑移位">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest1.png">
-<meta property="og:updated_time" content="2019-04-09T12:52:29.727Z">
+<meta property="og:updated_time" content="2019-04-13T09:19:16.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南(一)">
 <meta name="twitter:description" content="今天《算法竞赛进阶指南导论》到了。看了0x01位运算。   主要内容：补码，二进制的表示，算数移位，逻辑移位">
@@ -193,12 +193,26 @@
 <h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><p>题目：a，b，p是32int，求a^b%p，$1\le a，b\le10^9$<br>如果一位一位的乘，要10^9, 会超时<br>所以要使用将b二进制分解，对于其每一位累加，从而将数量级降到O(lgn)<br>值得注意的是，在运算过程中要利用long long int来防止溢出：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans = ans * <span class="number">1l</span>l * a% p;</span><br></pre></td></tr></table></figure>
 <p>要将ans初始化为1%p</p>
-<h3 id="64位整数算法"><a href="#64位整数算法" class="headerlink" title="64位整数算法"></a>64位整数算法</h3><p>题目：$1\le a,b \le 10^{18}​$,  求$a*b\%p​$<br> 利用快速幂的方法，把b拆分。a，b,  p都是long long 型的</p>
+<p>代码示例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">相关POJ <span class="number">1995</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//a^b%p </span></span><br><span class="line">    <span class="keyword">int</span> a,b,p;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b&gt;&gt;p;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">1</span>%p;</span><br><span class="line">    <span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans = (<span class="keyword">long</span> <span class="keyword">long</span>)ans*a% p;</span><br><span class="line">        a = (<span class="keyword">long</span> <span class="keyword">long</span>) a*a%p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="64位整数算法"><a href="#64位整数算法" class="headerlink" title="64位整数算法"></a>64位整数算法</h3><p>题目：$1\le a,b \le 10^{18}$,  求$a*b\%p$<br> 利用快速幂的方法，把b拆分。a，b,  p都是long long 型的</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> a,b,p;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt; a &gt;&gt; b&gt;&gt;p;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//a*b % p</span></span><br><span class="line">    <span class="keyword">for</span>( ; b ; b &gt;&gt;= <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans = (ans + a) %p;</span><br><span class="line">        a = a*<span class="number">2</span> % p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="二进制状态压缩"><a href="#二进制状态压缩" class="headerlink" title="二进制状态压缩"></a>二进制状态压缩</h3><p>将一个长度为m的数组用一个m位二进制整数来表示<br>操作：<br>将n的第k位取反：  n xor (1&lt;&lt;k)<br>将n的第k位赋值0：n &amp; ~(1&lt;&lt;k)</p>
 <p>哈密顿算法：<br>np完全问题，无法在多项式级别求解<br>如果用朴素(brute-force 即暴力求解) 做法，枚举路线的全排列，以及产生它，需要花费O(n*!n)的时间</p>
 <p>采用压缩dp算法，优化到O($n^22^n$)<br>用数组$F[(1&lt;&lt;n)-1][n-1]$来保存状态，$F[i][j]​$中，i代替bool数组，用来保存地点是否被走过，j表示当前未知。<br>因此递归式为：<br>$$<br>f[i][j] = min(f[i][j], f[i\wedge 1 &lt;&lt;j][k]+weight[k][j])<br>$$<br>需要注意的是，初始化的时候使用</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(f));</span><br></pre></td></tr></table></figure>
 <p>memset赋值出每8位都相同的int，所以0x7f7f7f7f是memset语句能够初始化出来的最大数值。当我们想要把数组的数值初始化为正无穷时，为了避免加法上溢，经常赋值0x3f3f3f3f来代替</p>
+<blockquote>
+<h5 id="最短哈密顿路径"><a href="#最短哈密顿路径" class="headerlink" title="最短哈密顿路径"></a>最短哈密顿路径</h5><p>给定一张 nn 个点的带权无向图，点从 0~n-1 标号，求起点 0 到终点 n-1 的最短Hamilton路径。 Hamilton路径的定义是从 0 到 n-1 不重不漏地经过每个点恰好一次。</p>
+<h5 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h5><p>第一行输入整数nn。</p>
+<p>接下来nn行每行nn个整数，其中第ii行第jj个整数表示点ii到jj的距离（记为a[i,j]）。</p>
+<p>对于任意的x,y,zx,y,z，数据保证 a[x,x]=0，a[x,y]=a[y,x] 并且 a[x,y]+a[y,z]&gt;=a[x,z]。</p>
+<h5 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h5><p>输出一个整数，表示最短Hamilton路径的长度。</p>
+<h5 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h5><p>1≤n≤201≤n≤20<br>0≤a[i,j]≤107</p>
+<h5 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h5><p>5<br>0 2 4 5 1<br>2 0 6 5 3<br>4 6 0 8 3<br>5 5 8 0 5<br>1 3 3 5 0</p>
+<h5 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h5><p>18</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//最短哈密顿路径</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> f[<span class="number">1</span>&lt;&lt;<span class="number">20</span>][<span class="number">20</span>];</span><br><span class="line"> <span class="keyword">int</span> weight[<span class="number">20</span>][<span class="number">20</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span> ;i &lt; n; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;n; j++)</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;weight[i][j];</span><br><span class="line"></span><br><span class="line">    f[<span class="number">1</span>][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>; i&lt;<span class="number">1</span>&lt;&lt;n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;n; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;&gt;j&amp;<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;n;k++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>((i^<span class="number">1</span>&lt;&lt;j) &gt;&gt;k &amp;<span class="number">1</span>)&#123;</span><br><span class="line">                        f[i][j] = min(f[i][j], f[i^<span class="number">1</span>&lt;&lt;j][k]+weight[k][j]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt;f[(<span class="number">1</span>&lt;&lt;n)<span class="number">-1</span>][n<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="成对变换"><a href="#成对变换" class="headerlink" title="成对变换"></a>成对变换</h3><p> 对于非负整数n，<br>如果n是奇数，n xor 1 = n -1<br>如果n是偶数，n xor 1 = n+1</p>
 <p>所以 0/1 成对，2/3成对，4/5成对..<br>用于图论中邻接表的存储，通过xor 1获得反向的边的储存位置。</p>
 <h3 id="low-bit-运算"><a href="#low-bit-运算" class="headerlink" title="low bit 运算"></a>low bit 运算</h3><p>low bit 指的是，获得一个二进制整数，最低位的1和后面跟着的0<br>取反+1把后k位变成原来的10000，前面的位正好相反。</p>
@@ -249,15 +263,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法竞赛进阶指南</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法竞赛进阶指南</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -369,7 +383,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#快速幂"><span class="toc-number">1.</span> <span class="toc-text">快速幂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#64位整数算法"><span class="toc-number">2.</span> <span class="toc-text">64位整数算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二进制状态压缩"><span class="toc-number">3.</span> <span class="toc-text">二进制状态压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成对变换"><span class="toc-number">4.</span> <span class="toc-text">成对变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#low-bit-运算"><span class="toc-number">5.</span> <span class="toc-text">low bit 运算</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#快速幂"><span class="toc-number">1.</span> <span class="toc-text">快速幂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#64位整数算法"><span class="toc-number">2.</span> <span class="toc-text">64位整数算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二进制状态压缩"><span class="toc-number">3.</span> <span class="toc-text">二进制状态压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#最短哈密顿路径"><span class="toc-number">3.0.1.</span> <span class="toc-text">最短哈密顿路径</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#输入格式"><span class="toc-number">3.0.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#输出格式"><span class="toc-number">3.0.3.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数据范围"><span class="toc-number">3.0.4.</span> <span class="toc-text">数据范围</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#输入样例："><span class="toc-number">3.0.5.</span> <span class="toc-text">输入样例：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#输出样例："><span class="toc-number">3.0.6.</span> <span class="toc-text">输出样例：</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#成对变换"><span class="toc-number">4.</span> <span class="toc-text">成对变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#low-bit-运算"><span class="toc-number">5.</span> <span class="toc-text">low bit 运算</span></a></li>
                     </div>
                 </span>
             </div>
@@ -562,7 +576,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,15 +588,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4"><!-- more --></a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1"><https: raw.githubusercontent.com cxhttt233 pic_cdn master></https:></a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">
