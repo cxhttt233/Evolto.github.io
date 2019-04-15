@@ -6,27 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://evolto.xyz">
-  <title>算法导论学习笔记(九) | LinkSpider的博客</title>
+  <title>LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="binary search tree这一节主要内容是binary search tree 乌合之众《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。   代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群">
-<meta name="keywords" content="算法导论,算法,笔记,公开课">
-<meta property="og:type" content="article">
-<meta property="og:title" content="算法导论学习笔记(九)">
-<meta property="og:url" content="https://evolto.xyz/2019/04/07/algorithm9/index.html">
+  <meta name="description" content="武汉大学2016级">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LinkSpider的博客">
+<meta property="og:url" content="https://evolto.xyz/page/4/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
-<meta property="og:description" content="binary search tree这一节主要内容是binary search tree 乌合之众《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。   代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群">
+<meta property="og:description" content="武汉大学2016级">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://evolto.xyz/img/algorithm9.jpg">
-<meta property="og:image" content="https://evolto.xyz/img/algorithm9.2.png">
-<meta property="og:image" content="https://evolto.xyz/img/algorithm9.3.png">
-<meta property="og:image" content="https://evolto.xyz/img/algorithm9.4.png">
-<meta property="og:image" content="https://evolto.xyz/img/algorithm9.5.png">
-<meta property="og:image" content="https://evolto.xyz/img/algorithm9.6.png">
-<meta property="og:updated_time" content="2019-04-08T11:52:59.628Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法导论学习笔记(九)">
-<meta name="twitter:description" content="binary search tree这一节主要内容是binary search tree 乌合之众《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。   代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群">
-<meta name="twitter:image" content="https://evolto.xyz/img/algorithm9.jpg">
+<meta name="twitter:title" content="LinkSpider的博客">
+<meta name="twitter:description" content="武汉大学2016级">
   
     <link rel="alternative" href="/atom.xml" title="LinkSpider的博客" type="application/atom+xml">
   
@@ -169,106 +160,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-algorithm9" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-algorithm1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      算法导论学习笔记(九)
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/01/algorithm1/">算法导论学习笔记(一)</a>
     </h1>
   
 
         
-        <a href="/2019/04/07/algorithm9/" class="archive-article-date">
-  	<time datetime="2019-04-07T13:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
+        <a href="/2019/04/01/algorithm1/" class="archive-article-date">
+  	<time datetime="2019-04-01T12:23:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/algorithm9.jpg" alt></p>
-<h3 id="binary-search-tree"><a href="#binary-search-tree" class="headerlink" title="binary search tree"></a>binary search tree</h3><p>这一节主要内容是binary search tree</p>
-<h3 id="乌合之众"><a href="#乌合之众" class="headerlink" title="乌合之众"></a>乌合之众</h3><p>《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=4888325&auto=0&height=66"></iframe>
-
-<p>代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群体的狂热会导致群体理智的下降。</p>
-<p>整个恶魔人就好像一个社会实验，人类的互相猜疑，不信任，群体陷入无组织的混乱形式，造成了结果是人类互相残杀，即使是邻居、同学、昔日的好友。而仅凭自己的主观认为一个人有迹象可能是恶魔，就会发起攻击。这种类似的事件其实在历史上并不少见，群体易受暗示和轻信。</p>
-<a id="more"></a>
-<p>美树的每一条推特下面的大量评论都反映出了人类的阴暗面，和现在的网络暴力如出一辙。人类的行为在不受监管的情况下下限是很低的。只不过在现实中，有着群体道德和法律的监管，人们就会学着收敛。但在网络这种监管还不严的地方，就只能靠个人道德维持。</p>
-<p>在混乱的群体中，不负责任的群体的道德是很可怕的。就如《狗镇》中，小镇的每个人都对女主实施民主化的暴力，仅因为女主长得像一个逃犯。人们推卸到自己的责任，彻底地释放自己的本能，因为他们把群体的价值观当作正确的价值观。正如《Legal High》著名的台词：“真正的恶魔，正是无限膨胀的民意。是坚信自己是善人，对落入阴沟的肮脏野狗进行群殴的，善良的市民。”</p>
-<h3 id="Runway-problem"><a href="#Runway-problem" class="headerlink" title="Runway problem"></a>Runway problem</h3><p>飞机跑道紧张，因此要对着陆时间进行计划。<br>将landing time T 加入到集合R中，当T的前后间隔k分钟内没有其他t在R中。<br>当飞机着陆时，把T从R删除<br>我们的目标是操作进行的时间为O(lgn) (|R|=n)</p>
-<p><img src="/img/algorithm9.2.png" alt></p>
-<p>假设k = 3<br>插入52.5， ok<br>插入44， not allowed<br>插入20， not allowed(past)</p>
-<h5 id="some-data-structure"><a href="#some-data-structure" class="headerlink" title="some data structure"></a>some data structure</h5><blockquote>
-<p>unsorted list/array:</p>
-</blockquote>
-<p>it’s search time is linear.</p>
-<blockquote>
-<p>Sorted array:</p>
-</blockquote>
-<p>search: binary search, O(lgn)<br>insert time: O(n)</p>
-<blockquote>
-<p>Heaps:</p>
-</blockquote>
-<p>insert time:O(lgn) time<br>element that  k or k : O(n)<br>because heap’s iv can not use in the problem, and we need to look at every node</p>
-<p>so what we want is insertion fast into sorted array</p>
-<h5 id="binary-search-tree-1"><a href="#binary-search-tree-1" class="headerlink" title="binary search tree"></a>binary search tree</h5><p>Invariant:<br>for all node x, if y is in the left subtree of x, key(y) $\le$ key(x)<br>for all node x, if y is in the right subtree of x, key(y) $\ge$ key(x)</p>
-<p><img src="/img/algorithm9.3.png" alt></p>
-<p>Insert 42:<br>compare 42&amp;49,  &gt;3, left<br>compare 42&amp;46,  &gt;3, left<br>compare 42&amp;41,  &lt;3, ×</p>
-<p>h:height of the tree<br>insert time:O(h)<br>min:go to left until leaf O(h) complexity</p>
-<h5 id="Augment-tree"><a href="#Augment-tree" class="headerlink" title="Augment tree"></a>Augment tree</h5><p>new requirement:<br>Rank(t): how many planes land before t?<br><img src="/img/algorithm9.4.png" alt></p>
-<p>add size property.</p>
-<ol>
-<li>walk down the tree to find desire time          </li>
-<li>add in the nodes that are smaller</li>
-<li>add in the subtree to the left</li>
-</ol>
-<p>t:79<br>49, add 1<br>add 2(subtree 46)<br>79, add 1<br>add 1(subtree 64)<br>so there are 5 planes land before 79</p>
-<h5 id="Review-class"><a href="#Review-class" class="headerlink" title="Review class"></a>Review class</h5><p>repinvarint-数据结构的不变性<br>check_ri 检查数据结构的不变性，每次调用insert or delete之后调用ri保证数据结构的实现正确，并且在最后提交代码的时候删除check_ri</p>
-<h5 id="random-built-binary-search-trees-BSTs"><a href="#random-built-binary-search-trees-BSTs" class="headerlink" title="random built binary search  trees (BSTs)"></a>random built binary search  trees (BSTs)</h5><p>binary sort:建立bst并进行中序遍历<br>Ex:3182675<br>建立bst：<br><img src="/img/algorithm9.5.png" alt></p>
-<p>中序遍历：123456<br>time:O(n) for the walk,  Ω(n) for the insert<br>当树最平衡的时候，构建花费的时间最短，为O(nlgn)<br>当输入元素完全有序的状态下，构建花的时间最长，为$\Sigma_{x\in T}depth(x) = O(n^2)$</p>
-<h5 id="the-relation-to-quicksort"><a href="#the-relation-to-quicksort" class="headerlink" title="the relation to quicksort"></a>the relation to quicksort</h5><p>bst and quicksort make same comparision in different order.<br><img src="\img\algorithm9.6.png" alt></p>
-<h5 id="randomized-bst"><a href="#randomized-bst" class="headerlink" title="randomized bst"></a>randomized bst</h5><p>1 randomized permute A<br>2 call BST_sort(A)<br>E(BST_sort) = E(quicksort) = nlgn</p>
-<h5 id="randomly-built-BST"><a href="#randomly-built-BST" class="headerlink" title="randomly built BST:"></a>randomly built BST:</h5><p>the tree resulting from rand Bst sort<br>Time(BST sort) = $\Sigma_{x\in T}depth(x)$<br>$E(\Sigma_{x\in T}depth(x)/n) = nlgn/n = lgn​$<br>所以随机二叉搜索树的平均深度为lgn，但是树的高度由最大深度决定</p>
-<p>E(average height) = lgn</p>
-<p>证明就略了，一节公开课70多分钟，50分钟的证明，顶不住，看了看书上的证明，就不整理了。</p>
-
+        <p><img src="/img/algorithm1.jpg" alt></p>
+<p>最近看了麻省理工的算法导论公开课，把笔记整理下上传博客就当是复习了。<br>一个程序员要想成为大佬，可以每天写代码，持续十年，或者是在写三年代码的同时，修一门算法课。</p>
+        
+          <a class="article-more-a" href="/2019/04/01/algorithm1/#more">more >></a>
+        
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>我，可爱，打钱<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wepay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -300,84 +220,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/01/algorithm1/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://evolto.xyz/2019/04/07/algorithm9/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/04/08/alcontest1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          算法竞赛进阶指南(一)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/04/06/algorithm8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">算法导论学习笔记(八)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -392,69 +244,17 @@
         </div>
         
         
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#binary-search-tree"><span class="toc-number">1.</span> <span class="toc-text">binary search tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#乌合之众"><span class="toc-number">2.</span> <span class="toc-text">乌合之众</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Runway-problem"><span class="toc-number">3.</span> <span class="toc-text">Runway problem</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#some-data-structure"><span class="toc-number">3.0.1.</span> <span class="toc-text">some data structure</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#binary-search-tree-1"><span class="toc-number">3.0.2.</span> <span class="toc-text">binary search tree</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Augment-tree"><span class="toc-number">3.0.3.</span> <span class="toc-text">Augment tree</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Review-class"><span class="toc-number">3.0.4.</span> <span class="toc-text">Review class</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#random-built-binary-search-trees-BSTs"><span class="toc-number">3.0.5.</span> <span class="toc-text">random built binary search  trees (BSTs)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#the-relation-to-quicksort"><span class="toc-number">3.0.6.</span> <span class="toc-text">the relation to quicksort</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#randomized-bst"><span class="toc-number">3.0.7.</span> <span class="toc-text">randomized bst</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#randomly-built-BST"><span class="toc-number">3.0.8.</span> <span class="toc-text">randomly built BST:</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
     </div>
 </aside>
 
 
 
-  
-  
-  
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div>
-<script src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'true' == true ? true : false;
-   var verify = 'true' == true ? true : false;
-   new Valine({
-            av: AV,
-            el: '#vcomment',
-            notify: notify,
-            verify: verify,
-            app_id: "5OCqvN2cpSjdwDKShqLpknmf-gzGzoHsz",
-            app_key: "g7E6jVCf8Qi6u9cWplMfXfAN",
-            placeholder: "一飞冲天啊，我",
-            avatar: "",
-            avatar_cdn: "https://sdn.geekzu.org/avatar/",
-            pageSize: 15
-    });
-    if(window.location.hash){
-          var checkExist = setInterval(function() {
-            if (document.getElementById(window.location.hash.replace("#",""))) {
-              location.href = window.location.hash;
-              clearInterval(checkExist);
-            }
-          }, 250);
-        }
-</script>
-  </section>
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
   
 
 
@@ -498,8 +298,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
