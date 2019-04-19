@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://evolto.xyz/img/algorithm13.jpg">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm13.2.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm13.3.png">
-<meta property="og:updated_time" content="2019-04-16T13:51:04.784Z">
+<meta property="og:updated_time" content="2019-04-18T09:58:05.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(13)">
 <meta name="twitter:description" content="Amortized Analysis分摊时间复杂度：aggregate analysis， accounting method， potential method   时间过得好快。">
@@ -330,12 +330,14 @@
 <blockquote>
 <p>Framework: </p>
 </blockquote>
-<p>start with $D_0​$<br>op i transform $D_{i-1}​$ to $D_i​$<br>cost of ith op is $c_i​$<br>potential function $\Phi:{D_i} \rightarrow R​$,  such that  $\Phi (D_0) = 0​$ and $\Phi (D_i)​$ for all i<br>amortized cost $\hat c_i​$ with respect to $\Phi​$ is defined to be $\hat c_i = c_i + \Phi(D_i) -\Phi(D_{i-1})​$<br>$\Delta \Phi _i = \Phi(D_i) -\Phi(D_{i-1})​$<br>if $\Delta \Phi _i &gt; 0​$ then $\hat c_i &gt; c_i​$ op i store energy for later use<br>if $\Delta \Phi _i &lt; 0​$ then $\hat c_i &lt; c_i​$ data structure deliver energy for op i</p>
+<p>start with $D_0​$<br>op i transform $D_{i-1}​$ to $D_i​$<br>cost of ith op is $c_i​$<br>potential function $\Phi:\{D_i\} \rightarrow R​$,  such that  $\Phi (D_0) = 0​$ and $\Phi (D_i)​$ for all i<br>amortized cost $\hat c_i​$ with respect to $\Phi​$ is defined to be $\hat c_i = c_i + \Phi(D_i) -\Phi(D_{i-1})​$<br>$\Delta \Phi _i = \Phi(D_i) -\Phi(D_{i-1})​$<br>if $\Delta \Phi _i &gt; 0​$ then $\hat c_i &gt; c_i​$ op i store energy for later use<br>if $\Delta \Phi _i &lt; 0​$ then $\hat c_i &lt; c_i​$ data structure deliver energy for op i</p>
 <p>Then total amortized cost of n op is<br>$$\Sigma_{i=1}^n \hat c_i = \Sigma_{i=1}^n (c_i + \Phi(D_i) - \Phi(D_{i-1}))\\<br>= \Sigma _{i-1}^n +\Phi (D_n) - \Phi(D_0)\\<br>\gt \Sigma_{i=1}^n c_i​$$ </p>
 <p>since $\Phi (D_n) \ge 0 ​$ and $\Phi(D_0) = 0​$</p>
 <p>由 $\Phi (D_n) \ge 0 ​$ and $\Phi(D_0) = 0 ​$定义<br>$\Phi (D_i) = 2i - 2^{\lceil lgi\rceil}​$ assume $2^{\lceil lg0\rceil} = 0​$</p>
-<p>计算Amortized cost：<br>$$<br>\hat{c}<em>{i}=c</em>{i}+\Phi\left(D_{i}\right)-\Phi\left(D_{i-1}\right)<br>$$</p>
-<p>$$<br>\hat{c}<em>{i}=c</em>{i}+\Phi\left(D_{i}\right)-\Phi\left(D_{i-1}\right)<br>$$</p>
+<p>计算Amortized cost：<br>$\hat c_{i}=c_{i}+\Phi\left(D_{i}\right)-\Phi\left(D_{i-1}\right)​$<br>=$\left \{\begin{array}{l}{i \text { if } i-1 \text { is an exact power of } 2,} \\ {1 \text { otherwise }}\end{array}\right \}​$ $+\left(2 i-2^{ \lceil \lg i \rceil )}-\left(2(i-1)-2^{[\lg (i-1)\rceil }\right)\right.​$<br>= $\left \{\begin{array}{l}{i \text { if } i-1 \text { is an exact power of } 2,} \\ {1 \text { otherwise }}\end{array}\right \}​$ $+2-2^{\lceil\lg i\rceil}+2^{\lceil\lg (i-1)\rceil}​$</p>
+<p>当 $i - 1​$是2的幂的时候<br>$\hat {c}_{i}=i+2-2^{\lceil\lg i\rceil}+2^{\lceil\lg (i-1)\rceil}​$<br>$=i+2-2(i-1)+(i-1)​$<br>$=i+2-2 i+2+i-1​$<br>$=3​$ </p>
+<p>当 $i-1$不是2的幂的时候<br>$\hat {c}<em>{i}=1+2-2^{\lceil\lg i\rceil}+2^{[\lg (i-1)\rceil}$<br>$\because $$2^{\lceil\lg i\rceil}=2^{\lceil\lg (i-1)\rceil}$<br>所以 $\hat {c}</em>{i}=3$</p>
+<p>所以每次的均摊cost为3</p>
 
       
 
