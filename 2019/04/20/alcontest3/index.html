@@ -17,7 +17,7 @@
 <meta property="og:description" content="0x03 前缀和与差分平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest3.jpg">
-<meta property="og:updated_time" content="2019-04-20T11:24:26.968Z">
+<meta property="og:updated_time" content="2019-04-20T11:45:31.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南(三)">
 <meta name="twitter:description" content="0x03 前缀和与差分平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。">
@@ -190,8 +190,20 @@
         <p><img src="/img/alcontest3.jpg" alt></p>
 <h3 id="0x03-前缀和与差分"><a href="#0x03-前缀和与差分" class="headerlink" title="0x03 前缀和与差分"></a>0x03 前缀和与差分</h3><p>平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。</p>
 
-    <div id="aplayer-OVgYLNTY" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="296839" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-gDgjrIJS" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="296839" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 <a id="more"></a>
+<h5 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h5><p>前缀和的定义：$S[i]=\sum_{i=1}^{i} A[j]​$<br>部分区间的和可以用前缀和相减的形式表示：<br>$\operatorname{sum}(l, r)=\sum_{i=1}^{r} A[i]=S[r]-S[l-1]​$</p>
+<h4 id="BZOJ-1218-激光炸弹"><a href="#BZOJ-1218-激光炸弹" class="headerlink" title="BZOJ 1218 激光炸弹"></a>BZOJ 1218 激光炸弹</h4><p>第一行输入正整数 N 和 R , R为爆炸范围的边长(正方形边长)<br>接下来输入N行 x, y, weight表示目标位置和权重<br>求一颗炸弹能够炸掉的最大价值的东西</p>
+<p>数据范围<br>$0&lt;N \leq 10000$<br>$0 \leq X_{i}, Y_{i} \leq 5000$</p>
+<p>输入样例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2 1</span><br><span class="line">0 0 1</span><br><span class="line">1 1 1</span><br></pre></td></tr></table></figure></p>
+<p>输出样例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure></p>
+<p>这道题重点就在如何求得正方形内所有点的权重之和。<br>用把点之间相加的方法就会耗费指数型时间，如果用二维前缀和就能用较少的时间来生成正方形内的权重和。因此用bottom up DP 来先计算二维前缀和</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s[i][j] += s[i<span class="number">-1</span>][j]+s[i][j<span class="number">-1</span>]-s[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br></pre></td></tr></table></figure>
+<p>然后利用前缀和计算正方形范围内权重和</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans = max(s[i][j]-s[i-R][j]-s[i][j-R]+s[i-R][j-R], ans);</span><br></pre></td></tr></table></figure>
+<p>实际实现中，遇到了边界问题。我们可以对每个输入的x， y进行自加，然后就不需要考虑边界问题，因为x = 0 或者 y = 0的时候结果默认为0</p>
+<p>另外就是我们进行读入数据的时候可以记录下来总共的范围，这样可以减少我们循环的次数。但是值得注意的是，要把范围初始化为边长，不然的话就有可能R大于输入的范围，就会产生bug。</p>
+<p>代码链接 <a href="https://www.acwing.com/activity/content/code/content/32997/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/32997/</a></p>
 
       
 
@@ -347,7 +359,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-前缀和与差分"><span class="toc-number">1.</span> <span class="toc-text">0x03 前缀和与差分</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-前缀和与差分"><span class="toc-number">1.</span> <span class="toc-text">0x03 前缀和与差分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#前缀和"><span class="toc-number">1.0.1.</span> <span class="toc-text">前缀和</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BZOJ-1218-激光炸弹"><span class="toc-number">1.1.</span> <span class="toc-text">BZOJ 1218 激光炸弹</span></a></li></ol>
                     </div>
                 </span>
             </div>
