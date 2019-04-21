@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://evolto.xyz/img/algorithm14.jpg">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm14.2.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm14.3.png">
-<meta property="og:updated_time" content="2019-04-21T15:03:22.453Z">
+<meta property="og:updated_time" content="2019-04-21T15:21:18.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(14)">
 <meta name="twitter:description" content="Competitive Analysis       自组织表，竞争性分析">
@@ -191,7 +191,7 @@
       
         <p><img src="/img/algorithm14.jpg" alt></p>
 <h3 id="Competitive-Analysis"><a href="#Competitive-Analysis" class="headerlink" title="Competitive Analysis"></a>Competitive Analysis</h3> 
-    <div id="aplayer-OjBVLyGM" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="22746936" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-VzNiJspV" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="22746936" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 <p>自组织表，竞争性分析</p>
  <a id="more"></a>
 <h3 id="Self-organizing-lists"><a href="#Self-organizing-lists" class="headerlink" title="Self organizing lists"></a>Self organizing lists</h3><p>Access(x)的cost $rank_L(x)$ = x距链表首的长度<br>L 能在常数时间内与临近元素更换</p>
@@ -219,6 +219,7 @@
 <p>$$ \begin{aligned}<br>\hat{c_i}  &amp;=c_{i}+\Phi(L_{i})-\Phi(L_{i-1})<br>\\ &amp; \leq 2 r+2(|A|-|B|+t_{i})<br>\\ &amp; \leq 2 r+2(|A|-(r-1-|A|)+t_{i}) \  \ \  \ \ \because  r=|A|+|B|+1<br>\\ &amp;=2 r+4|A|-2 r+2+2 t_{i}<br>\\ &amp;= 4|A|+2+2t_i<br>\\ &amp; \le 4(r^{*}+t_i)\  \ \  \ \ \because  r^{*}=|A|+|C|+1 \geq|A|+1<br>\\ &amp; = 4c_i^{*}<br>\end{aligned} $$</p>
 <p>所以<br>$$\begin{aligned}<br>C_{\mathrm{MTF}}(S) &amp;= \sum_{i=1}^{|S|} c_{i} \\<br>&amp;= \sum_{i=1}^{|S|}\left(\hat{c_i}+\Phi\left(L_{i-1}\right)-\Phi\left(L_{i}\right)\right) \\<br>&amp; \leq\left(\sum_{i=1}^{|S|} 4 c_{i}^*\right)+\Phi\left(L_{0}\right)-\Phi\left(L_{|S|}\right) \\<br>&amp; \leq 4 \cdot C_{\mathrm{OPT}}(S)<br>\end{aligned}$$</p>
 <p>since $\Phi\left(L_{0}\right)=0$ and $\Phi\left(L_{ | S |}\right) \geq 0$</p>
+<p>如果MTF操作是free的，那么MTF是2-competitve的<br>如果$L_0 ≠ L_0^*$<br>那么 $Φ(L_0 )$在最坏情况下是$Θ(n^2 )$<br>因此，$C_{\mathrm{MTF}}(S) \leq 4 \cdot C_{\mathrm{OPT}}(S)+\Theta\left(n^{2}\right)$是4-competitve<br>因为当$|S| \rightarrow \infty$ 的时候$n^2$是个常数</p>
 
       
 
@@ -742,8 +743,7 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title='╭(°A°`)╮ 页面崩溃啦 ~',clearTimeout(st)):(document.title='(ฅ>ω<*ฅ) 噫又好了~' + OriginTitile,st=setTimeout(function(){document.title=OriginTitile},3e3))})</script>
-<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"position":"right","width":100,"height":200,"hOffset":70,"vOffset":-20},"mobile":{"show":true,"scale":1},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title='╭(°A°`)╮ 页面崩溃啦 ~',clearTimeout(st)):(document.title='(ฅ>ω<*ฅ) 噫又好了~' + OriginTitile,st=setTimeout(function(){document.title=OriginTitile},3e3))})</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -760,5 +760,6 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"position":"right","width":100,"height":200,"hOffset":70,"vOffset":-20},"mobile":{"show":true,"scale":1},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>
