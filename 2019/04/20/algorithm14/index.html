@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://evolto.xyz">
-  <title>Tag: leetcode | LinkSpider的博客</title>
+  <title>算法导论学习笔记(14) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="武汉大学2016级">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LinkSpider的博客">
-<meta property="og:url" content="https://evolto.xyz/tags/leetcode/index.html">
+  <meta name="description" content="Competitive Analysis       自组织表，竞争性分析">
+<meta name="keywords" content="算法,笔记,算法导论,公开课">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法导论学习笔记(14)">
+<meta property="og:url" content="https://evolto.xyz/2019/04/20/algorithm14/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
-<meta property="og:description" content="武汉大学2016级">
+<meta property="og:description" content="Competitive Analysis       自组织表，竞争性分析">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm14.jpg">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm14.2.png">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm14.3.png">
+<meta property="og:updated_time" content="2019-04-21T15:03:22.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LinkSpider的博客">
-<meta name="twitter:description" content="武汉大学2016级">
+<meta name="twitter:title" content="算法导论学习笔记(14)">
+<meta name="twitter:description" content="Competitive Analysis       自组织表，竞争性分析">
+<meta name="twitter:image" content="https://evolto.xyz/img/algorithm14.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LinkSpider的博客" type="application/atom+xml">
   
@@ -38,6 +44,9 @@
 
   
 
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
 </head>
 </html>
 <body>
@@ -160,36 +169,95 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-algorithm14" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/06/leetcode1/" class="archive-article-date">
-  	<time datetime="2019-04-06T07:58:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/06/leetcode1/">Leetcode刷题记录(一)</a>
+    <h1 class="article-title" itemprop="name">
+      算法导论学习笔记(14)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/04/20/algorithm14/" class="archive-article-date">
+  	<time datetime="2019-04-20T13:18:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/img/algorithm14.jpg" alt></p>
+<h3 id="Competitive-Analysis"><a href="#Competitive-Analysis" class="headerlink" title="Competitive Analysis"></a>Competitive Analysis</h3> 
+    <div id="aplayer-OjBVLyGM" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="22746936" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+<p>自组织表，竞争性分析</p>
+ <a id="more"></a>
+<h3 id="Self-organizing-lists"><a href="#Self-organizing-lists" class="headerlink" title="Self organizing lists"></a>Self organizing lists</h3><p>Access(x)的cost $rank_L(x)$ = x距链表首的长度<br>L 能在常数时间内与临近元素更换</p>
+<h5 id="在线算法与离线算法"><a href="#在线算法与离线算法" class="headerlink" title="在线算法与离线算法"></a>在线算法与离线算法</h5><p>定义：对于一个操作序列S， 给定一个操作 (一个Tetris 序列)<br>在线算法是必须立即执行当前操作，而不知道未来是什么操作(没有预知方块)<br>离线算法是能够看到整个操作（能够看到未来的所有方块）</p>
+<p>目标：最小化cost $C_A(S)$</p>
+<h5 id="最坏情况分析"><a href="#最坏情况分析" class="headerlink" title="最坏情况分析"></a>最坏情况分析</h5><p>对手每次访问链表最后一个元素，对于任何在线算法A<br>$C_A(S) = \Omega (|S|·n)$</p>
+<h5 id="平均情况分析"><a href="#平均情况分析" class="headerlink" title="平均情况分析"></a>平均情况分析</h5><p>假设访问x的概率是p(x)<br>$\mathrm {E} \left [C_{A}(S) \right]= \sum_{x \in L} p(x) \cdot \operatorname {rank}_{L}(x)$<br>当元素按照p降序排列的时候期望最小</p>
+<p>启发算法：按照每个元素被访问的次数降序排列</p>
+<h3 id="Move-to-front-heuristic"><a href="#Move-to-front-heuristic" class="headerlink" title="Move-to-front heuristic"></a>Move-to-front heuristic</h3><p>访问x之后，将x移到L的列表头<br>$cost = 2 * rank_L(x)$</p>
+<p>MTF 启发算法很符合S中访问的局部性</p>
+<h5 id="Competitive-Analysis-1"><a href="#Competitive-Analysis-1" class="headerlink" title="Competitive Analysis"></a>Competitive Analysis</h5><p>定义：在线算法A 是 α-competitive 的，如果存在常数k使得对于任何操作序列S，<br>            $$C_{A}(S) \leq \alpha \cdot C_{\mathrm{OPT}}(S)+k,$$<br>OPT 是离线算法(God’s algorithm)的Cost</p>
+<h5 id="MTF-competitive-analysis"><a href="#MTF-competitive-analysis" class="headerlink" title="MTF competitive analysis"></a>MTF competitive analysis</h5><blockquote>
+<p> Theorem. 对于自适应表， MTF 是 4-competitive 的</p>
+</blockquote>
+<p>Proof. 令$L_i$是MTF第i次操作后的序列，$L_i^*$是OPT第i次操作后的序列<br>$c_i =2 \cdot \operatorname{rank}_{L_{i-1}} (x) $  是MTF第i次操作的cost， $c_i^*=\operatorname{rank}_{L_{i-1}^*}(x)+t_{i}$是OPT第i次操作的cost, $t_i$是OPT进行移项的次数</p>
+<p>定义势函数 $\Phi :{L_{i}} \rightarrow \mathbb{R}$：<br>$\begin{aligned} \Phi (L_{i}) &amp;=2 \cdot |{(x, y) : x&lt;_{L_{i}} y \text { and } y&lt;_{L_{i}^{*}} x} | \\  &amp;=2 \cdot \# \text { inversions.}  \end{aligned}$</p>
+<p><img src="/img/algorithm14.2.png" alt></p>
+<p>注意到：<br>$\Phi\left(L_{i}\right) \geq 0$ for $i=0,1, \ldots$<br>$\Phi\left(L_{0}\right)=0$ if MTF and OPT start with the same list.<br>每一次的移项会产生或者摧毁一对无序，所以$\Delta \Phi=\pm 2$</p>
+<p>定义：</p>
+<p>$A= \{ y \in L_{i-1} : y&lt;_{L_{i-1}} x\  \text{and}\  y&lt;_{L_{i-1}} * x  \}$<br>$B= \{ y \in L_{i-1} : y&lt;_{L_{i-1}} x$ and $y&gt;_{L_{i-1}} * x\}$<br>$C=\{y \in L_{i-1} : y&gt;_{L_{i-1}} x$ and $y&lt;_{L_{i-1}} * x\}$<br>$D=\{y \in L_{i-1} : y&gt;_{L_{i-1}} x$ and $y&gt;_{L_{i-1}} * x\}$</p>
+<p><img src="/img/algorithm14.3.png" alt></p>
+<p>有 $r= \operatorname{rank}_{L_{i-1}}(x) =|A|+|B|+1$ 和 $r^{*}=\operatorname{rank}_{L_{i-1}^*} (x)=|A|+|C|+1$</p>
+<p>当MTF将x移到首部的时候，产生了|A|的反序，摧毁了|B|的反序，因为每次移动最多产生一个反序，因此，我们有$\Phi\left(L_{i}\right)-\Phi\left(L_{i-1}\right) \leq 2\left(|A|-|B|+t_{i}\right)$</p>
+<p>MTF的第i次操作的均摊复杂度为</p>
+<p>$$ \begin{aligned}<br>\hat{c_i}  &amp;=c_{i}+\Phi(L_{i})-\Phi(L_{i-1})<br>\\ &amp; \leq 2 r+2(|A|-|B|+t_{i})<br>\\ &amp; \leq 2 r+2(|A|-(r-1-|A|)+t_{i}) \  \ \  \ \ \because  r=|A|+|B|+1<br>\\ &amp;=2 r+4|A|-2 r+2+2 t_{i}<br>\\ &amp;= 4|A|+2+2t_i<br>\\ &amp; \le 4(r^{*}+t_i)\  \ \  \ \ \because  r^{*}=|A|+|C|+1 \geq|A|+1<br>\\ &amp; = 4c_i^{*}<br>\end{aligned} $$</p>
+<p>所以<br>$$\begin{aligned}<br>C_{\mathrm{MTF}}(S) &amp;= \sum_{i=1}^{|S|} c_{i} \\<br>&amp;= \sum_{i=1}^{|S|}\left(\hat{c_i}+\Phi\left(L_{i-1}\right)-\Phi\left(L_{i}\right)\right) \\<br>&amp; \leq\left(\sum_{i=1}^{|S|} 4 c_{i}^*\right)+\Phi\left(L_{0}\right)-\Phi\left(L_{|S|}\right) \\<br>&amp; \leq 4 \cdot C_{\mathrm{OPT}}(S)<br>\end{aligned}$$</p>
+<p>since $\Phi\left(L_{0}\right)=0$ and $\Phi\left(L_{ | S |}\right) \geq 0$</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>我，可爱，打钱<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wepay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,29 +271,175 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">公开课</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://evolto.xyz/2019/04/20/algorithm14/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/04/21/tips/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          HEXO 使用tips
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/04/20/alcontest3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法竞赛进阶指南(三)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Competitive-Analysis"><span class="toc-number">1.</span> <span class="toc-text">Competitive Analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Self-organizing-lists"><span class="toc-number">2.</span> <span class="toc-text">Self organizing lists</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#在线算法与离线算法"><span class="toc-number">2.0.1.</span> <span class="toc-text">在线算法与离线算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#最坏情况分析"><span class="toc-number">2.0.2.</span> <span class="toc-text">最坏情况分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#平均情况分析"><span class="toc-number">2.0.3.</span> <span class="toc-text">平均情况分析</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#Move-to-front-heuristic"><span class="toc-number">3.</span> <span class="toc-text">Move-to-front heuristic</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Competitive-Analysis-1"><span class="toc-number">3.0.1.</span> <span class="toc-text">Competitive Analysis</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MTF-competitive-analysis"><span class="toc-number">3.0.2.</span> <span class="toc-text">MTF competitive analysis</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div>
+<script src="//unpkg.com/jquery/dist/jquery.min.js"></script>
+<script src="//unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'true' == true ? true : false;
+   new Valine({
+            av: AV,
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "5OCqvN2cpSjdwDKShqLpknmf-gzGzoHsz",
+            app_key: "g7E6jVCf8Qi6u9cWplMfXfAN",
+            placeholder: "一飞冲天啊，我",
+            avatar: "",
+            avatar_cdn: "https://sdn.geekzu.org/avatar/",
+            pageSize: 15
+    });
+    if(window.location.hash){
+          var checkExist = setInterval(function() {
+            if (document.getElementById(window.location.hash.replace("#",""))) {
+              location.href = window.location.hash;
+              clearInterval(checkExist);
+            }
+          }, 250);
+        }
+</script>
+  </section>
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -250,9 +464,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
