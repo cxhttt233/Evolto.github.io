@@ -17,7 +17,7 @@
 <meta property="og:description" content="0x03 前缀和与差分平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest3.jpg">
-<meta property="og:updated_time" content="2019-04-22T08:28:18.956Z">
+<meta property="og:updated_time" content="2019-04-22T13:04:41.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南(三)">
 <meta name="twitter:description" content="0x03 前缀和与差分平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。">
@@ -190,7 +190,7 @@
         <p><img src="/img/alcontest3.jpg" alt></p>
 <h3 id="0x03-前缀和与差分"><a href="#0x03-前缀和与差分" class="headerlink" title="0x03 前缀和与差分"></a>0x03 前缀和与差分</h3><p>平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。</p>
 
-    <div id="aplayer-NZHreiHh" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="296839" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86" data-volume="0.4"></div>
+    <div id="aplayer-zVpFKcji" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="296839" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86" data-volume="0.4"></div>
 <a id="more"></a>
 <h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>前缀和的定义：$S[i]=\sum_{i=1}^{i} A[j]$<br>部分区间的和可以用前缀和相减的形式表示：<br>$\operatorname{sum}(l, r)=\sum_{i=1}^{r} A[i]=S[r]-S[l-1]$</p>
 <h4 id="BZOJ-1218-激光炸弹"><a href="#BZOJ-1218-激光炸弹" class="headerlink" title="BZOJ 1218 激光炸弹"></a>BZOJ 1218 激光炸弹</h4><p>第一行输入正整数 N 和 R , R为爆炸范围的边长(正方形边长)<br>接下来输入N行 x, y, weight表示目标位置和权重<br>求一颗炸弹能够炸掉的最大价值的东西</p>
@@ -211,6 +211,13 @@
 <p>可以发现case4 会增加操作的次数，而对达成我们的目标没有作用。所以case4的操作次数为0<br>case1一次改变一正一负两个数字，因此应尽可能多的进行case1的操作更快的接近目标，然后再进行case2和case3的操作</p>
 <p>下面就是数学题了：<br>设p是A[1]到A[n]中正数的和， q为A[1]到A[n]中负数的和的绝对值<br>为了使正负抵消，我们要执行min(p, q)次 case 1的操作，使得差分数列中只剩下一种符号<br>然后通过case2或者case3将剩下的数字抵消，总共需要|p-q|次<br>所以最终的执行次数为min(p, q)+|p-q| = max(p, q) ▲<br>最终的结果数量由A[0]决定，所以要看改变A[0]的case2执行多少次，已知#case2 + #case3 = |p-q|，所以#case2取值为0 ~ |p-q|，也就是说A[0]有|p-q|+1种取值<br>所以一共有|p-q|+1种结果 ▲</p>
 <p>代码链接 <a href="https://www.acwing.com/activity/content/code/content/33715/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/33715/</a></p>
+<h3 id="前缀和-和-差分共同应用"><a href="#前缀和-和-差分共同应用" class="headerlink" title="前缀和 和 差分共同应用"></a>前缀和 和 差分共同应用</h3><h4 id="POJ-3263-最高的牛"><a href="#POJ-3263-最高的牛" class="headerlink" title="POJ 3263 最高的牛"></a>POJ 3263 最高的牛</h4><p>输入第一行N，P，H，M，N是牛的个数，P是最高牛的位置，H是牛的最高身高，M是接下来的行数<br>下面M行，每行两个整数A，B， 代表两头能够相互看到的牛的位置<br>两头牛相互看到表示两者之间的牛的高度都比双方低<br>注意：输入的两头牛能够相互看到的关系可能重复</p>
+<p>输出：N行，每行一个整数，代表每头牛的最大可能身高</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">输入样例</span><br><span class="line">9 3 5 5</span><br><span class="line">1 3</span><br><span class="line">5 3</span><br><span class="line">4 3</span><br><span class="line">3 7</span><br><span class="line">9 8</span><br><span class="line"></span><br><span class="line">输出样例</span><br><span class="line">5</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">5</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<p>思路是用差分，将区间操作简化为左右端点操作，降低时间复杂度，然后利用前缀和得到原问题的解。<br>也就是运用了前面说的，前缀和和差分是互逆操作的知识</p>
+<p>实现，初始化一个数组$A$为0，每当发现 $i, j$ 两头牛能够相互看到，就代表$i, j$ 之间的牛至少比其低1，所以对两者之间的牛身高减一，换成差分操作就是 $A[i+1]–, A[j] ++$  。<br>获得差分数列之后，获得身高数组，此时最高的牛的身高没有减，所以肯定是0，那么所有的高度同时加上最高的身高H，就得到了每头牛的身高。</p>
+<p>值得注意的是，1，输入的可能是重复的关系，因此我利用set::insert的返回值pair.second是插入成功与否的布尔值来判断是否已经考虑过两头牛的关系。 2，这道题的输入P，一点儿用都没有，纯属干扰性信息，我写完还怀疑自己写错了。3， 先差分后前缀和的思路很常用，以后在书里还会多次遇到，时间复杂度为$\Theta (M+N)$</p>
+<p>代码 <a href="https://www.acwing.com/activity/content/code/content/33775/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/33775/</a></p>
 
       
 
@@ -375,7 +382,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-前缀和与差分"><span class="toc-number">1.</span> <span class="toc-text">0x03 前缀和与差分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前缀和"><span class="toc-number">2.</span> <span class="toc-text">前缀和</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BZOJ-1218-激光炸弹"><span class="toc-number">2.1.</span> <span class="toc-text">BZOJ 1218 激光炸弹</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#差分"><span class="toc-number">3.</span> <span class="toc-text">差分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CH0304"><span class="toc-number">3.1.</span> <span class="toc-text">CH0304</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-前缀和与差分"><span class="toc-number">1.</span> <span class="toc-text">0x03 前缀和与差分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前缀和"><span class="toc-number">2.</span> <span class="toc-text">前缀和</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BZOJ-1218-激光炸弹"><span class="toc-number">2.1.</span> <span class="toc-text">BZOJ 1218 激光炸弹</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#差分"><span class="toc-number">3.</span> <span class="toc-text">差分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CH0304"><span class="toc-number">3.1.</span> <span class="toc-text">CH0304</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前缀和-和-差分共同应用"><span class="toc-number">4.</span> <span class="toc-text">前缀和 和 差分共同应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#POJ-3263-最高的牛"><span class="toc-number">4.1.</span> <span class="toc-text">POJ 3263 最高的牛</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
