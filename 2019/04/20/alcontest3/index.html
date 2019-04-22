@@ -17,7 +17,7 @@
 <meta property="og:description" content="0x03 前缀和与差分平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest3.jpg">
-<meta property="og:updated_time" content="2019-04-22T08:26:24.250Z">
+<meta property="og:updated_time" content="2019-04-22T08:28:18.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南(三)">
 <meta name="twitter:description" content="0x03 前缀和与差分平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。">
@@ -190,7 +190,7 @@
         <p><img src="/img/alcontest3.jpg" alt></p>
 <h3 id="0x03-前缀和与差分"><a href="#0x03-前缀和与差分" class="headerlink" title="0x03 前缀和与差分"></a>0x03 前缀和与差分</h3><p>平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。</p>
 
-    <div id="aplayer-XdsFpEsO" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="296839" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86" data-volume="0.4"></div>
+    <div id="aplayer-NZHreiHh" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="296839" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86" data-volume="0.4"></div>
 <a id="more"></a>
 <h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>前缀和的定义：$S[i]=\sum_{i=1}^{i} A[j]$<br>部分区间的和可以用前缀和相减的形式表示：<br>$\operatorname{sum}(l, r)=\sum_{i=1}^{r} A[i]=S[r]-S[l-1]$</p>
 <h4 id="BZOJ-1218-激光炸弹"><a href="#BZOJ-1218-激光炸弹" class="headerlink" title="BZOJ 1218 激光炸弹"></a>BZOJ 1218 激光炸弹</h4><p>第一行输入正整数 N 和 R , R为爆炸范围的边长(正方形边长)<br>接下来输入N行 x, y, weight表示目标位置和权重<br>求一颗炸弹能够炸掉的最大价值的东西</p>
@@ -209,7 +209,7 @@
 <p>首先很明显，看到区间操作，就应该想到用差分来简化操作。所以获得输入的差分数列A[n]<br>区间操作就转化为了对差分数列中元素的操作<br>然后需要注意：这里为了统一情况，增加了一个A[n+1], 这样的话操作变成了每次选择差分数列中的两个数字，一个+1，一个-1<br>目标就变成了A[1]..A[n]都为0， 结果的种类则由A[0]决定</p>
 <p>操作选择的数字分为四种情况：<br>1.选择A[i] 和 A[j],  0&lt;i&lt;j&lt;n+1<br>2.选择A[0]和 A[j],  0&lt;j&lt;n+1<br>3.选择A[i] 和 A[n+1], 0&lt;i&lt;n+1<br>4.选择A[0]和 A[n+1]</p>
 <p>可以发现case4 会增加操作的次数，而对达成我们的目标没有作用。所以case4的操作次数为0<br>case1一次改变一正一负两个数字，因此应尽可能多的进行case1的操作更快的接近目标，然后再进行case2和case3的操作</p>
-<p>下面就是数学题了：<br>设p是A[1]到A[n]中正数的和， q为A[1]到A[n]中负数的和的绝对值<br>为了使正负抵消，我们要执行min(p, q)次 case 1的操作，使得差分数列中只剩下一种符号<br>然后通过case2或者case3将剩下的数字抵消，总共需要|p-q|次<br>所以最终的执行次数为min(p, q)+|p-q| = max(p, q) ▲<br>最终的结果数量由A[0]决定，所以要看改变A[0]的case2执行多少次，已知#case2 + #case3 = |p-q|，所以#case2取值为0-|p-q|，也就是说A[0]有|p-q|+1种取值<br>所以一共有|p-q|+1种结果 ▲</p>
+<p>下面就是数学题了：<br>设p是A[1]到A[n]中正数的和， q为A[1]到A[n]中负数的和的绝对值<br>为了使正负抵消，我们要执行min(p, q)次 case 1的操作，使得差分数列中只剩下一种符号<br>然后通过case2或者case3将剩下的数字抵消，总共需要|p-q|次<br>所以最终的执行次数为min(p, q)+|p-q| = max(p, q) ▲<br>最终的结果数量由A[0]决定，所以要看改变A[0]的case2执行多少次，已知#case2 + #case3 = |p-q|，所以#case2取值为0 ~ |p-q|，也就是说A[0]有|p-q|+1种取值<br>所以一共有|p-q|+1种结果 ▲</p>
 <p>代码链接 <a href="https://www.acwing.com/activity/content/code/content/33715/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/33715/</a></p>
 
       
