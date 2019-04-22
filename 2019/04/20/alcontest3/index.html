@@ -17,7 +17,7 @@
 <meta property="og:description" content="0x03 前缀和与差分平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest3.jpg">
-<meta property="og:updated_time" content="2019-04-22T03:41:27.350Z">
+<meta property="og:updated_time" content="2019-04-22T08:22:18.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南(三)">
 <meta name="twitter:description" content="0x03 前缀和与差分平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。">
@@ -190,13 +190,12 @@
         <p><img src="/img/alcontest3.jpg" alt></p>
 <h3 id="0x03-前缀和与差分"><a href="#0x03-前缀和与差分" class="headerlink" title="0x03 前缀和与差分"></a>0x03 前缀和与差分</h3><p>平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。</p>
 
-    <div id="aplayer-mOcfZDbl" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="296839" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86" data-volume="0.4"></div>
+    <div id="aplayer-yRXWZmHX" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="296839" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86" data-volume="0.4"></div>
 <a id="more"></a>
 <h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>前缀和的定义：$S[i]=\sum_{i=1}^{i} A[j]$<br>部分区间的和可以用前缀和相减的形式表示：<br>$\operatorname{sum}(l, r)=\sum_{i=1}^{r} A[i]=S[r]-S[l-1]$</p>
 <h4 id="BZOJ-1218-激光炸弹"><a href="#BZOJ-1218-激光炸弹" class="headerlink" title="BZOJ 1218 激光炸弹"></a>BZOJ 1218 激光炸弹</h4><p>第一行输入正整数 N 和 R , R为爆炸范围的边长(正方形边长)<br>接下来输入N行 x, y, weight表示目标位置和权重<br>求一颗炸弹能够炸掉的最大价值的东西</p>
 <p>数据范围<br>$0&lt;N \leq 10000$<br>$0 \leq X_{i}, Y_{i} \leq 5000$</p>
-<p>输入样例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2 1</span><br><span class="line">0 0 1</span><br><span class="line">1 1 1</span><br></pre></td></tr></table></figure></p>
-<p>输出样例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入样例：</span><br><span class="line">2 1</span><br><span class="line">0 0 1</span><br><span class="line">1 1 1</span><br><span class="line"></span><br><span class="line">输出样例：</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
 <p>这道题重点就在如何求得正方形内所有点的权重之和。<br>用把点之间相加的方法就会耗费指数型时间，如果用二维前缀和就能用较少的时间来生成正方形内的权重和。因此用bottom up DP 来先计算二维前缀和</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s[i][j] += s[i<span class="number">-1</span>][j]+s[i][j<span class="number">-1</span>]-s[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br></pre></td></tr></table></figure>
 <p>然后利用前缀和计算正方形范围内权重和</p>
@@ -205,6 +204,13 @@
 <p>另外就是我们进行读入数据的时候可以记录下来总共的范围，这样可以减少我们循环的次数。但是值得注意的是，要把范围初始化为边长，不然的话就有可能R大于输入的范围，就会产生bug。</p>
 <p>代码链接 <a href="https://www.acwing.com/activity/content/code/content/32997/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/32997/</a></p>
 <h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><p>差分的定义: $ B[1]=A[1], B[i]=A[i]-A[i-1] (2 \leq i \leq n) $<br>前缀和和差分是一对逆运算:   $ S\ \ \ \ \ 差分 \Longleftrightarrow 前缀和\ \ \ \   A $<br>差分可以把区间操作转化为差分序列的单点操作，降低求解难度：<br>$A$的区间$[l,r] +d$， 差分序列$A_l + d$，$A_{l+1}-d$</p>
+<h4 id="CH0304"><a href="#CH0304" class="headerlink" title="CH0304"></a>CH0304</h4><p>第一行输入为n。接下来n行，代表输入的数列<br>每次可以对数列的一个区间整体进行 +1和-1，求至少需要多少次操作才能使数列中的数字都相同，输出最小次数和最小次数下所有可能的结果数列<br>范围 $0&lt;n \leq 10^{5}$， $0 \leq a_{i}&lt;2147483648$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入样例</span><br><span class="line">4</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">2</span><br><span class="line"></span><br><span class="line">输出样例</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<p>首先很明显，看到区间操作，就应该想到用差分来简化操作。所以获得输入的差分数列A[n]<br>区间操作就转化为了对差分数列中元素的操作<br>然后需要注意：这里为了统一情况，增加了一个A[n+1], 这样的话操作变成了每次选择差分数列中的两个数字，一个+1，一个-1<br>目标就变成了A[1]..A[n]都为0， 结果的种类则由A[0]决定</p>
+<p>操作选择的数字分为四种情况：<br>1.选择A[i] 和 A[j],  0&lt;i&lt;j&lt;n+1<br>2.选择A[0]和 A[j],  0&lt;j&lt;n+1<br>3.选择A[i] 和 A[n+1], 0&lt;i&lt;n+1<br>4.选择A[0]和 A[n+1]</p>
+<p>可以发现case4 会增加操作的次数，而对达成我们的目标没有作用。所以case4的操作为0<br>case1一次改变两个，因此应尽可能的进行case1的操作，然后再进行case2和case3的操作</p>
+<p>下面就是数学题了：<br>设p是A[1]到A[n]中正数的和， q为A[1]到A[n]中负数的和的绝对值<br>为了使正负抵消，我们要执行min(p, q)次 case 1的操作，使得差分数列中只剩下一种符号<br>然后通过case2或者case3将剩下的数字抵消，总共需要|p-q|次<br>所以最终的执行次数为min(p, q)+|p-q| = max(p, q) ▲<br>最终的结果数量由A[0]决定，所以要看改变A[0]的case2执行多少次，已知#case2 + #case3 = |p-q|，所以#case2取值为0-|p-q|，也就是说A[0]有|p-q|+1种取值<br>所以一共有|p-q|+1种结果 ▲</p>
+<p>代码链接 <a href="https://www.acwing.com/activity/content/code/content/33715/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/33715/</a></p>
 
       
 
@@ -369,7 +375,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-前缀和与差分"><span class="toc-number">1.</span> <span class="toc-text">0x03 前缀和与差分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前缀和"><span class="toc-number">2.</span> <span class="toc-text">前缀和</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BZOJ-1218-激光炸弹"><span class="toc-number">2.1.</span> <span class="toc-text">BZOJ 1218 激光炸弹</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#差分"><span class="toc-number">3.</span> <span class="toc-text">差分</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-前缀和与差分"><span class="toc-number">1.</span> <span class="toc-text">0x03 前缀和与差分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前缀和"><span class="toc-number">2.</span> <span class="toc-text">前缀和</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BZOJ-1218-激光炸弹"><span class="toc-number">2.1.</span> <span class="toc-text">BZOJ 1218 激光炸弹</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#差分"><span class="toc-number">3.</span> <span class="toc-text">差分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CH0304"><span class="toc-number">3.1.</span> <span class="toc-text">CH0304</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
