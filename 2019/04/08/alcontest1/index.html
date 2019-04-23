@@ -17,7 +17,7 @@
 <meta property="og:description" content="今天《算法竞赛进阶指南导论》到了。看了0x01位运算。   主要内容：补码，二进制的表示，算数移位，逻辑移位">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest1.png">
-<meta property="og:updated_time" content="2019-04-13T09:19:16.815Z">
+<meta property="og:updated_time" content="2019-04-23T06:43:56.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南(一)">
 <meta name="twitter:description" content="今天《算法竞赛进阶指南导论》到了。看了0x01位运算。   主要内容：补码，二进制的表示，算数移位，逻辑移位">
@@ -190,6 +190,7 @@
 
 <p>主要内容：<br>补码，二进制的表示，算数移位，逻辑移位</p>
 <a id="more"></a>
+<p>移位运算需要注意的是：对于整数负数来说，&gt;&gt;1和/2不同，右移是向下取整，/2则是向0取整</p>
 <h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><p>题目：a，b，p是32int，求a^b%p，$1\le a，b\le10^9$<br>如果一位一位的乘，要10^9, 会超时<br>所以要使用将b二进制分解，对于其每一位累加，从而将数量级降到O(lgn)<br>值得注意的是，在运算过程中要利用long long int来防止溢出：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans = ans * <span class="number">1l</span>l * a% p;</span><br></pre></td></tr></table></figure>
 <p>要将ans初始化为1%p</p>
@@ -199,7 +200,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> a,b,p;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt; a &gt;&gt; b&gt;&gt;p;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//a*b % p</span></span><br><span class="line">    <span class="keyword">for</span>( ; b ; b &gt;&gt;= <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans = (ans + a) %p;</span><br><span class="line">        a = a*<span class="number">2</span> % p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="二进制状态压缩"><a href="#二进制状态压缩" class="headerlink" title="二进制状态压缩"></a>二进制状态压缩</h3><p>将一个长度为m的数组用一个m位二进制整数来表示<br>操作：<br>将n的第k位取反：  n xor (1&lt;&lt;k)<br>将n的第k位赋值0：n &amp; ~(1&lt;&lt;k)</p>
 <p>哈密顿算法：<br>np完全问题，无法在多项式级别求解<br>如果用朴素(brute-force 即暴力求解) 做法，枚举路线的全排列，以及产生它，需要花费O(n*!n)的时间</p>
-<p>采用压缩dp算法，优化到O($n^22^n$)<br>用数组$F[(1&lt;&lt;n)-1][n-1]$来保存状态，$F[i][j]​$中，i代替bool数组，用来保存地点是否被走过，j表示当前未知。<br>因此递归式为：<br>$$<br>f[i][j] = min(f[i][j], f[i\wedge 1 &lt;&lt;j][k]+weight[k][j])<br>$$<br>需要注意的是，初始化的时候使用</p>
+<p>采用压缩dp算法，优化到O($n^22^n$)<br>用数组$F[(1&lt;&lt;n)-1][n-1]$来保存状态，$F[i][j]$中，i代替bool数组，用来保存地点是否被走过，j表示当前未知。<br>因此递归式为：<br>$$<br>f[i][j] = min(f[i][j], f[i\wedge 1 &lt;&lt;j][k]+weight[k][j])<br>$$<br>需要注意的是，初始化的时候使用</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(f));</span><br></pre></td></tr></table></figure>
 <p>memset赋值出每8位都相同的int，所以0x7f7f7f7f是memset语句能够初始化出来的最大数值。当我们想要把数组的数值初始化为正无穷时，为了避免加法上溢，经常赋值0x3f3f3f3f来代替</p>
 <blockquote>
@@ -581,6 +582,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">心情</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">流利阅读</a>
               </li>
              
@@ -590,14 +599,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心情</a>
               </li>
              
               <li class="article-tag-list-item">
