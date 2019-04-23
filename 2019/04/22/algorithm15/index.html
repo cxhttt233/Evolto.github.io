@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://evolto.xyz/img/algorithm15.2.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm15.3.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm15.4.png">
-<meta property="og:updated_time" content="2019-04-23T14:19:16.667Z">
+<meta property="og:updated_time" content="2019-04-23T14:27:31.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(15)">
 <meta name="twitter:description" content="动态规划看了这么长时间终于看到DP了，确实挺有趣的。     B站泄露源码一事，让我们看到了B站程序员有多么皮，同时祝贺B站荣获2019最佳推广GO语言奖，是互联网开源标杆公司中的豪杰。虽然B站说是很早以前的代码，但是懂的自然懂。">
@@ -192,7 +192,7 @@
       
         <p><img src="/img/algorithm15.jpg" alt></p>
 <h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><p>看了这么长时间终于看到DP了，确实挺有趣的。<br>
-    <div id="aplayer-gOpyvWBV" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1313070706" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86" data-volume="0.4"></div><br>B站泄露源码一事，让我们看到了B站程序员有多么皮，同时祝贺B站荣获2019最佳推广GO语言奖，是互联网开源标杆公司中的豪杰。虽然B站说是很早以前的代码，但是懂的自然懂。</p>
+    <div id="aplayer-VPRcCnHb" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1313070706" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86" data-volume="0.4"></div><br>B站泄露源码一事，让我们看到了B站程序员有多么皮，同时祝贺B站荣获2019最佳推广GO语言奖，是互联网开源标杆公司中的豪杰。虽然B站说是很早以前的代码，但是懂的自然懂。</p>
 <a id="more"></a>
 <p>DP是一种类似于分治法的技术</p>
 <h3 id="LCS-最长公共子串"><a href="#LCS-最长公共子串" class="headerlink" title="LCS 最长公共子串"></a>LCS 最长公共子串</h3><p>给定2个序列 x[1..m], y[1..n], 求两者所有的最长公共子序列， 用$\operatorname{LCS}(x, y)$ 的形式表示关系</p>
@@ -221,6 +221,9 @@
 <p>Time = $\Theta(mn)$<br>Space = $\Theta(mn)$<br>回溯构建LCS</p>
 <p><img src="/img/algorithm15.4.png" alt></p>
 <p>Exercise：<br>O(min{m, n})</p>
+<h5 id="动态规划-youtube-概念补全"><a href="#动态规划-youtube-概念补全" class="headerlink" title="动态规划 youtube 概念补全"></a>动态规划 youtube 概念补全</h5><p>DP $\approx$  “careful brute forece”<br>DP $\approx$  subproblem + “reuse”<br>DP $\approx$  recursion + memoization + guessing<br>Time = subproblem * time/subproblem (don’t count recursions)</p>
+<p>bottom-up<br>1.excatly same computation<br>2.topological sort of subproblem dependency</p>
+<p>fib:可以只记住两个空间<br>guessing = try all guess (&amp; take the best one)</p>
 
       
 
@@ -385,7 +388,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#动态规划"><span class="toc-number">1.</span> <span class="toc-text">动态规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCS-最长公共子串"><span class="toc-number">2.</span> <span class="toc-text">LCS 最长公共子串</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#暴力算法-brute-force-alg"><span class="toc-number">2.0.1.</span> <span class="toc-text">暴力算法 brute force alg</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#优化算法"><span class="toc-number">2.0.2.</span> <span class="toc-text">优化算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态规划的标志-1"><span class="toc-number">2.0.3.</span> <span class="toc-text">动态规划的标志#1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态规划的标志-2"><span class="toc-number">2.0.4.</span> <span class="toc-text">动态规划的标志#2</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#记忆化算法"><span class="toc-number">2.0.5.</span> <span class="toc-text">记忆化算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态规划算法"><span class="toc-number">2.0.6.</span> <span class="toc-text">动态规划算法</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#动态规划"><span class="toc-number">1.</span> <span class="toc-text">动态规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCS-最长公共子串"><span class="toc-number">2.</span> <span class="toc-text">LCS 最长公共子串</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#暴力算法-brute-force-alg"><span class="toc-number">2.0.1.</span> <span class="toc-text">暴力算法 brute force alg</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#优化算法"><span class="toc-number">2.0.2.</span> <span class="toc-text">优化算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态规划的标志-1"><span class="toc-number">2.0.3.</span> <span class="toc-text">动态规划的标志#1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态规划的标志-2"><span class="toc-number">2.0.4.</span> <span class="toc-text">动态规划的标志#2</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#记忆化算法"><span class="toc-number">2.0.5.</span> <span class="toc-text">记忆化算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态规划算法"><span class="toc-number">2.0.6.</span> <span class="toc-text">动态规划算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态规划-youtube-概念补全"><span class="toc-number">2.0.7.</span> <span class="toc-text">动态规划 youtube 概念补全</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
