@@ -17,7 +17,10 @@
 <meta property="og:description" content="动态规划看了这么长时间终于看到DP了，确实挺有趣的。     B站泄露源码一事，让我们看到了B站程序员有多么皮，同时祝贺B站荣获2019最佳推广GO语言奖，是互联网开源标杆公司中的豪杰。虽然B站说是很早以前的代码，但是懂的自然懂。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm15.jpg">
-<meta property="og:updated_time" content="2019-04-22T14:16:52.371Z">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm15.2.png">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm15.3.png">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm15.4.png">
+<meta property="og:updated_time" content="2019-04-23T14:19:16.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(15)">
 <meta name="twitter:description" content="动态规划看了这么长时间终于看到DP了，确实挺有趣的。     B站泄露源码一事，让我们看到了B站程序员有多么皮，同时祝贺B站荣获2019最佳推广GO语言奖，是互联网开源标杆公司中的豪杰。虽然B站说是很早以前的代码，但是懂的自然懂。">
@@ -189,7 +192,7 @@
       
         <p><img src="/img/algorithm15.jpg" alt></p>
 <h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><p>看了这么长时间终于看到DP了，确实挺有趣的。<br>
-    <div id="aplayer-kvYmZhqE" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1313070706" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86" data-volume="0.4"></div><br>B站泄露源码一事，让我们看到了B站程序员有多么皮，同时祝贺B站荣获2019最佳推广GO语言奖，是互联网开源标杆公司中的豪杰。虽然B站说是很早以前的代码，但是懂的自然懂。</p>
+    <div id="aplayer-gOpyvWBV" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1313070706" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86" data-volume="0.4"></div><br>B站泄露源码一事，让我们看到了B站程序员有多么皮，同时祝贺B站荣获2019最佳推广GO语言奖，是互联网开源标杆公司中的豪杰。虽然B站说是很早以前的代码，但是懂的自然懂。</p>
 <a id="more"></a>
 <p>DP是一种类似于分治法的技术</p>
 <h3 id="LCS-最长公共子串"><a href="#LCS-最长公共子串" class="headerlink" title="LCS 最长公共子串"></a>LCS 最长公共子串</h3><p>给定2个序列 x[1..m], y[1..n], 求两者所有的最长公共子序列， 用$\operatorname{LCS}(x, y)$ 的形式表示关系</p>
@@ -198,7 +201,26 @@
 <h5 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h5><p>简化<br>1.获得最长公共子串的长度  (|s|表示s的长度)<br>2.扩展算法找到最长公共子串</p>
 <p>策略<br>考虑x和y的前缀<br>定义 $c[i, j]=|\operatorname{LCS}(x[1 \ldots i], y[1 \ldots j])|$<br>然后 $c[m, n]=|\operatorname{LCS}(x, y)|$</p>
 <p>$\mathscr{Theorem}$<br>$c[i, j]=\left \{\begin{array}{ll}{c[i-1, j-1]+1} &amp; {\text { if } x[i]=y[j]} \\ {\max \{c[i-1, j], c[i, j-1]\}} &amp; {\text { otherwise }}\end{array}\right.$</p>
-<p>$\mathscr{Proof.}\ \ Case\ x[i] = y[j]:$</p>
+<p>$\mathscr{Proof.}\\Case\ x[i] = y[j]:$<br>Let $z[1 \ldots k]=\operatorname{LCS}(x[1 \ldots i], y[1 \ldots j])$, where $c[i, j] =k$<br>Then z[k] = x[i] = y[i]  不然z就可以把x[i]加入自身，然后变长<br>假设：$z[1 \ldots k-1] \ne \operatorname{LCS}(x[1 \ldots i-1], y[1 \ldots j-1])$<br>通过<font color="#FF0000"> cut  &amp; paste</font> ：w||z[k] 是 x[1..i] and y[1..j]的共同子串，$|w | z[k]|&gt;k$, 与事实矛盾<br>所以，$c[i-1, j-1]=k-1$ ，即 $c[i, j]=c[i-1, j-1]+1$</p>
+<blockquote>
+<h5 id="动态规划的标志-1"><a href="#动态规划的标志-1" class="headerlink" title="动态规划的标志#1"></a>动态规划的标志#1</h5><p>最佳子结构:<br>一个问题的最优解包含着该问题子问题的最优解</p>
+</blockquote>
+<p>如果 $z = LCS(x, y)$, 那么z的任何前缀都是x和y前缀的最长公共子串</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">递归算法：</span><br><span class="line">LCS(x, y, i, j)</span><br><span class="line">	<span class="keyword">if</span> x[i] = y[j]</span><br><span class="line">		then c[i, j] &lt;- LCS(x,y,i<span class="number">-1</span>,j<span class="number">-1</span>)+<span class="number">1</span></span><br><span class="line">		<span class="keyword">else</span> c[i, j] &lt;- max&#123;LCS(x, y, i<span class="number">-1</span>, j), LCS(x, y, i, j<span class="number">-1</span>)&#125;</span><br><span class="line">	<span class="keyword">return</span> c[i, j]</span><br></pre></td></tr></table></figure>
+<p>最坏情况：$x[i] \neq y[j]$, 问题变成两个参数减一的子问题</p>
+<p><img src="/img/algorithm15.2.png" alt></p>
+<p>如上图递归树，高度为m+n， 算法复杂度是指数级别，但是子问题有重叠</p>
+<blockquote>
+<h5 id="动态规划的标志-2"><a href="#动态规划的标志-2" class="headerlink" title="动态规划的标志#2"></a>动态规划的标志#2</h5><p>重叠子问题<br>递归解法中重复多次出现少量不同的子问题</p>
+</blockquote>
+<p>对于长度为$m$和$n$的LCS问题， 互异的子问题的总数只有 $m ·n$</p>
+<h5 id="记忆化算法"><a href="#记忆化算法" class="headerlink" title="记忆化算法"></a>记忆化算法</h5><p>每当计算完一个子问题的结果后，将其存到表中。调用子问题求解时，避免重复的工作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LCS(x, y, i, j)</span><br><span class="line">	<span class="keyword">if</span> c[i, j] = NIL</span><br><span class="line">		then <span class="keyword">if</span> x[i] = y[j]</span><br><span class="line">			then c[i, j] &lt;- LCS(x, y, i<span class="number">-1</span>, j<span class="number">-1</span>)+<span class="number">1</span></span><br><span class="line">			<span class="keyword">else</span> c[i, j] &lt;- max&#123;LCS(x, y, i<span class="number">-1</span>, j), LCS(x, y, i, j<span class="number">-1</span>)&#125;</span><br><span class="line">	<span class="keyword">return</span> c[i, j]</span><br></pre></td></tr></table></figure>
+<p>Time = $\Theta(mn)$ = 每个表项常数时间<br>Space = $\Theta(mn)$.</p>
+<h5 id="动态规划算法"><a href="#动态规划算法" class="headerlink" title="动态规划算法"></a>动态规划算法</h5><p>bottom up 构建表项<br><img src="/img/algorithm15.3.png" alt></p>
+<p>Time = $\Theta(mn)$<br>Space = $\Theta(mn)$<br>回溯构建LCS</p>
+<p><img src="/img/algorithm15.4.png" alt></p>
+<p>Exercise：<br>O(min{m, n})</p>
 
       
 
@@ -363,7 +385,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#动态规划"><span class="toc-number">1.</span> <span class="toc-text">动态规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCS-最长公共子串"><span class="toc-number">2.</span> <span class="toc-text">LCS 最长公共子串</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#暴力算法-brute-force-alg"><span class="toc-number">2.0.1.</span> <span class="toc-text">暴力算法 brute force alg</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#优化算法"><span class="toc-number">2.0.2.</span> <span class="toc-text">优化算法</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#动态规划"><span class="toc-number">1.</span> <span class="toc-text">动态规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCS-最长公共子串"><span class="toc-number">2.</span> <span class="toc-text">LCS 最长公共子串</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#暴力算法-brute-force-alg"><span class="toc-number">2.0.1.</span> <span class="toc-text">暴力算法 brute force alg</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#优化算法"><span class="toc-number">2.0.2.</span> <span class="toc-text">优化算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态规划的标志-1"><span class="toc-number">2.0.3.</span> <span class="toc-text">动态规划的标志#1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态规划的标志-2"><span class="toc-number">2.0.4.</span> <span class="toc-text">动态规划的标志#2</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#记忆化算法"><span class="toc-number">2.0.5.</span> <span class="toc-text">记忆化算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态规划算法"><span class="toc-number">2.0.6.</span> <span class="toc-text">动态规划算法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

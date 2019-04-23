@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://evolto.xyz/2019/04/22/algorithm15/</loc>
+    
+    <lastmod>2019-04-23T14:19:16.667Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://evolto.xyz/2019/04/21/tips/</loc>
+    
+    <lastmod>2019-04-23T12:46:57.281Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://evolto.xyz/2019/04/23/alcontest4/</loc>
     
-    <lastmod>2019-04-23T09:23:05.356Z</lastmod>
+    <lastmod>2019-04-23T12:28:29.852Z</lastmod>
     
   </url>
   
@@ -33,20 +47,6 @@
     <loc>https://evolto.xyz/2019/04/23/fluentreading/</loc>
     
     <lastmod>2019-04-23T04:11:17.812Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://evolto.xyz/2019/04/22/algorithm15/</loc>
-    
-    <lastmod>2019-04-22T14:16:52.371Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://evolto.xyz/2019/04/21/tips/</loc>
-    
-    <lastmod>2019-04-22T14:14:48.005Z</lastmod>
     
   </url>
   
