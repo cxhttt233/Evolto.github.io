@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://evolto.xyz">
-  <title>算法竞赛进阶指南(三) | LinkSpider的博客</title>
+  <title>算法竞赛进阶指南笔记(三) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="0x03 前缀和与差分平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。">
 <meta name="keywords" content="算法竞赛进阶指南,算法,笔记,刷题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法竞赛进阶指南(三)">
+<meta property="og:title" content="算法竞赛进阶指南笔记(三)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/20/alcontest3/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
 <meta property="og:description" content="0x03 前缀和与差分平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest3.jpg">
-<meta property="og:updated_time" content="2019-04-22T13:04:41.037Z">
+<meta property="og:updated_time" content="2019-04-23T08:44:34.740Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法竞赛进阶指南(三)">
+<meta name="twitter:title" content="算法竞赛进阶指南笔记(三)">
 <meta name="twitter:description" content="0x03 前缀和与差分平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。">
 <meta name="twitter:image" content="https://evolto.xyz/img/alcontest3.jpg">
   
@@ -174,7 +174,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      算法竞赛进阶指南(三)
+      算法竞赛进阶指南笔记(三)
     </h1>
   
 
@@ -190,7 +190,7 @@
         <p><img src="/img/alcontest3.jpg" alt></p>
 <h3 id="0x03-前缀和与差分"><a href="#0x03-前缀和与差分" class="headerlink" title="0x03 前缀和与差分"></a>0x03 前缀和与差分</h3><p>平成最后的王冠怕是要颁给吉田了。凡夫俗子上代务，绝世天才吉田伸。A5真好看，我还要看30遍，谢谢上代务带给我们这么好的作品，看YGO这么多年，最庆幸的就是吉田伸没有碰A5动画。</p>
 
-    <div id="aplayer-alPzhRlo" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="296839" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86" data-volume="0.4"></div>
+    <div id="aplayer-QdJCrGGm" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="296839" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86" data-volume="0.4"></div>
 <a id="more"></a>
 <h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>前缀和的定义：$S[i]=\sum_{i=1}^{i} A[j]$<br>部分区间的和可以用前缀和相减的形式表示：<br>$\operatorname{sum}(l, r)=\sum_{i=1}^{r} A[i]=S[r]-S[l-1]$</p>
 <h4 id="BZOJ-1218-激光炸弹"><a href="#BZOJ-1218-激光炸弹" class="headerlink" title="BZOJ 1218 激光炸弹"></a>BZOJ 1218 激光炸弹</h4><p>第一行输入正整数 N 和 R , R为爆炸范围的边长(正方形边长)<br>接下来输入N行 x, y, weight表示目标位置和权重<br>求一颗炸弹能够炸掉的最大价值的东西</p>

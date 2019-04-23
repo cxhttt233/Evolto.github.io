@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://evolto.xyz">
-  <title>算法竞赛进阶指南(二) | LinkSpider的博客</title>
+  <title>算法竞赛进阶指南笔记(二) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="0x02 递推与递归直到开始码代码，才知道自己不会码代码，直到开始学算法，才知道自己不会算法">
 <meta name="keywords" content="算法竞赛进阶指南,算法,笔记,刷题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法竞赛进阶指南(二)">
+<meta property="og:title" content="算法竞赛进阶指南笔记(二)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/09/alcontest2/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
 <meta property="og:description" content="0x02 递推与递归直到开始码代码，才知道自己不会码代码，直到开始学算法，才知道自己不会算法">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest2.png">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest2.2.png">
-<meta property="og:updated_time" content="2019-04-18T09:32:44.383Z">
+<meta property="og:updated_time" content="2019-04-23T08:44:48.263Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法竞赛进阶指南(二)">
+<meta name="twitter:title" content="算法竞赛进阶指南笔记(二)">
 <meta name="twitter:description" content="0x02 递推与递归直到开始码代码，才知道自己不会码代码，直到开始学算法，才知道自己不会算法">
 <meta name="twitter:image" content="https://evolto.xyz/img/alcontest2.png">
   
@@ -172,7 +172,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      算法竞赛进阶指南(二)
+      算法竞赛进阶指南笔记(二)
     </h1>
   
 
@@ -207,20 +207,20 @@
 <p><a href="https://www.acwing.com/activity/content/code/content/30859/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/30859/</a></p>
 <h5 id="POJ1958-4柱的Tower-of-Hanoi"><a href="#POJ1958-4柱的Tower-of-Hanoi" class="headerlink" title="POJ1958 4柱的Tower of Hanoi"></a>POJ1958 4柱的Tower of Hanoi</h5><p>说到Hanoi就不得不提到汉诺骑士的崇高力量。<br>这道题是四柱汉诺塔    <del>正对应四重汉诺崇高力量：圣防，魔筒，敕命，心崩</del></p>
 <p>输入： NULL<br>输出： 1-12 圆盘的最小移动次数，每个占一行<br>要解决四层汉诺塔问题，需要将其转化为三层汉诺塔问题。</p>
-<p>ABCD 四个柱子，要想将A移到D上，就先用四柱汉诺塔方法先将h个盘子移动到B上，然后用三柱汉诺塔方法将n-h个盘子移到D上，最后用四柱汉诺塔方法将h个盘子从B移到D上。<br>即 $H_4(n)=H_4(h)+H_3(n-h)+H_4(h) = 2H_4(h) +H_3(n-h)$<br>因为要求最小步数，所以$H_4(n) = min\{2H_4(h)+H_3(n-h)\}$<br>注意到 $H_4(0) = 1​$<br>三层汉诺塔问题：<a href="https://www.youtube.com/watch?v=YstLjLCGmgg" target="_blank" rel="noopener">https://www.youtube.com/watch?v=YstLjLCGmgg</a></p>
-<p>在具体实现中，先计算出来$H_3(0) \text{到}H_3(n)​$, 然后计算$H_4(0)\text{到}H_4(n)​$<br>所以 从 1 - n 外循环用来计算H4, 0-i 循环来找出最小值对应的h</p>
+<p>ABCD 四个柱子，要想将A移到D上，就先用四柱汉诺塔方法先将h个盘子移动到B上，然后用三柱汉诺塔方法将n-h个盘子移到D上，最后用四柱汉诺塔方法将h个盘子从B移到D上。<br>即 $H_4(n)=H_4(h)+H_3(n-h)+H_4(h) = 2H_4(h) +H_3(n-h)$<br>因为要求最小步数，所以$H_4(n) = min\{2H_4(h)+H_3(n-h)\}$<br>注意到 $H_4(0) = 1$<br>三层汉诺塔问题：<a href="https://www.youtube.com/watch?v=YstLjLCGmgg" target="_blank" rel="noopener">https://www.youtube.com/watch?v=YstLjLCGmgg</a></p>
+<p>在具体实现中，先计算出来$H_3(0) \text{到}H_3(n)$, 然后计算$H_4(0)\text{到}H_4(n)$<br>所以 从 1 - n 外循环用来计算H4, 0-i 循环来找出最小值对应的h</p>
 <p>代码：<a href="https://www.acwing.com/activity/content/code/content/31030/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/31030/</a></p>
-<h3 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h3><h5 id="POJ-1845-约数之和"><a href="#POJ-1845-约数之和" class="headerlink" title="POJ 1845 约数之和"></a>POJ 1845 约数之和</h5><p>求$A^B$的所有约数之和mod9901 $(1\le A, B\le 5* 10^7)​$</p>
+<h3 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h3><h5 id="POJ-1845-约数之和"><a href="#POJ-1845-约数之和" class="headerlink" title="POJ 1845 约数之和"></a>POJ 1845 约数之和</h5><p>求$A^B$的所有约数之和mod9901 $(1\le A, B\le 5* 10^7)$</p>
 <p>虽然mod是为了让结果处于一个小的范围内，但是mod操作真心麻烦。在实现的过程中，因为没有按照mod的分配率给每个乘法都取模，因此造成了结果的错误。所以整理了一下mod的分配律，希望以后mod不再出问题：</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">((a +b)mod p × c) mod p = ((a × c) mod p + (b × c) mod p) mod p</span><br><span class="line">(a×b) mod c=(a mod c * b mod c) mod c</span><br><span class="line">(a+b) mod c=(a mod c+ b mod c) mod c</span><br><span class="line">(a-b) mod c=(a mod c- b mod c) mod c</span><br></pre></td></tr></table></figure>
-<p>把A分解为质因数，$A = p_{1}^{c_{1}} * p_{2}^{c_{2}} * \cdots * p_{n}^{c_{n}}$， 所以$A^B$表示为$p_{1}^{B \cdot c_{1}} * p_{2}^{B * C_{2}} * \cdots * p_{n}^{B \cdot c_{n}}$, 所以所有约数的集合为$\{ p_{1}^{k_{1}} * p_{2}^{k_{2}} * \cdots * p_{n}^{k_{n}} \}$， 其中 $0 \leq k_{i} \leq B * c_{i}(1 \leq i \leq n )$, 所以根据乘法分配律，约数之和等于$$\left(1+p_{1}+p_{1}^{2}+\dots+p_{1}^{B * c_{1}}\right) *\left(1+p_{2}+p_{2}^{2}+\cdots+p_{2}^{B+c_{2}}\right) * \cdots *\left(1+p_{n}+p_{n}^{2}+\dots+p_{n}^{B * c_{n}}\right)​$$</p>
+<p>把A分解为质因数，$A = p_{1}^{c_{1}} * p_{2}^{c_{2}} * \cdots * p_{n}^{c_{n}}$， 所以$A^B$表示为$p_{1}^{B \cdot c_{1}} * p_{2}^{B * C_{2}} * \cdots * p_{n}^{B \cdot c_{n}}$, 所以所有约数的集合为$\{ p_{1}^{k_{1}} * p_{2}^{k_{2}} * \cdots * p_{n}^{k_{n}} \}$， 其中 $0 \leq k_{i} \leq B * c_{i}(1 \leq i \leq n )$, 所以根据乘法分配律，约数之和等于$$\left(1+p_{1}+p_{1}^{2}+\dots+p_{1}^{B * c_{1}}\right) *\left(1+p_{2}+p_{2}^{2}+\cdots+p_{2}^{B+c_{2}}\right) * \cdots *\left(1+p_{n}+p_{n}^{2}+\dots+p_{n}^{B * c_{n}}\right)$$</p>
 <p>因此要求$(1+…+x^n)$, 由于结果需要mod，而mod对求和公式所运用到的除法不具有分配律，因此不能使用等比数列的求和公式。<br>当c为奇数时：<br>$\operatorname{sum}(p, c)=\left(1+p+\dots+p^{\frac{c-1}{2}}\right)+\left(p^{\frac{c+1}{2}}+\cdots+p^{c}\right)$<br>$=\left(1+p+\cdots+p^{\frac{c-1}{2}}\right)+p^{\frac{c+1}{2}} *\left(1+p+\cdots+p^{\frac{c-1}{2}}\right)$<br>$=\left(1+p^{\frac{c+1}{2}}\right) * \operatorname{sum}\left(p, \frac{c-1}{2}\right)$<br>当c为偶数的时候：<br>$\operatorname{sum}(p, c)=\left(1+p^{\frac{c}{2}}\right) \times \operatorname{sum}\left(p, \frac{c}{2}-1\right)+p^{c}$<br>然后求快速幂就行了</p>
 <p>实际实现中，对于c偶数的时候，可以将其分离出来一个p，转化为奇数</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(k%<span class="number">2</span>==<span class="number">0</span>)	<span class="keyword">return</span> (a%mod*sum(a, k<span class="number">-1</span>)+<span class="number">1</span>)%mod;</span><br><span class="line"> <span class="keyword">else</span>	<span class="keyword">return</span> (<span class="number">1</span>+ quickMi(a, k/<span class="number">2</span>+<span class="number">1</span>))*sum(a, k/<span class="number">2</span>)%mod;</span><br></pre></td></tr></table></figure>
 <p>代码：<a href="https://www.acwing.com/activity/content/code/content/31732/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/31732/</a></p>
 <h5 id="POJ-3889-分形之城"><a href="#POJ-3889-分形之城" class="headerlink" title="POJ 3889 分形之城"></a>POJ 3889 分形之城</h5><p>通过递归和分治求得城市分布。</p>
 <p><img src="/img/alcontest2.2.png" alt></p>
-<p>输入：第一行测试数据数目$n$， 后面n行$N，A，B$表示城市等级以及两个地方的编号<br>输出：$n$行，每行为$A，B$之间的距离。<br>数据范围：<br>$1≤N≤31$<br>$1≤A,B≤2^{2N}$<br>$1≤n≤1000​$</p>
+<p>输入：第一行测试数据数目$n$， 后面n行$N，A，B$表示城市等级以及两个地方的编号<br>输出：$n$行，每行为$A，B$之间的距离。<br>数据范围：<br>$1≤N≤31$<br>$1≤A,B≤2^{2N}$<br>$1≤n≤1000$</p>
 <p>从数据中我们就能知道， A，B要用LL存储， A，B的坐标也要用LL的pair来存</p>
 <p>这道题的核心在于将N-1阶的坐标映射到N的四个部分中：<br>核心代码为：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">0</span>: <span class="keyword">return</span> &#123;y,x&#125;;</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>: <span class="keyword">return</span> &#123;x+edge, y&#125;;</span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>: <span class="keyword">return</span> &#123;x+edge, y+edge&#125;;</span><br><span class="line"><span class="keyword">case</span> <span class="number">3</span>: <span class="keyword">return</span> &#123;edge - y<span class="number">-1</span>, <span class="number">2</span>*edge - x<span class="number">-1</span>&#125;;</span><br></pre></td></tr></table></figure>

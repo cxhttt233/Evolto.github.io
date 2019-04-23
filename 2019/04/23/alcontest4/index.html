@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://evolto.xyz">
-  <title>算法竞赛进阶指南(四) | LinkSpider的博客</title>
+  <title>算法竞赛进阶指南笔记(四) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="0x04 二分       据说，只有10%的程序员能够写对二分。包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。">
 <meta name="keywords" content="算法竞赛进阶指南,算法,笔记,刷题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法竞赛进阶指南(四)">
+<meta property="og:title" content="算法竞赛进阶指南笔记(四)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/23/alcontest4/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
 <meta property="og:description" content="0x04 二分       据说，只有10%的程序员能够写对二分。包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest4.jpg">
-<meta property="og:updated_time" content="2019-04-23T08:04:21.668Z">
+<meta property="og:updated_time" content="2019-04-23T09:19:46.626Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法竞赛进阶指南(四)">
+<meta name="twitter:title" content="算法竞赛进阶指南笔记(四)">
 <meta name="twitter:description" content="0x04 二分       据说，只有10%的程序员能够写对二分。包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。">
 <meta name="twitter:image" content="https://evolto.xyz/img/alcontest4.jpg">
   
@@ -174,7 +174,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      算法竞赛进阶指南(四)
+      算法竞赛进阶指南笔记(四)
     </h1>
   
 
@@ -189,26 +189,27 @@
       
         <p><img src="/img/alcontest4.jpg" alt></p>
 <h3 id="0x04-二分"><a href="#0x04-二分" class="headerlink" title="0x04 二分"></a>0x04 二分</h3> 
-    <div id="aplayer-dOXORcuL" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="20744076" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+    <div id="aplayer-KbrlZLcj" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="20744076" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
 <p>据说，只有10%的程序员能够写对二分。<br>包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。</p>
  <a id="more"></a>
-<h3 id="整数范围内的二分"><a href="#整数范围内的二分" class="headerlink" title="整数范围内的二分"></a>整数范围内的二分</h3><p>分为两个种类：在递增序列a中<br>寻找 $\ge x$的最小值：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">	<span class="keyword">int</span> mid = (l+r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(a[mid] &gt;= x) r=mid; <span class="keyword">else</span> l=mid+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> a[l];</span><br></pre></td></tr></table></figure></p>
-<p>寻找$\le x$的最大值</p>
+<h3 id="整数范围内的二分"><a href="#整数范围内的二分" class="headerlink" title="整数范围内的二分"></a>整数范围内的二分</h3><p>分为两个种类：在递增序列a中<br>寻找 $\ge x$的最小值（mid右边合法，左边不合法）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">	<span class="keyword">int</span> mid = (l+r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(a[mid] &gt;= x) r=mid; <span class="keyword">else</span> l=mid+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> a[l];</span><br></pre></td></tr></table></figure>
+<p>寻找$\le x$的最大值 （mid左边合法，右边不合法）：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">	<span class="keyword">int</span> mid = (l+r+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(a[mid] &lt;= x) l= mid; <span class="keyword">else</span> r = mid <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> a[l];</span><br></pre></td></tr></table></figure>
-<p>总结就是：<br>1.缩小范围时，$r = mid, l = mid+1$ 取中间值的时候，$mid == (l+r)&gt;&gt; 1$<br>2.缩小范围是，$l = mid, r = mid-1$，取中间值的时候，$mid = (l+r+1)&gt;&gt;1$</p>
+<p>总结就是：答案在[l, r]内，<br>1.缩小范围时，$r = mid, l = mid+1$ 取中间值的时候，$mid == (l+r)&gt;&gt; 1$<br>2.缩小范围是，$l = mid, r = mid-1$，取中间值的时候，$mid = (l+r+1)&gt;&gt;1$</p>
 <p>这种方法的优点时，始终保持答案处于二分区间之内，二分结束的条件恰好在答案所处位置，并且还可以自然的处理无解的情况</p>
 <h3 id="实数范围的二分"><a href="#实数范围的二分" class="headerlink" title="实数范围的二分"></a>实数范围的二分</h3><p>实数域上的二分需要确定精度$eps$, 以$l+eps &lt; r$为循环条件。<br>一般需要保留$k$位小数时，取$eps = 10^{-(k+2)}$</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l+ eps &lt; r)&#123;</span><br><span class="line">	<span class="keyword">double</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(calc(mid)) r=mid; <span class="keyword">else</span> l = mid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//calc为mid的判定条件</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> epse = <span class="number">1</span>e-(<span class="number">2</span>+k); <span class="comment">//保留k位小数</span></span><br><span class="line"><span class="keyword">while</span>(r-l &gt; eps)&#123;</span><br><span class="line">	<span class="keyword">double</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(calc(mid)) r=mid; <span class="keyword">else</span> l = mid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//calc为mid的判定条件</span></span><br></pre></td></tr></table></figure>
 <p>假如精度不容易确定或者表示，就采用循环固定次数的二分方法，也是一种不错的策略。这种方法获得的精度通常比设置$eps$要高</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">	<span class="keyword">double</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(calc(mid)) r=mid; <span class="keyword">else</span> l = mid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="三分求单峰函数极值"><a href="#三分求单峰函数极值" class="headerlink" title="三分求单峰函数极值"></a>三分求单峰函数极值</h3><p>可用范围：<br>1.唯一极大值点，极大值左侧严格单调递增，右侧严格单调递减<br>2.唯一极小值点，极小值左侧严格单调递减，右侧严格单调递增</p>
-<p>以单峰函数为例，在函数上取 $l\le lmid &lt; rmid \le r$<br>如果$f(lmid) &lt; f(rmid)$， 则说明极大值点一定在$lmid$的右边，令$l = lmid$<br>如果$f(lmid) &gt; f(rmid)$， 则说明极小值点一定在$rmid$的左边,  令$r = rmid$<br>如果$f(lmid) = f(rmid)$， 由于严格单调性，$l = lmid$ 和 $r = rmid$皆可以</p>
+<p>以单峰函数为例，在函数上取 $l\le lmid &lt; rmid \le r$<br>如果$f(lmid) &lt; f(rmid)$， 则说明极大值点一定在$lmid$的右边，令$l = lmid$<br>如果$f(lmid) &gt; f(rmid)$， 则说明极小值点一定在$rmid$的左边,  令$r = rmid$<br>如果$f(lmid) = f(rmid)$， 由于严格单调性，$l = lmid$ 和 $r = rmid$皆可取</p>
 <p>如果取$lmid$ 和 $rmid$为三等分点，则问题规模每次减少1/3，如果取$lmid$和$rmid$ 在区间中点极其接近的地方，那么问题规模每次近似减少1/2<br>所以$f(n) = f(n/k) + \Theta(1)$， 根据主定理  $log_k^1 = d = 0$，  所以 复杂度为 $\Theta(n^d logn) = logn$</p>
-<h3 id="二分答案转判定"><a href="#二分答案转判定" class="headerlink" title="二分答案转判定"></a>二分答案转判定</h3><p>二分, 把求最优解的问题，转化为给定mid，判断是否存在可行方案使得评分达到mid的问题</p>
+<h3 id="二分答案转判定"><a href="#二分答案转判定" class="headerlink" title="二分答案转判定"></a>二分答案转判定</h3><p>判定问题比求解问题要简单<br>二分, 把求最优解的问题，转化为给定mid，判断是否存在可行方案使得评分达到mid的问题<br>答案需要有单调性，这是二分转化为判定的最常见最典型的特征之一</p>
 <p>EX.有N本书拍成一行，已知第$i$本书的厚度为$A_i$， 把它们分为连续的M组，使T最小化，T是厚度之和最大的一组的厚度</p>
 <p>根据最大值最小判断使用二分。把书划分为M组的方案作为定义域，T作为评分(值域), T越小，方案越优</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">valind</span><span class="params">(<span class="keyword">int</span> siez)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> group = <span class="number">1</span>, rest = szie;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;= n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(rest &gt;= a[i]) rest -= a[i]; <span class="comment">//剩下的空间足够放a[i]</span></span><br><span class="line">        <span class="keyword">else</span> group++, rest = size - a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> group &lt;= m;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   	<span class="keyword">int</span> l = <span class="number">0</span>, r = sum_of_ai;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">    	<span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;<span class="comment">//正数    </span></span><br><span class="line">        <span class="keyword">if</span>(valid(mid)) r= mid; <span class="keyword">else</span> l = mid+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; l &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="POJ-2018-最佳牛围栏"><a href="#POJ-2018-最佳牛围栏" class="headerlink" title="POJ 2018 最佳牛围栏"></a>POJ 2018 最佳牛围栏</h4>
       
 
       
@@ -363,7 +364,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x04-二分"><span class="toc-number">1.</span> <span class="toc-text">0x04 二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整数范围内的二分"><span class="toc-number">2.</span> <span class="toc-text">整数范围内的二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实数范围的二分"><span class="toc-number">3.</span> <span class="toc-text">实数范围的二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三分求单峰函数极值"><span class="toc-number">4.</span> <span class="toc-text">三分求单峰函数极值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分答案转判定"><span class="toc-number">5.</span> <span class="toc-text">二分答案转判定</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x04-二分"><span class="toc-number">1.</span> <span class="toc-text">0x04 二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整数范围内的二分"><span class="toc-number">2.</span> <span class="toc-text">整数范围内的二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实数范围的二分"><span class="toc-number">3.</span> <span class="toc-text">实数范围的二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三分求单峰函数极值"><span class="toc-number">4.</span> <span class="toc-text">三分求单峰函数极值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分答案转判定"><span class="toc-number">5.</span> <span class="toc-text">二分答案转判定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#POJ-2018-最佳牛围栏"><span class="toc-number">5.1.</span> <span class="toc-text">POJ 2018 最佳牛围栏</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
