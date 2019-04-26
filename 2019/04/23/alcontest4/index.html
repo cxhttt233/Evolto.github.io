@@ -9,7 +9,7 @@
   <title>算法竞赛进阶指南笔记(四) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="0x04 二分       据说，只有10%的程序员能够写对二分。包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。">
-<meta name="keywords" content="算法竞赛进阶指南,算法,笔记,刷题">
+<meta name="keywords" content="算法,笔记,算法竞赛进阶指南,刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法竞赛进阶指南笔记(四)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/23/alcontest4/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="0x04 二分       据说，只有10%的程序员能够写对二分。包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest4.jpg">
-<meta property="og:updated_time" content="2019-04-24T06:33:01.173Z">
+<meta property="og:updated_time" content="2019-04-26T12:20:22.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南笔记(四)">
 <meta name="twitter:description" content="0x04 二分       据说，只有10%的程序员能够写对二分。包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。">
@@ -187,9 +187,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/alcontest4.jpg" alt></p>
+        <p><img src="/img/alcontest4.jpg" width="75%" height="75%"></p>
 <h3 id="0x04-二分"><a href="#0x04-二分" class="headerlink" title="0x04 二分"></a>0x04 二分</h3> 
-    <div id="aplayer-somJKbcV" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="20744076" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+    <div id="aplayer-LseoMTDd" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="20744076" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
 <p>据说，只有10%的程序员能够写对二分。<br>包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。</p>
  <a id="more"></a>
 <h3 id="整数范围内的二分"><a href="#整数范围内的二分" class="headerlink" title="整数范围内的二分"></a>整数范围内的二分</h3><p>分为两个种类：在递增序列a中<br>寻找 $\ge x$的最小值（mid右边合法，左边不合法）：</p>
@@ -209,7 +209,8 @@
 <p>EX.有N本书拍成一行，已知第$i$本书的厚度为$A_i$， 把它们分为连续的M组，使T最小化，T是厚度之和最大的一组的厚度</p>
 <p>根据最大值最小判断使用二分。把书划分为M组的方案作为定义域，T作为评分(值域), T越小，方案越优</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">valind</span><span class="params">(<span class="keyword">int</span> siez)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> group = <span class="number">1</span>, rest = szie;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;= n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(rest &gt;= a[i]) rest -= a[i]; <span class="comment">//剩下的空间足够放a[i]</span></span><br><span class="line">        <span class="keyword">else</span> group++, rest = size - a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> group &lt;= m;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   	<span class="keyword">int</span> l = <span class="number">0</span>, r = sum_of_ai;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">    	<span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;<span class="comment">//正数    </span></span><br><span class="line">        <span class="keyword">if</span>(valid(mid)) r= mid; <span class="keyword">else</span> l = mid+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; l &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="POJ-2018-最佳牛围栏"><a href="#POJ-2018-最佳牛围栏" class="headerlink" title="POJ 2018 最佳牛围栏"></a>POJ 2018 最佳牛围栏</h4><h5 id="maximum-subarray"><a href="#maximum-subarray" class="headerlink" title="maximum subarray"></a>maximum subarray</h5><p>做这道题之前，先看了最大连续子串和的算法<br>&lt;<a href="https://leetcode-cn.com/submissions/detail/17616572/" target="_blank" rel="noopener">https://leetcode-cn.com/submissions/detail/17616572/</a>&gt;<br><a href="https://blog.csdn.net/weixin_41958153/article/details/81131379" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41958153/article/details/81131379</a></p>
+<h4 id="POJ-2018-最佳牛围栏"><a href="#POJ-2018-最佳牛围栏" class="headerlink" title="POJ 2018 最佳牛围栏"></a>POJ 2018 最佳牛围栏</h4><h5 id="maximum-subarray"><a href="#maximum-subarray" class="headerlink" title="maximum subarray"></a>maximum subarray</h5><p>做这道题之前，先看了最大连续子串和的算法 leetcode 53<br><a href="https://leetcode-cn.com/submissions/detail/17616572/" target="_blank" rel="noopener">https://leetcode-cn.com/submissions/detail/17616572/</a><br><a href="https://blog.csdn.net/weixin_41958153/article/details/81131379" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41958153/article/details/81131379</a></p>
+<p>//我们没有简单的办法直接求解出来平均值<br>//我们有简单的办法判断是否存在比某一个值大，且长度大于L的子段<br>//所以对平均值的范围进行二分，每一次二分进行判定，缩小范围，直到找到最后的答案<br>//二分的范围是牛的数量1-2000</p>
 
       
 
@@ -254,15 +255,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法竞赛进阶指南</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法竞赛进阶指南</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -335,6 +336,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/04/26/algorithm16/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          算法导论学习笔记(16)
+        
+      </div>
+    </a>
   
   
     <a href="/2019/04/23/fluentreading/" id="article-nav-older" class="article-nav-link-wrap">
@@ -539,7 +549,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,15 +561,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">

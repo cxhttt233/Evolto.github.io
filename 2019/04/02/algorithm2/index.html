@@ -9,7 +9,7 @@
   <title>算法导论学习笔记(二) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="第二讲是Divide and conquer。">
-<meta name="keywords" content="算法,笔记,算法导论,公开课">
+<meta name="keywords" content="算法导论,算法,笔记,公开课">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法导论学习笔记(二)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/02/algorithm2/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="第二讲是Divide and conquer。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm2.jpg">
-<meta property="og:updated_time" content="2019-04-10T02:30:04.989Z">
+<meta property="og:updated_time" content="2019-04-26T12:26:11.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(二)">
 <meta name="twitter:description" content="第二讲是Divide and conquer。">
@@ -184,7 +184,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/algorithm2.jpg" alt></p>
+        <p><img src="/img/algorithm2.jpg" width="40%" height="40%"></p>
 <p>第二讲是Divide and conquer。</p>
 <a id="more"></a>
 <h5 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h5><ol>
@@ -202,19 +202,19 @@
 </ol>
 <p><strong>Running Time:</strong></p>
 <p>$$ T(n) = 2T(n/2) + \Theta(n) $$</p>
-<p>根据master method， $ T(n) = O(nlgn) ​$</p>
+<p>根据master method， $ T(n) = O(nlgn) $</p>
 <blockquote>
 <p>Binary Search</p>
 </blockquote>
 <p><strong>Running Time:</strong></p>
-<p>$$ T(n) = T(n/2) + 1​$$</p>
+<p>$$ T(n) = T(n/2) + 1$$</p>
 <p>根据master method， $ T(n) = O(lgn)$</p>
 <blockquote>
 <p>power a number</p>
 </blockquote>
 <p>Naive algorithm:  $ x … x = x^n$</p>
-<p>Divide and conquer:$ x^n =\begin{cases} x^{n/2} * x^{n/2}  &amp;  if\ n\  is\  even \\ n^{(x-1)/2}  *   n^{(x-1)/2} * n &amp; if\ n\  is\ odd  \end{cases}  ​$</p>
-<p>so $ T(n) = T(n/2) + \Theta(1) = \Theta(lg n) ​$</p>
+<p>Divide and conquer:$ x^n =\begin{cases} x^{n/2} * x^{n/2}  &amp;  if\ n\  is\  even \\ n^{(x-1)/2}  *   n^{(x-1)/2} * n &amp; if\ n\  is\ odd  \end{cases}  $</p>
+<p>so $ T(n) = T(n/2) + \Theta(1) = \Theta(lg n) $</p>
 <blockquote>
 <p>Fibonacci numbers</p>
 </blockquote>
@@ -222,8 +222,8 @@
 <ol>
 <li>普通方法从n到1递归，是黄金比例的指数函数。</li>
 <li>自底向上，从F(1)算到F(n)， 复杂度Θ(n)</li>
-<li>根据fib数的性质，$ F(n) = round(\phi ^ n/\sqrt{ 5}) ​$， round函数表示取整函数，但是计算机表示小数为二进制近似，所以取整之后会有精度损失。</li>
-<li>利用矩阵乘法来表示fib，普通的矩阵直接乘，复杂度为Θ($ n^3 ​$), 但是用Strassen’s method，复杂度为Θ($ n^{log_2^7} ​$) </li>
+<li>根据fib数的性质，$ F(n) = round(\phi ^ n/\sqrt{ 5}) $， round函数表示取整函数，但是计算机表示小数为二进制近似，所以取整之后会有精度损失。</li>
+<li>利用矩阵乘法来表示fib，普通的矩阵直接乘，复杂度为Θ($ n^3 $), 但是用Strassen’s method，复杂度为Θ($ n^{log_2^7} $) </li>
 </ol>
 <blockquote>
 <p>VLSI layout problem </p>
@@ -275,15 +275,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -569,7 +569,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,15 +581,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">

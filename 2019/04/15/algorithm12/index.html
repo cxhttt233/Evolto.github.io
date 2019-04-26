@@ -9,7 +9,7 @@
   <title>算法导论学习笔记(12) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Skip List[pugh 1989]   动态的数据结构，简单的用于存储的表。存取便捷，随机化。其他的数据结构：treaps 树，红黑树，B树">
-<meta name="keywords" content="算法,笔记,算法导论,公开课">
+<meta name="keywords" content="算法导论,算法,笔记,公开课">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法导论学习笔记(12)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/15/algorithm12/index.html">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://evolto.xyz/img/algorithm12.3.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm12.4.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm12.5.png">
-<meta property="og:updated_time" content="2019-04-16T11:36:26.208Z">
+<meta property="og:updated_time" content="2019-04-26T12:27:30.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(12)">
 <meta name="twitter:description" content="Skip List[pugh 1989]   动态的数据结构，简单的用于存储的表。存取便捷，随机化。其他的数据结构：treaps 树，红黑树，B树">
@@ -188,7 +188,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/algorithm12.jpg" alt></p>
+        <p><img src="/img/algorithm12.jpg" width="75%" height="75%"></p>
 <h5 id="Skip-List"><a href="#Skip-List" class="headerlink" title="Skip List"></a>Skip List</h5><p>[pugh 1989]</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=528273475&auto=0&height=66"></iframe>
 
@@ -201,10 +201,10 @@
 <p><img src="\img\algorithm12.3.png" alt></p>
 <p>Search(x):<br>在L1向右走，直到即将走过。<br>向下进入L2<br>在L2向右走，直到找到x(或者&gt;x)</p>
 <h5 id="analysis：which-nodes-should-be-in-L1？"><a href="#analysis：which-nodes-should-be-in-L1？" class="headerlink" title="analysis：which nodes should be in L1？"></a>analysis：which nodes should be in L1？</h5><p>实际情况中，热门的车站在L1<br>这里我们考虑最差情况的表现性能<br>当L1中元素在L2中均匀分布为最佳方法<br>节点的数目是多少呢？</p>
-<p>$$ cost\ of\ search<br>\\  \approx |L_1|+|L_2|/|L_1|<br>\\  =|L_1| + n/|L_1|  ​$$</p>
+<p>$$ cost\ of\ search<br>\\  \approx |L_1|+|L_2|/|L_1|<br>\\  =|L_1| + n/|L_1|  $$</p>
 <p>所以取 L1 = $\sqrt{n}$, search cost is 2 $\sqrt{n}$</p>
 <p><img src="\img\algorithm12.4.png" alt></p>
-<p>For more Linked List<br>2 sorted lists ⇒ $2\sqrt{n}$<br>3 sorted lists ⇒ $3\sqrt[3]{n}$<br>k sorted lists ⇒$4\sqrt[4]{n}$<br>lg n sorted lists ⇒$lgn\sqrt[lg_2n]{n} = 2lgn\ \ \ \  (\because 2^{lg_2n} = n\ \ i.e.\ \sqrt[lg_2n]{n} = 2)​$</p>
+<p>For more Linked List<br>2 sorted lists ⇒ $2\sqrt{n}$<br>3 sorted lists ⇒ $3\sqrt[3]{n}$<br>k sorted lists ⇒$4\sqrt[4]{n}$<br>lg n sorted lists ⇒$lgn\sqrt[lg_2n]{n} = 2lgn\ \ \ \  (\because 2^{lg_2n} = n\ \ i.e.\ \sqrt[lg_2n]{n} = 2)$</p>
 <p><img src="\img\algorithm12.5.png" alt></p>
 <h5 id="skip-lists"><a href="#skip-lists" class="headerlink" title="skip lists"></a>skip lists</h5><p>Ideal skip list is <font color="#dd0000">lgn</font> linked list structure，形状就像 bst一样。<br>skip lists maintains roughly subject to insert and delete.<br>Invariant: 底部linked list 保存着所有的元素</p>
 <p>删除主要为delete and promote and so on.</p>
@@ -255,15 +255,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -549,7 +549,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,15 +561,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">

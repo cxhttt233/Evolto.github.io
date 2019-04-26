@@ -17,7 +17,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm7.jpg">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm7.2.png">
-<meta property="og:updated_time" content="2019-04-06T12:24:51.660Z">
+<meta property="og:updated_time" content="2019-04-26T12:26:46.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(七)">
 <meta name="twitter:description" content="赛博朋克：高科技，低生活赛博朋克最吸引人的一点, 就是在高度发展的科学技术下，错综城市和混乱群居中那温暖的人性和人情关系。银翼杀手里面的这种特质很明显，在科技高度的发展的混乱社会，有摩天大楼，有热闹的东方集市，还有大广告牌上浮现的日本模特，也有贫民窟，也有犯罪和死亡。">
@@ -184,7 +184,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/algorithm7.jpg" alt></p>
+        <p><img src="/img/algorithm7.jpg" width="75%" height="75%"></p>
 <h3 id="赛博朋克：高科技，低生活"><a href="#赛博朋克：高科技，低生活" class="headerlink" title="赛博朋克：高科技，低生活"></a>赛博朋克：高科技，低生活</h3><p>赛博朋克最吸引人的一点, 就是在高度发展的科学技术下，错综城市和混乱群居中那温暖的人性和人情关系。银翼杀手里面的这种特质很明显，在科技高度的发展的混乱社会，有摩天大楼，有热闹的东方集市，还有大广告牌上浮现的日本模特，也有贫民窟，也有犯罪和死亡。</p>
 <a id="more"></a>
 <p>听朴树的《New Boy》的时候，里面有歌词“新世纪来的像梦一场，让我暖洋洋”，“以后的路不再会有痛苦，我们的未来该有多酷”。这种世纪之交的愿望是单纯的，21世纪，仍旧有着苦难，痛苦，战乱，疾病的存在。科技并不能完全解决这些问题，归根到底，还是社会和文化，以及人性的因素。</p>
@@ -197,7 +197,7 @@
 <h5 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h5><p>操作：插入，删除，查找<br>直接存取table： 每个元素要不同，keys要在0…n-1的范围之内<br>在array[0…n-1]中，用keys 当索引，直接存到内存中。<br>operation：$\Theta(1)$ time</p>
 <h3 id="Hashing："><a href="#Hashing：" class="headerlink" title="Hashing："></a>Hashing：</h3><p>Hash fun 随机将键映射到table 的slot中<br>当一个记录被插入到已经有记录的slot中，collsion就发生了</p>
 <h4 id="Resolving-collisions-by-chaining"><a href="#Resolving-collisions-by-chaining" class="headerlink" title="Resolving collisions by chaining"></a>Resolving collisions by chaining</h4><p>用链表把冲突项连接起来。<br>Ex:<br><img src="/img/algorithm7.2.png" alt></p>
-<h5 id="worst-case"><a href="#worst-case" class="headerlink" title="worst case"></a>worst case</h5><p>所有的键映射到同一个槽中<br>access time $\Theta(n)​$ if length of S is n</p>
+<h5 id="worst-case"><a href="#worst-case" class="headerlink" title="worst case"></a>worst case</h5><p>所有的键映射到同一个槽中<br>access time $\Theta(n)$ if length of S is n</p>
 <h5 id="average-case"><a href="#average-case" class="headerlink" title="average case"></a>average case</h5><p>Assumption of simple uniform hashing: mapping equally from keys to slot and indep of other keys<br>假设有n个keys, m个slot，平均插入的概率就是  α = n/m<br>$\therefore E(T) = \Theta(1+\alpha)$, in which 1 is time of hashing and accessing slot, α is time of searching the list.<br>only when $ n=O(m), \ α=O(1),\  E(T) = Θ(1) $</p>
 <h4 id="choosing-a-hashing-function"><a href="#choosing-a-hashing-function" class="headerlink" title="choosing a hashing function"></a>choosing a hashing function</h4><ol>
 <li>should distribute keys uniformly into slots.</li>
@@ -216,7 +216,7 @@
 <p>Don’t pick A too close to  2的幂<br>上述计算在计算机中比除法哈希要快</p>
 <h4 id="Resolving-collisions-by-open-addressing"><a href="#Resolving-collisions-by-open-addressing" class="headerlink" title="Resolving collisions by open addressing"></a>Resolving collisions by open addressing</h4><p>当进行探查时发现已经有冲突了，就寻找下一个可用的地方<br>不需要存储链表，这个方法将会把全域的key一个一个映射到slot中<br>keys 数量少于 slots 数量<br>希望这些key在slot中随机排列<br>删除操作在开址法中很困难，因为删除会导致搜索时发现不一样继续搜索的情况变成发现为空</p>
 <p>搜索操作：<br>当发现key时，返回结果<br>key不一样继续探查<br>发现为空，返回nil</p>
-<h5 id="探测策略："><a href="#探测策略：" class="headerlink" title="探测策略："></a>探测策略：</h5><p>linear $h(k, i) = (h(k, 0)+i)\ \ mod\ \ m​$<br>但是会发生群集现象(clustering)<br>一次群集(primary clustering)表示哈希表的一段的槽都被占满，每次探测到这一段，都需要把每一个槽都探查一遍，并且被填满的槽会越来越长。</p>
+<h5 id="探测策略："><a href="#探测策略：" class="headerlink" title="探测策略："></a>探测策略：</h5><p>linear $h(k, i) = (h(k, 0)+i)\ \ mod\ \ m$<br>但是会发生群集现象(clustering)<br>一次群集(primary clustering)表示哈希表的一段的槽都被占满，每次探测到这一段，都需要把每一个槽都探查一遍，并且被填满的槽会越来越长。</p>
 <p>double hashing：<br>$h(k, i) = (h_1(k)+i* h_2(k))$ mod m<br>这是一个excellent method<br>usually we pick $m=2^r$ and $h_2(k)$ odd </p>
 <h5 id="analysis-of-open-addressing"><a href="#analysis-of-open-addressing" class="headerlink" title="analysis of open addressing"></a>analysis of open addressing</h5><p>假设：<br>为简单均匀哈希，所有键均等的有m！种探查序列，每个键探查序列与其他键独立<br>那么，<br>$E(probe) \leq 1/(1-\alpha), \ \ \ \ if \ \alpha\lt 1,\ \ \ i.e.\ n&lt;m$<br>$Proof: uncessful\ probe$<br>$1st$ probe: $n/m$ collsion<br>$2nd$ probe: $(n-1)/(m-1)$<br>$ith$ probe: $(n-i)/(m-i)$<br>note that  $(n-i)/(m-i)&lt;n/m =\alpha, \ \ \ \ for\ i=1…m-1$</p>
 <p>因此<br>$$<br>\begin{aligned}<br>E[probe] &amp;= 1+n/m(1+(n-1)/(m-1)*(…(1+1/(m-n))))\\<br>&amp;\le 1+\alpha(1+\alpha(…(1+\alpha)))\\<br>&amp;\le 1+ \alpha + \alpha^2+….+\alpha^n\\<br>&amp;= \Sigma^ \infty_{i=0}\alpha^i\\<br>&amp;=1/(1-\alpha)<br>\end{aligned}<br>$$<br>α 为装载因子，是一个常数<br>当α&lt;1时，结果为O(1)<br>当α = 50％, 平均需要2次探查<br>当α = 90％，平均需要10次探查<br>随着哈希表密度的增大，探查时间将会急剧增加，因此不需要太稠密的哈希表</p>
@@ -535,7 +535,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,15 +547,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">

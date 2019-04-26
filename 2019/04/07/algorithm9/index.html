@@ -9,7 +9,7 @@
   <title>算法导论学习笔记(九) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="binary search tree这一节主要内容是binary search tree 乌合之众《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。   代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群">
-<meta name="keywords" content="算法,笔记,算法导论,公开课">
+<meta name="keywords" content="算法导论,算法,笔记,公开课">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法导论学习笔记(九)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/07/algorithm9/index.html">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://evolto.xyz/img/algorithm9.4.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm9.5.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm9.6.png">
-<meta property="og:updated_time" content="2019-04-08T11:52:59.628Z">
+<meta property="og:updated_time" content="2019-04-26T12:27:05.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(九)">
 <meta name="twitter:description" content="binary search tree这一节主要内容是binary search tree 乌合之众《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。   代表善良和纯真的美树以一种残忍非人道的方式被人类本身所毁灭。整个恶魔人到第九集已经将人类的猜疑，不信任，狂热，不理智，冲动，毁灭欲——人类的恶刻画的很生动。这很符合《乌合之众》中，对群体理智和活动倾向的形容，群">
@@ -189,7 +189,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/algorithm9.jpg" alt></p>
+        <p><img src="/img/algorithm9.jpg" width="75%" height="75%"></p>
 <h3 id="binary-search-tree"><a href="#binary-search-tree" class="headerlink" title="binary search tree"></a>binary search tree</h3><p>这一节主要内容是binary search tree</p>
 <h3 id="乌合之众"><a href="#乌合之众" class="headerlink" title="乌合之众"></a>乌合之众</h3><p>《恶魔人crybaby》第九集的牧村美树之死，令人不适。看了之后一晚上心情都有点差。</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=4888325&auto=0&height=66"></iframe>
@@ -232,7 +232,7 @@
 <p>中序遍历：123456<br>time:O(n) for the walk,  Ω(n) for the insert<br>当树最平衡的时候，构建花费的时间最短，为O(nlgn)<br>当输入元素完全有序的状态下，构建花的时间最长，为$\Sigma_{x\in T}depth(x) = O(n^2)$</p>
 <h5 id="the-relation-to-quicksort"><a href="#the-relation-to-quicksort" class="headerlink" title="the relation to quicksort"></a>the relation to quicksort</h5><p>bst and quicksort make same comparision in different order.<br><img src="\img\algorithm9.6.png" alt></p>
 <h5 id="randomized-bst"><a href="#randomized-bst" class="headerlink" title="randomized bst"></a>randomized bst</h5><p>1 randomized permute A<br>2 call BST_sort(A)<br>E(BST_sort) = E(quicksort) = nlgn</p>
-<h5 id="randomly-built-BST"><a href="#randomly-built-BST" class="headerlink" title="randomly built BST:"></a>randomly built BST:</h5><p>the tree resulting from rand Bst sort<br>Time(BST sort) = $\Sigma_{x\in T}depth(x)$<br>$E(\Sigma_{x\in T}depth(x)/n) = nlgn/n = lgn​$<br>所以随机二叉搜索树的平均深度为lgn，但是树的高度由最大深度决定</p>
+<h5 id="randomly-built-BST"><a href="#randomly-built-BST" class="headerlink" title="randomly built BST:"></a>randomly built BST:</h5><p>the tree resulting from rand Bst sort<br>Time(BST sort) = $\Sigma_{x\in T}depth(x)$<br>$E(\Sigma_{x\in T}depth(x)/n) = nlgn/n = lgn$<br>所以随机二叉搜索树的平均深度为lgn，但是树的高度由最大深度决定</p>
 <p>E(average height) = lgn</p>
 <p>证明就略了，一节公开课70多分钟，50分钟的证明，顶不住，看了看书上的证明，就不整理了。</p>
 
@@ -279,15 +279,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -573,7 +573,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -585,15 +585,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">

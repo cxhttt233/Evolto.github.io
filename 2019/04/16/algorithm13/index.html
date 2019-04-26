@@ -9,7 +9,7 @@
   <title>算法导论学习笔记(13) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Amortized Analysis分摊时间复杂度：aggregate analysis， accounting method， potential method   时间过得好快。">
-<meta name="keywords" content="算法,笔记,算法导论,公开课">
+<meta name="keywords" content="算法导论,算法,笔记,公开课">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法导论学习笔记(13)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/16/algorithm13/index.html">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://evolto.xyz/img/algorithm13.jpg">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm13.2.png">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm13.3.png">
-<meta property="og:updated_time" content="2019-04-20T05:51:14.658Z">
+<meta property="og:updated_time" content="2019-04-26T12:27:38.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(13)">
 <meta name="twitter:description" content="Amortized Analysis分摊时间复杂度：aggregate analysis， accounting method， potential method   时间过得好快。">
@@ -186,7 +186,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="\img\algorithm13.jpg" alt></p>
+        <p><img src="/img/algorithm13.jpg" width="75%" height="75%"></p>
 <h3 id="Amortized-Analysis"><a href="#Amortized-Analysis" class="headerlink" title="Amortized Analysis"></a>Amortized Analysis</h3><p>分摊时间复杂度：aggregate analysis， accounting method， potential method</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="530" height="86" src="//music.163.com/outchain/player?type=2&id=529662114&auto=0&height=66"></iframe>
 
@@ -196,9 +196,9 @@
 <p>如果我们实现不知道n的大小呢？<br>Solution：动态表<br>IDEA：当哈希表要溢出的时候，我们增加它的空间<br>1.Allocate a double large table<br>2.Move item from old table to new table.<br>3.Free old table</p>
 <p>EX:</p>
 <p><img src="\img\algorithm13.2.png" alt></p>
-<h5 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis:"></a>Analysis:</h5><p>Seq of n Insert ops.<br>w.c. (worst case)cost of 1 item insert: $\Theta(n)​$ (move element to new table)</p>
-<p>so w.c. cost of n item insert: $\Theta(n^2)​$ ?<br>wrong. n item insert in fact take $\Theta(n)​$ time</p>
-<p>Let $c_i = $ the cost of $ith$ insertion<br>      $= \begin{cases} i &amp; \text{if i-1 is an exact power of 2} \\ 1 &amp; otherwise \end{cases}​$</p>
+<h5 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis:"></a>Analysis:</h5><p>Seq of n Insert ops.<br>w.c. (worst case)cost of 1 item insert: $\Theta(n)$ (move element to new table)</p>
+<p>so w.c. cost of n item insert: $\Theta(n^2)$ ?<br>wrong. n item insert in fact take $\Theta(n)$ time</p>
+<p>Let $c_i = $ the cost of $ith$ insertion<br>      $= \begin{cases} i &amp; \text{if i-1 is an exact power of 2} \\ 1 &amp; otherwise \end{cases}$</p>
 <table>
 <thead>
 <tr>
@@ -244,14 +244,14 @@
 </tr>
 </tbody>
 </table>
-<p>$\therefore​$  Cost of n insertion = $\Sigma_{i=1}^n c_i \le n +\Sigma_{j=0}^{\lfloor lg(n-1)\rfloor} 2^j \le 3n = \Theta(n)​$<br>分摊到每次操作上为$\Theta(1)​$</p>
+<p>$\therefore$  Cost of n insertion = $\Sigma_{i=1}^n c_i \le n +\Sigma_{j=0}^{\lfloor lg(n-1)\rfloor} 2^j \le 3n = \Theta(n)$<br>分摊到每次操作上为$\Theta(1)$</p>
 <h3 id="Amortized-analysis"><a href="#Amortized-analysis" class="headerlink" title="Amortized analysis"></a>Amortized analysis</h3><p>分析操作序列来表示分摊到每一个操作中的cost 是小的<br>均摊分析不考虑概率，考虑每一个操作的w.c. cost</p>
 <p>Amortized analysis 包括aggregate analysis， accounting method， potential method<br>后两种方法更加精确，考虑到每一次操作的cost</p>
 <h5 id="Accounting-method"><a href="#Accounting-method" class="headerlink" title="Accounting method"></a>Accounting method</h5><p>Charge ith op a fictitious(虚构的) amortized cost $\hat c_i$,  and pay 1 \$ for unit of work.<br>消耗费用来执行op，多的费用存到bank中，为以后的op使用<br>余额不能为负值， 并且必须保证 $\Sigma_{i=1}^n c_i \le \Sigma_{i=1}^n \hat c_i$ for all n， 给实际费用一个上界</p>
 <blockquote>
 <p>以动态表为例：</p>
 </blockquote>
-<p>charge $\hat c_i = \$3​$ for ith insertion<br>\$ 1 pays for insertion<br>\$ 2 stored for table doubling</p>
+<p>charge $\hat c_i = \$3$ for ith insertion<br>\$ 1 pays for insertion<br>\$ 2 stored for table doubling</p>
 <p><img src="\img\algorithm13.3.png" alt></p>
 <p>when  table doubles, \$ 1 for moving recent items, \$ 1 for moving old items.</p>
 <table>
@@ -330,12 +330,12 @@
 <blockquote>
 <p>Framework: </p>
 </blockquote>
-<p>start with $D_0​$<br>op i transform $D_{i-1}​$ to $D_i​$<br>cost of ith op is $c_i​$<br>potential function $\Phi:\{D_i\} \rightarrow R​$,  such that  $\Phi (D_0) = 0​$ and $\Phi (D_i)​$ for all i<br>amortized cost $\hat c_i​$ with respect to $\Phi​$ is defined to be $\hat c_i = c_i + \Phi(D_i) -\Phi(D_{i-1})​$<br>$\Delta \Phi _i = \Phi(D_i) -\Phi(D_{i-1})​$<br>if $\Delta \Phi _i &gt; 0​$ then $\hat c_i &gt; c_i​$ op i store energy for later use<br>if $\Delta \Phi _i &lt; 0​$ then $\hat c_i &lt; c_i​$ data structure deliver energy for op i</p>
-<p>Then total amortized cost of n op is<br>$$\Sigma_{i=1}^n \hat c_i = \Sigma_{i=1}^n (c_i + \Phi(D_i) - \Phi(D_{i-1}))\\<br>= \Sigma _{i-1}^n +\Phi (D_n) - \Phi(D_0)\\<br>\gt \Sigma_{i=1}^n c_i​$$ </p>
-<p>since $\Phi (D_n) \ge 0 ​$ and $\Phi(D_0) = 0​$</p>
-<p>由 $\Phi (D_n) \ge 0 ​$ and $\Phi(D_0) = 0 ​$定义<br>$\Phi (D_i) = 2i - 2^{\lceil lgi\rceil}​$ assume $2^{\lceil lg0\rceil} = 0​$</p>
-<p>计算Amortized cost：<br>$\hat c_{i}=c_{i}+\Phi\left(D_{i}\right)-\Phi\left(D_{i-1}\right)​$<br>=$\left \{\begin{array}{l}{i \text { if } i-1 \text { is an exact power of } 2,} \\ {1 \text { otherwise }}\end{array}\right \}​$ $+\left(2 i-2^{ \lceil \lg i \rceil )}-\left(2(i-1)-2^{[\lg (i-1)\rceil }\right)\right.​$<br>= $\left \{\begin{array}{l}{i \text { if } i-1 \text { is an exact power of } 2,} \\ {1 \text { otherwise }}\end{array}\right \}​$ $+2-2^{\lceil\lg i\rceil}+2^{\lceil\lg (i-1)\rceil}​$</p>
-<p>当 $i - 1​$是2的幂的时候<br>$\hat {c}_{i}=i+2-2^{\lceil\lg i\rceil}+2^{\lceil\lg (i-1)\rceil}​$<br>$=i+2-2(i-1)+(i-1)​$<br>$=i+2-2 i+2+i-1​$<br>$=3​$ </p>
+<p>start with $D_0$<br>op i transform $D_{i-1}$ to $D_i$<br>cost of ith op is $c_i$<br>potential function $\Phi:\{D_i\} \rightarrow R$,  such that  $\Phi (D_0) = 0$ and $\Phi (D_i)$ for all i<br>amortized cost $\hat c_i$ with respect to $\Phi$ is defined to be $\hat c_i = c_i + \Phi(D_i) -\Phi(D_{i-1})$<br>$\Delta \Phi _i = \Phi(D_i) -\Phi(D_{i-1})$<br>if $\Delta \Phi _i &gt; 0$ then $\hat c_i &gt; c_i$ op i store energy for later use<br>if $\Delta \Phi _i &lt; 0$ then $\hat c_i &lt; c_i$ data structure deliver energy for op i</p>
+<p>Then total amortized cost of n op is<br>$$\Sigma_{i=1}^n \hat c_i = \Sigma_{i=1}^n (c_i + \Phi(D_i) - \Phi(D_{i-1}))\\<br>= \Sigma _{i-1}^n +\Phi (D_n) - \Phi(D_0)\\<br>\gt \Sigma_{i=1}^n c_i$$ </p>
+<p>since $\Phi (D_n) \ge 0 $ and $\Phi(D_0) = 0$</p>
+<p>由 $\Phi (D_n) \ge 0 $ and $\Phi(D_0) = 0 $定义<br>$\Phi (D_i) = 2i - 2^{\lceil lgi\rceil}$ assume $2^{\lceil lg0\rceil} = 0$</p>
+<p>计算Amortized cost：<br>$\hat c_{i}=c_{i}+\Phi\left(D_{i}\right)-\Phi\left(D_{i-1}\right)$<br>=$\left \{\begin{array}{l}{i \text { if } i-1 \text { is an exact power of } 2,} \\ {1 \text { otherwise }}\end{array}\right \}$ $+\left(2 i-2^{ \lceil \lg i \rceil )}-\left(2(i-1)-2^{[\lg (i-1)\rceil }\right)\right.$<br>= $\left \{\begin{array}{l}{i \text { if } i-1 \text { is an exact power of } 2,} \\ {1 \text { otherwise }}\end{array}\right \}$ $+2-2^{\lceil\lg i\rceil}+2^{\lceil\lg (i-1)\rceil}$</p>
+<p>当 $i - 1$是2的幂的时候<br>$\hat {c}_{i}=i+2-2^{\lceil\lg i\rceil}+2^{\lceil\lg (i-1)\rceil}$<br>$=i+2-2(i-1)+(i-1)$<br>$=i+2-2 i+2+i-1$<br>$=3$ </p>
 <p>当 $i-1$不是2的幂的时候<br>$\hat c_i=1+2-2^{ \lceil \lg i \rceil }+2^{[ \lg (i-1) \rceil}$<br>$\because $   $2^{\lceil\lg i\rceil}=2^{\lceil\lg (i-1)\rceil}$<br>所以 $ \hat  c_i=3$</p>
 <p>所以每次的均摊cost为3</p>
 
@@ -382,15 +382,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法导论</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -676,7 +676,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,15 +688,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">
