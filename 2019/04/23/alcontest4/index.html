@@ -9,7 +9,7 @@
   <title>算法竞赛进阶指南笔记(四) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="0x04 二分       据说，只有10%的程序员能够写对二分。包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。">
-<meta name="keywords" content="算法,笔记,算法竞赛进阶指南,刷题">
+<meta name="keywords" content="算法竞赛进阶指南,算法,笔记,刷题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法竞赛进阶指南笔记(四)">
 <meta property="og:url" content="https://evolto.xyz/2019/04/23/alcontest4/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="0x04 二分       据说，只有10%的程序员能够写对二分。包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest4.jpg">
-<meta property="og:updated_time" content="2019-04-27T08:59:55.542Z">
+<meta property="og:updated_time" content="2019-04-27T14:09:49.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南笔记(四)">
 <meta name="twitter:description" content="0x04 二分       据说，只有10%的程序员能够写对二分。包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。">
@@ -189,7 +189,7 @@
       
         <p><img src="/img/alcontest4.jpg"></p>
 <h3 id="0x04-二分"><a href="#0x04-二分" class="headerlink" title="0x04 二分"></a>0x04 二分</h3> 
-    <div id="aplayer-hEtoIOUQ" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="20744076" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+    <div id="aplayer-FZmnWpyE" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="20744076" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
 <p>据说，只有10%的程序员能够写对二分。<br>包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。</p>
  <a id="more"></a>
 <h3 id="整数范围内的二分"><a href="#整数范围内的二分" class="headerlink" title="整数范围内的二分"></a>整数范围内的二分</h3><p>分为两个种类：在递增序列a中<br>寻找 $\ge x$的最小值（mid右边合法，左边不合法）：</p>
@@ -210,7 +210,13 @@
 <p>根据最大值最小判断使用二分。把书划分为M组的方案作为定义域，T作为评分(值域), T越小，方案越优</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">valind</span><span class="params">(<span class="keyword">int</span> siez)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> group = <span class="number">1</span>, rest = szie;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;= n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(rest &gt;= a[i]) rest -= a[i]; <span class="comment">//剩下的空间足够放a[i]</span></span><br><span class="line">        <span class="keyword">else</span> group++, rest = size - a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> group &lt;= m;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   	<span class="keyword">int</span> l = <span class="number">0</span>, r = sum_of_ai;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">    	<span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;<span class="comment">//正数    </span></span><br><span class="line">        <span class="keyword">if</span>(valid(mid)) r= mid; <span class="keyword">else</span> l = mid+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; l &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="POJ-2018-最佳牛围栏"><a href="#POJ-2018-最佳牛围栏" class="headerlink" title="POJ 2018 最佳牛围栏"></a>POJ 2018 最佳牛围栏</h4><h5 id="maximum-subarray"><a href="#maximum-subarray" class="headerlink" title="maximum subarray"></a>maximum subarray</h5><p>做这道题之前，先看了最大连续子串和的算法 leetcode 53<br><a href="https://leetcode-cn.com/submissions/detail/17616572/" target="_blank" rel="noopener">https://leetcode-cn.com/submissions/detail/17616572/</a><br><a href="https://blog.csdn.net/weixin_41958153/article/details/81131379" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41958153/article/details/81131379</a></p>
-<p>//我们没有简单的办法直接求解出来平均值<br>//我们有简单的办法判断是否存在比某一个值大，且长度大于L的子段<br>//所以对平均值的范围进行二分，每一次二分进行判定，缩小范围，直到找到最后的答案<br>//二分的范围是牛的数量1-2000</p>
+<h5 id="最佳牛围栏"><a href="#最佳牛围栏" class="headerlink" title="最佳牛围栏"></a>最佳牛围栏</h5><p>题目链接 <a href="https://www.acwing.com/problem/content/104/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/104/</a></p>
+<p>思路：肯定是二分。 为什么这道题可以用二分呢？<br>因为是求解平均值的大小，而平均值是有$1\le average\le 2000$的范围的，因此对这个范围进行二分得到mid。然后判断是否存在平均值比mid大，长度大于L的子段，从而将一个求解问题转化为了判定问题。</p>
+<p>那么如何判断存不存在平均值比mid大，长度大于L的子段呢？ 为了简化操作，我们对数组的每一个值减去mid，这样问题就变成了存不存在一个和大于零，长度大于L的子段。也就是说，长度大于L的最大子段和大于零。</p>
+<p>没有长度限制的最大子段和算法在上面maximum subarray。 加上长度限制我们就需要利用前缀和，也就是$$\max_{i-j \geq L} \left\{A_{j+1}+A_{j+2}+\cdots+A_{i}\right\}=\max_{L S i s n}\left\{s u m_{i}-\min_{0 \leq j \leq i-L}\left\{s u m_{j}\right\}\right\}$$</p>
+<p>我们只需要对j从L到N循环，每次用sum[i]更新当前最小的前缀和，然后判断当前的sum[j]是否大于最小前缀和，如果是，则说明存在大于0的子序列，如果j循环完毕没有出现，则说明不存在</p>
+<p>源代码：<a href="https://www.acwing.com/activity/content/code/content/34696/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/34696/</a></p>
+<h3 id="二分插入排序"><a href="#二分插入排序" class="headerlink" title="二分插入排序"></a>二分插入排序</h3><p><a href="https://baike.baidu.com/item/二分法插入排序" target="_blank" rel="noopener">https://baike.baidu.com/item/二分法插入排序</a></p>
 
       
 
@@ -255,15 +261,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法竞赛进阶指南</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">算法竞赛进阶指南</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -375,7 +381,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x04-二分"><span class="toc-number">1.</span> <span class="toc-text">0x04 二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整数范围内的二分"><span class="toc-number">2.</span> <span class="toc-text">整数范围内的二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实数范围的二分"><span class="toc-number">3.</span> <span class="toc-text">实数范围的二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三分求单峰函数极值"><span class="toc-number">4.</span> <span class="toc-text">三分求单峰函数极值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分答案转判定"><span class="toc-number">5.</span> <span class="toc-text">二分答案转判定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#POJ-2018-最佳牛围栏"><span class="toc-number">5.1.</span> <span class="toc-text">POJ 2018 最佳牛围栏</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#maximum-subarray"><span class="toc-number">5.1.1.</span> <span class="toc-text">maximum subarray</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x04-二分"><span class="toc-number">1.</span> <span class="toc-text">0x04 二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整数范围内的二分"><span class="toc-number">2.</span> <span class="toc-text">整数范围内的二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实数范围的二分"><span class="toc-number">3.</span> <span class="toc-text">实数范围的二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三分求单峰函数极值"><span class="toc-number">4.</span> <span class="toc-text">三分求单峰函数极值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分答案转判定"><span class="toc-number">5.</span> <span class="toc-text">二分答案转判定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#POJ-2018-最佳牛围栏"><span class="toc-number">5.1.</span> <span class="toc-text">POJ 2018 最佳牛围栏</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#maximum-subarray"><span class="toc-number">5.1.1.</span> <span class="toc-text">maximum subarray</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#最佳牛围栏"><span class="toc-number">5.1.2.</span> <span class="toc-text">最佳牛围栏</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分插入排序"><span class="toc-number">6.</span> <span class="toc-text">二分插入排序</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -549,7 +555,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
+                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,15 +567,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法导论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">公开课</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">算法竞赛进阶指南</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,18 +588,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心情</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">流利阅读</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">英语</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -602,6 +600,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tips</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">流利阅读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">英语</a>
               </li>
             
             <div class="clearfix"></div>
