@@ -16,7 +16,7 @@
 <meta property="og:description" content="贪心算法贪心算法的适用范畴是动态规划的子集，适用于某些具有特征的场景。        最近你好吗，少了一点微笑说的话有点少最近我也不好，全世界都在逆转人开始反向思考">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/algorithm16.png">
-<meta property="og:updated_time" content="2019-04-26T12:18:49.503Z">
+<meta property="og:updated_time" content="2019-04-27T09:00:41.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法导论学习笔记(16)">
 <meta name="twitter:description" content="贪心算法贪心算法的适用范畴是动态规划的子集，适用于某些具有特征的场景。        最近你好吗，少了一点微笑说的话有点少最近我也不好，全世界都在逆转人开始反向思考">
@@ -186,13 +186,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/algorithm16.png" width="75%" height="75%"></p>
+        <p><img src="/img/algorithm16.png"></p>
 <h3 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h3><p>贪心算法的适用范畴是动态规划的子集，适用于某些具有特征的场景。</p>
  
-    <div id="aplayer-VxwuJFjO" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="108406" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+    <div id="aplayer-JeyAwEjm" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="108406" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
 <p>最近你好吗，少了一点微笑<br>说的话有点少<br>最近我也不好，全世界都在逆转<br>人开始反向思考</p>
  <a id="more"></a>
-<p>Graph</p>
+<h5 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h5><p>directed graph = digraph = G(V, E)<br>V是点的集合，E是边的集合<br>E $\subset$ V x V</p>
+<p>无向图中，G=(V, E)， E 包含了无序的顶点对</p>
+<p>无论是有向图还是无向图，$ |E| = O(V^2)$<br>如果G是一个连通图，则$|E| \ge |V|-1$<br>根据上面两式可得，当G是连通图时，$\lg |E|=\Theta(\lg V)$</p>
+<p>图的表示方法有两种，邻接矩阵的方式和邻接表的方式表示。<br>对于邻接矩阵，<br>$A[i, j]=\left\{\begin{array}{ll}{1} &amp; {\text { if }(i, j) \in \mathrm{E}} \\ {0} &amp; {\text { if }(i, j) \notin \mathrm{E}}\end{array}\right.$<br>对于邻接表<br>有向图：$|Adj[v]|=\operatorname{degree}(v) $<br>无向图：$|A d j[v]|=$ out-degree $(v) $</p>
+<p>握手定理: </p>
 
       
 
@@ -325,7 +329,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#贪心算法"><span class="toc-number">1.</span> <span class="toc-text">贪心算法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#贪心算法"><span class="toc-number">1.</span> <span class="toc-text">贪心算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Graph"><span class="toc-number">1.0.1.</span> <span class="toc-text">Graph</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
