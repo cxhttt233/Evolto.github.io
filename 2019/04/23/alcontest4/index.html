@@ -17,7 +17,7 @@
 <meta property="og:description" content="0x04 二分       据说，只有10%的程序员能够写对二分。包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest4.jpg">
-<meta property="og:updated_time" content="2019-04-27T14:09:49.030Z">
+<meta property="og:updated_time" content="2019-04-27T14:23:09.711Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南笔记(四)">
 <meta name="twitter:description" content="0x04 二分       据说，只有10%的程序员能够写对二分。包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。">
@@ -189,7 +189,7 @@
       
         <p><img src="/img/alcontest4.jpg"></p>
 <h3 id="0x04-二分"><a href="#0x04-二分" class="headerlink" title="0x04 二分"></a>0x04 二分</h3> 
-    <div id="aplayer-FZmnWpyE" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="20744076" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+    <div id="aplayer-YYKHOusD" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="20744076" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
 <p>据说，只有10%的程序员能够写对二分。<br>包括整数范围内的二分和实数范围内的二分。整数范围内二分需要注意左右区间，边界的开闭情况，避免漏掉答案造成死循环。而实数范围内的二分则需要注意精度问题。</p>
  <a id="more"></a>
 <h3 id="整数范围内的二分"><a href="#整数范围内的二分" class="headerlink" title="整数范围内的二分"></a>整数范围内的二分</h3><p>分为两个种类：在递增序列a中<br>寻找 $\ge x$的最小值（mid右边合法，左边不合法）：</p>
@@ -215,6 +215,7 @@
 <p>那么如何判断存不存在平均值比mid大，长度大于L的子段呢？ 为了简化操作，我们对数组的每一个值减去mid，这样问题就变成了存不存在一个和大于零，长度大于L的子段。也就是说，长度大于L的最大子段和大于零。</p>
 <p>没有长度限制的最大子段和算法在上面maximum subarray。 加上长度限制我们就需要利用前缀和，也就是$$\max_{i-j \geq L} \left\{A_{j+1}+A_{j+2}+\cdots+A_{i}\right\}=\max_{L S i s n}\left\{s u m_{i}-\min_{0 \leq j \leq i-L}\left\{s u m_{j}\right\}\right\}$$</p>
 <p>我们只需要对j从L到N循环，每次用sum[i]更新当前最小的前缀和，然后判断当前的sum[j]是否大于最小前缀和，如果是，则说明存在大于0的子序列，如果j循环完毕没有出现，则说明不存在</p>
+<p>此外 1.这个问题用的是实数的二分 2.因为前缀和，所以我数组是从1开始，避免边界问题，结果memcpy的时候写的是memcpy(N+1), 卡了好久的bug，最悲惨的是最后发现不用memcpy，直接用A数组参与计算B数组就好了。</p>
 <p>源代码：<a href="https://www.acwing.com/activity/content/code/content/34696/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/34696/</a></p>
 <h3 id="二分插入排序"><a href="#二分插入排序" class="headerlink" title="二分插入排序"></a>二分插入排序</h3><p><a href="https://baike.baidu.com/item/二分法插入排序" target="_blank" rel="noopener">https://baike.baidu.com/item/二分法插入排序</a></p>
 
