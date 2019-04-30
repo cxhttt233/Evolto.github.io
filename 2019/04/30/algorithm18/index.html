@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://evolto.xyz">
-  <title>算法导论学习笔记(三) | LinkSpider的博客</title>
+  <title>算法导论学习笔记(18) | LinkSpider的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第三节主要讲快排这种排序方式。">
+  <meta name="description" content="BellMan和差分约束">
 <meta name="keywords" content="算法,笔记,算法导论,公开课">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法导论学习笔记(三)">
-<meta property="og:url" content="https://evolto.xyz/2019/04/02/algorithm3/index.html">
+<meta property="og:title" content="算法导论学习笔记(18)">
+<meta property="og:url" content="https://evolto.xyz/2019/04/30/algorithm18/index.html">
 <meta property="og:site_name" content="LinkSpider的博客">
-<meta property="og:description" content="第三节主要讲快排这种排序方式。">
+<meta property="og:description" content="BellMan和差分约束">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://evolto.xyz/img/algorithm3.png">
-<meta property="og:updated_time" content="2019-04-27T08:59:40.973Z">
+<meta property="og:image" content="https://evolto.xyz/img/algorithm18.jpg">
+<meta property="og:updated_time" content="2019-04-30T02:09:06.265Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法导论学习笔记(三)">
-<meta name="twitter:description" content="第三节主要讲快排这种排序方式。">
-<meta name="twitter:image" content="https://evolto.xyz/img/algorithm3.png">
+<meta name="twitter:title" content="算法导论学习笔记(18)">
+<meta name="twitter:description" content="BellMan和差分约束">
+<meta name="twitter:image" content="https://evolto.xyz/img/algorithm18.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LinkSpider的博客" type="application/atom+xml">
   
@@ -42,6 +42,9 @@
 
   
 
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
 </head>
 </html>
 <body>
@@ -164,76 +167,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-algorithm3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-algorithm18" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      算法导论学习笔记(三)
+      算法导论学习笔记(18)
     </h1>
   
 
         
-        <a href="/2019/04/02/algorithm3/" class="archive-article-date">
-  	<time datetime="2019-04-02T09:02:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
+        <a href="/2019/04/30/algorithm18/" class="archive-article-date">
+  	<time datetime="2019-04-30T01:54:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/img/algorithm3.png"></p>
-<p>第三节主要讲快排这种排序方式。</p>
-<a id="more"></a>
-<p>快排是1962年hoare 发明的， 使用了Divide and conquer方法，并且是一种In-place算法。经过tuning，是一种非常实用的算法。</p>
-<h5 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h5><p>1.divide：partition array into 2 subarrays around pivot x.</p>
-<p>|       ≤X        |      X     |        ≥X           |</p>
-<p>2.sort the subarrays</p>
-<p>3.combine：Trivial</p>
-<p>key step： divide，复杂度为Θ(n) </p>
-<h5 id="Partitioning-subroutine"><a href="#Partitioning-subroutine" class="headerlink" title="Partitioning subroutine"></a>Partitioning subroutine</h5><p>伪代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Partition(A, p, q):               //A[p...q]</span><br><span class="line">x = A[p]</span><br><span class="line">i = p</span><br><span class="line">for j = p+1 to q</span><br><span class="line">	do if A[j] &lt;= x</span><br><span class="line">		then i = i+1</span><br><span class="line">		each A[i] &lt;-&gt; A[j]</span><br><span class="line">A[p]&lt;-&gt;A[i]</span><br><span class="line">return i</span><br></pre></td></tr></table></figure>
-<p>分析算法时，忽略常数时间，因此划分时间复杂度为 Θ(n) for n elements array</p>
-<p>划分算法将p，q划分，返回第i个元素。p，i &lt;=  i &lt;= i , q</p>
-<h5 id="QuickSort"><a href="#QuickSort" class="headerlink" title="QuickSort"></a>QuickSort</h5><p>code</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">QuickSort(A, p, q):</span><br><span class="line">if p&lt;q</span><br><span class="line">	then r&lt;-Partition(A, p, q)</span><br><span class="line">		QuickSort(A, p, r-1)</span><br><span class="line">		QuickSort(A, r+1, q)</span><br><span class="line"></span><br><span class="line">Init.call.Quick(A, 1, n)</span><br></pre></td></tr></table></figure>
-<p> 可在元素较少时tune it up, 例如不在使用快排递归而是用其他的排序方法优化。</p>
-<h5 id="Analysis："><a href="#Analysis：" class="headerlink" title="Analysis："></a>Analysis：</h5><p>assume all elements distinct.</p>
-<p>haore 对于重复元素更有效率，算法更复杂。</p>
-<blockquote>
-<p>worst case:</p>
-</blockquote>
-<p>input : sorted or reverse sorted </p>
-<p>通常排序算法遇到的都是差不多排好序的，因为人们最常见检验排序的方式就是sort it again.</p>
-<p>So one side of partition has no elements.<br>$$<br>T(n) = T(0) + T(n-1) + \Theta(n)=\Theta(n^2)<br>$$<br>和插入排序一样的复杂度</p>
-<blockquote>
-<p>best case:</p>
-</blockquote>
-<p>partition splits the array n/2 : n/2, so<br>$$<br>T(n) = T(n/2) + T(n/2) + \Theta(n) = \Theta(nlgn)<br>$$<br>splits array always: 1/10 : 9/10, 通过画递归树分析<br>$$<br>T(n) = T(n/10) + T(9n/10) + \Theta(n) = \Theta(nlgn)<br>$$</p>
-<blockquote>
-<p> worst case and best case alternate:</p>
-</blockquote>
-<p>$$<br>L(n) = 2U(n/2) + \Theta(n)\<br>U(n) = L(n-1) + \Theta(n)<br>$$</p>
-<p>主方法不能用，递归树很难画，使用substitution method:<br>$$<br>L(n) = 2L(n/2 - 1) + \Theta(n) = \Theta(nlgn)<br>$$<br>因为有1/2 系数，所以忽略L中-1的常数，因此用主方法最终为$ \Theta(nlgn)$</p>
-<p><strong>分析结果：</strong></p>
-<p>为了保证我们usually  lucky:</p>
-<h5 id="Randomized-Quick-Sort"><a href="#Randomized-Quick-Sort" class="headerlink" title="Randomized Quick Sort:"></a>Randomized Quick Sort:</h5><p>随机选择主元， 与第一个元素交换</p>
-<ul>
-<li>running time  is indep of input ordering</li>
-<li>make no assumption about input distribution</li>
-<li>no specific input elicit worst behevior</li>
-<li>worst case determined only by a random number generator. </li>
-</ul>
-<blockquote>
-<p>Analysis:</p>
-</blockquote>
-<p>for all k : 0….n-1<br>$$<br>x_k = \begin{cases} 1 &amp; if\ k:n-k-1 \\ 0 &amp; others \end{cases}<br>$$<br>可知<br>$$<br>E[x_k] = 1/n<br>$$<br>使用indicator random variable 来统一形式<br>$$<br>T(n) = \begin{cases} T(0) + T(n-1)+\Theta(n) &amp; if\ 0:n-1 \\ ·······\\T(n-1)+T(0)+\Theta(n) &amp; if\ n-1:0  \end{cases}<br>$$<br>即<br>$$<br>T(n) = \Sigma_{k=0}^{n-1}X_kT(k)+T(n-k-1)+\Theta(n)<br>$$<br>求E(T(n)):经过一系列的数学化简最终求得结果为<br>$$<br>E(T(n)) = 2/n\Sigma_{k=0}^{n-1}E[T(k)] +\Theta(n)<br>$$</p>
-<p>要证明的是 $ E(T(n))≤ anlgn, for\ a&gt;0$</p>
-<p>使用的是substition:</p>
-<p>最终通过一个不等式证明成立。证明掠过。</p>
-<h5 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h5><p>快排的速度一般是归并排序的三倍以上，大多数较好的排序算法都是基于快排的算法，因为它在虚拟内存的缓存性能比较好。</p>
+        <p><img src="/img/algorithm18.jpg" alt></p>
+<h3 id="BellMan和差分约束"><a href="#BellMan和差分约束" class="headerlink" title="BellMan和差分约束"></a>BellMan和差分约束</h3> 
+    <div id="aplayer-PAhWCKgB" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="4962658" data-server="server:tencent" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+ <a id="more"></a>
 
       
 
@@ -346,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://evolto.xyz/2019/04/02/algorithm3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://evolto.xyz/2019/04/30/algorithm18/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -360,18 +317,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/04/03/algorithm4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          算法导论学习笔记(四)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/04/02/algorithm2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">算法导论学习笔记(二)</div>
+    <a href="/2019/04/28/alcontest5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法竞赛进阶指南笔记(五)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -398,7 +346,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#步骤"><span class="toc-number">1.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Partitioning-subroutine"><span class="toc-number">2.</span> <span class="toc-text">Partitioning subroutine</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#QuickSort"><span class="toc-number">3.</span> <span class="toc-text">QuickSort</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Analysis："><span class="toc-number">4.</span> <span class="toc-text">Analysis：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Randomized-Quick-Sort"><span class="toc-number">5.</span> <span class="toc-text">Randomized Quick Sort:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#结论"><span class="toc-number">6.</span> <span class="toc-text">结论</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#BellMan和差分约束"><span class="toc-number">1.</span> <span class="toc-text">BellMan和差分约束</span></a></li></ol>
                     </div>
                 </span>
             </div>
