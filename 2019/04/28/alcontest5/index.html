@@ -17,7 +17,7 @@
 <meta property="og:description" content="0x05 排序       太吵了。午睡起来听到轰鸣声，感觉整个人都要死了。安静，安静。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest5.jpg">
-<meta property="og:updated_time" content="2019-05-02T13:47:08.882Z">
+<meta property="og:updated_time" content="2019-05-03T13:29:03.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南笔记(五)">
 <meta name="twitter:description" content="0x05 排序       太吵了。午睡起来听到轰鸣声，感觉整个人都要死了。安静，安静。">
@@ -189,7 +189,7 @@
       
         <p><img src="/img/alcontest5.jpg" alt></p>
 <h3 id="0x05-排序"><a href="#0x05-排序" class="headerlink" title="0x05 排序"></a>0x05 排序</h3> 
-    <div id="aplayer-pxhFynPI" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="30251291" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+    <div id="aplayer-xXGjzYgI" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="30251291" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
 <p>太吵了。午睡起来听到轰鸣声，感觉整个人都要死了。<br>安静，安静。</p>
  <a id="more"></a>
 <p>首先是排序的种类：<br>按照算法复杂度分为三种：<br>$n^2$：冒泡排序，插入排序，选择排序<br>$nlgn$： 堆排序，快速排序，归并排序<br>$kn:$  基数排序，计数排序，桶排序</p>
@@ -201,6 +201,10 @@
 <p>lower_bound函数是在first和last 的前后开闭区间进行二分查找，返回从first开始的第一个大于等于val的元素的地址，如果所有的函数都小于val，则返回last的地址, lower_bound函数的适用条件是先进行排序</p>
 <h5 id="电影院-Codeforce670C"><a href="#电影院-Codeforce670C" class="headerlink" title="电影院  Codeforce670C"></a>电影院  Codeforce670C</h5><p>原题：<a href="https://www.acwing.com/problem/content/105/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/105/</a><br>代码：<a href="https://www.acwing.com/activity/content/code/content/35685/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/35685/</a></p>
 <p>思路：<br>1.用A来保存科学家会的语言，然后对A排序，通过离散化将A映射到Mapping中<br>2.用Count来对科学家会的语言进行计数，索引对应Mapping的索引<br>3.遍历所有的电影，找出声音语言对应的Count值最大的电影的集合，也就是视频声音满足最多科学家掌握的语言<br>4.对3得到的电影集合进行遍历，得到其中字幕语言对应的Count值最大的电影，并输出</p>
+<h3 id="中位数"><a href="#中位数" class="headerlink" title="中位数"></a>中位数</h3><h5 id="货仓选址-CH0501"><a href="#货仓选址-CH0501" class="headerlink" title="货仓选址 CH0501"></a>货仓选址 CH0501</h5><p>题目：<a href="https://www.acwing.com/problem/content/106/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/106/</a></p>
+<p>把A[1]~A[N]排序，设货仓建在x坐标处，x左侧的商店有P家，右侧的商店有Q家。若p&lt;Q,则每把货仓的选址向右移动1单位距离，距离之和就会变小Q-P。同理，若P&gt;Q,则货仓的选址向左移动会使距离之和变小。当P=Q时为最优解。<br>因此货仓应该建在中位数处，即把A排序后，当N为奇数时，货仓建在A[(N +1)/2]处最优:当N为偶数时，货仓建在A[N/2]~A[N/2+ 1]之间的任何位置都是最优解。</p>
+<p>实现货仓直接选择N/2的位置即可</p>
+<p>代码：<a href="https://www.acwing.com/activity/content/code/content/35897/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/35897/</a></p>
 
       
 
@@ -365,7 +369,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-排序"><span class="toc-number">1.</span> <span class="toc-text">0x05 排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离散化"><span class="toc-number">2.</span> <span class="toc-text">离散化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#电影院-Codeforce670C"><span class="toc-number">2.0.1.</span> <span class="toc-text">电影院  Codeforce670C</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-排序"><span class="toc-number">1.</span> <span class="toc-text">0x05 排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离散化"><span class="toc-number">2.</span> <span class="toc-text">离散化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#电影院-Codeforce670C"><span class="toc-number">2.0.1.</span> <span class="toc-text">电影院  Codeforce670C</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#中位数"><span class="toc-number">3.</span> <span class="toc-text">中位数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#货仓选址-CH0501"><span class="toc-number">3.0.1.</span> <span class="toc-text">货仓选址 CH0501</span></a></li></ol></li>
                     </div>
                 </span>
             </div>
