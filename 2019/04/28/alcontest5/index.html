@@ -17,7 +17,7 @@
 <meta property="og:description" content="0x05 排序       太吵了。午睡起来听到轰鸣声，感觉整个人都要死了。安静，安静。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest5.jpg">
-<meta property="og:updated_time" content="2019-05-07T14:39:21.184Z">
+<meta property="og:updated_time" content="2019-05-08T05:50:42.887Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南笔记(五)">
 <meta name="twitter:description" content="0x05 排序       太吵了。午睡起来听到轰鸣声，感觉整个人都要死了。安静，安静。">
@@ -189,7 +189,7 @@
       
         <p><img src="/img/alcontest5.jpg" alt></p>
 <h3 id="0x05-排序"><a href="#0x05-排序" class="headerlink" title="0x05 排序"></a>0x05 排序</h3> 
-    <div id="aplayer-aBAuoKoj" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="30251291" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+    <div id="aplayer-OZyXwEVz" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="30251291" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
 <p>太吵了。午睡起来听到轰鸣声，感觉整个人都要死了。<br>安静，安静。</p>
  <a id="more"></a>
 <p>首先是排序的种类：<br>按照算法复杂度分为三种：<br>$n^2$：冒泡排序，插入排序，选择排序<br>$nlgn$： 堆排序，快速排序，归并排序<br>$kn:$  基数排序，计数排序，桶排序</p>
@@ -205,10 +205,11 @@
 <p>把A[1]~A[N]排序，设货仓建在x坐标处，x左侧的商店有P家，右侧的商店有Q家。若p&lt;Q,则每把货仓的选址向右移动1单位距离，距离之和就会变小Q-P。同理，若P&gt;Q,则货仓的选址向左移动会使距离之和变小。当P=Q时为最优解。<br>因此货仓应该建在中位数处，即把A排序后，当N为奇数时，货仓建在A[(N +1)/2]处最优:当N为偶数时，货仓建在A[N/2]~A[N/2+ 1]之间的任何位置都是最优解。</p>
 <p>实现货仓直接选择N/2的位置即可</p>
 <p>代码：<a href="https://www.acwing.com/activity/content/code/content/35897/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/35897/</a></p>
-<h5 id="七夕祭-BOJ3032-CH0502"><a href="#七夕祭-BOJ3032-CH0502" class="headerlink" title="七夕祭 BOJ3032/CH0502"></a>七夕祭 BOJ3032/CH0502</h5><p>acwing上做到的第一个难题，其实是个数学题<br>题目：<a href="https://www.acwing.com/problem/content/107/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/107/</a></p>
+<h5 id="七夕祭-BOJ3032-CH0502"><a href="#七夕祭-BOJ3032-CH0502" class="headerlink" title="七夕祭 BOJ3032/CH0502"></a>七夕祭 BOJ3032/CH0502</h5><p>acwing上做到的第一个标注为”难题“的题，其实是个数学题<br>题目：<a href="https://www.acwing.com/problem/content/107/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/107/</a></p>
 <p>思路：<br>1.能够满足的条件是行数和列数能够整除感兴趣的摊数，这样才能满足需求<br>2.上下移动仅影响是否满足行的要求，左右移动仅影响列的要求，所以将问题变成两部分，解决方法相同<br>3.利用数学知识计算出来最小操作次数，如果行列都可以满足，相加操作次数。输出。</p>
 <p>代码：<a href="https://www.acwing.com/activity/content/code/content/37012/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/37012/</a></p>
 <p>需要说的：<br>1.both我还以为输出两个数，结果输出两个数的和<br>2.printf(“%d”, INT_MAX+1) 会输出一个负数，因为%d导致了溢出</p>
+<p>如何计算出最小操作次数(建议看书)：<br>1.考虑均分纸牌问题。<br>最小操作次数为$\Sigma_{i=1}^{n} |S_i - i*A_{ave}|$,    其中 $S_i = \Sigma_{i=1}^n A_i$, $A_i$是每个人手里的纸牌数<br>每个人减去平均纸牌数，那么最小操作次数为 $\Sigma_{i=1}^n|S_i|$<br>2.考虑环形均分纸牌问题。<br>环形纸牌问题为选出一个位置作为起始， 那么最终结果则变成了$Min(\Sigma_{i=1}^{n}|S_i - S_k|)$ for all $k=1…n$<br>3.转化为货舱地址问题。<br>上述问题则可以转化货舱地址的问题，$S_i$ 作为第i个货舱的坐标，要想获得最小值，取$S_k$ 为中位数即可</p>
 
       
 
