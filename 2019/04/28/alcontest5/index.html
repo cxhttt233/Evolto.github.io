@@ -17,7 +17,7 @@
 <meta property="og:description" content="0x05 排序       太吵了。午睡起来听到轰鸣声，感觉整个人都要死了。安静，安静。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest5.jpg">
-<meta property="og:updated_time" content="2019-05-08T05:50:42.887Z">
+<meta property="og:updated_time" content="2019-05-09T14:07:30.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南笔记(五)">
 <meta name="twitter:description" content="0x05 排序       太吵了。午睡起来听到轰鸣声，感觉整个人都要死了。安静，安静。">
@@ -189,7 +189,7 @@
       
         <p><img src="/img/alcontest5.jpg" alt></p>
 <h3 id="0x05-排序"><a href="#0x05-排序" class="headerlink" title="0x05 排序"></a>0x05 排序</h3> 
-    <div id="aplayer-OZyXwEVz" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="30251291" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+    <div id="aplayer-QFEpLbAI" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="30251291" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
 <p>太吵了。午睡起来听到轰鸣声，感觉整个人都要死了。<br>安静，安静。</p>
  <a id="more"></a>
 <p>首先是排序的种类：<br>按照算法复杂度分为三种：<br>$n^2$：冒泡排序，插入排序，选择排序<br>$nlgn$： 堆排序，快速排序，归并排序<br>$kn:$  基数排序，计数排序，桶排序</p>
@@ -210,6 +210,11 @@
 <p>代码：<a href="https://www.acwing.com/activity/content/code/content/37012/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/37012/</a></p>
 <p>需要说的：<br>1.both我还以为输出两个数，结果输出两个数的和<br>2.printf(“%d”, INT_MAX+1) 会输出一个负数，因为%d导致了溢出</p>
 <p>如何计算出最小操作次数(建议看书)：<br>1.考虑均分纸牌问题。<br>最小操作次数为$\Sigma_{i=1}^{n} |S_i - i*A_{ave}|$,    其中 $S_i = \Sigma_{i=1}^n A_i$, $A_i$是每个人手里的纸牌数<br>每个人减去平均纸牌数，那么最小操作次数为 $\Sigma_{i=1}^n|S_i|$<br>2.考虑环形均分纸牌问题。<br>环形纸牌问题为选出一个位置作为起始， 那么最终结果则变成了$Min(\Sigma_{i=1}^{n}|S_i - S_k|)$ for all $k=1…n$<br>3.转化为货舱地址问题。<br>上述问题则可以转化货舱地址的问题，$S_i$ 作为第i个货舱的坐标，要想获得最小值，取$S_k$ 为中位数即可</p>
+<h5 id="动态中位数-POJ3784"><a href="#动态中位数-POJ3784" class="headerlink" title="动态中位数 POJ3784"></a>动态中位数 POJ3784</h5><p>题目：<a href="https://www.acwing.com/problem/content/108/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/108/</a></p>
+<p>思路：要想动态维持中位数，就必须用数据结构将两边的数字存起来，并保证两边的数字个数相等或相差一，并且两边的数字可以流动。<br>因此采用两个堆，一个最大堆，放按大小递增1..n/2 的数，一个最小堆，放n/2..n的数字。<br>保证最大堆的size 等于或者比最小堆的size大一，那么最大堆的堆顶则为中位数</p>
+<p>因此：<br>1.读入一个数字，判断是否大于当前中位数, 是则放最小堆，否则放最大堆<br>2.检测当前最小堆大小是否等于最大堆大小，或者比其小一，若不是则弹出size大的一方的堆顶，放到另一方的堆里，直到满足条件<br>3.如果当前是奇数个数字，取最大堆堆顶元素，输出</p>
+<p>其中需要注意的是：<br>c++ stl最大堆最小堆的用法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line">priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, less&lt;<span class="keyword">int</span>&gt;&gt; maxHeap;</span><br><span class="line">priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt;&gt; minHeap;</span><br><span class="line"><span class="comment">//函数有push，pop，top，size，empty等</span></span><br><span class="line"><span class="comment">//另外优先级队列没有clear函数，可以循环pop</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -374,7 +379,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-排序"><span class="toc-number">1.</span> <span class="toc-text">0x05 排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离散化"><span class="toc-number">2.</span> <span class="toc-text">离散化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#电影院-Codeforce670C"><span class="toc-number">2.0.1.</span> <span class="toc-text">电影院  Codeforce670C</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#中位数"><span class="toc-number">3.</span> <span class="toc-text">中位数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#货仓选址-CH0501"><span class="toc-number">3.0.1.</span> <span class="toc-text">货仓选址 CH0501</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#七夕祭-BOJ3032-CH0502"><span class="toc-number">3.0.2.</span> <span class="toc-text">七夕祭 BOJ3032/CH0502</span></a></li></ol></li>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-排序"><span class="toc-number">1.</span> <span class="toc-text">0x05 排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离散化"><span class="toc-number">2.</span> <span class="toc-text">离散化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#电影院-Codeforce670C"><span class="toc-number">2.0.1.</span> <span class="toc-text">电影院  Codeforce670C</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#中位数"><span class="toc-number">3.</span> <span class="toc-text">中位数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#货仓选址-CH0501"><span class="toc-number">3.0.1.</span> <span class="toc-text">货仓选址 CH0501</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#七夕祭-BOJ3032-CH0502"><span class="toc-number">3.0.2.</span> <span class="toc-text">七夕祭 BOJ3032/CH0502</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态中位数-POJ3784"><span class="toc-number">3.0.3.</span> <span class="toc-text">动态中位数 POJ3784</span></a></li></ol></li>
                     </div>
                 </span>
             </div>
@@ -749,8 +754,7 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title='╭(°A°`)╮ 页面崩溃啦 ~',clearTimeout(st)):(document.title='(ฅ>ω<*ฅ) 噫又好了~' + OriginTitile,st=setTimeout(function(){document.title=OriginTitile},3e3))})</script>
-<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"position":"right","width":100,"height":200,"hOffset":70,"vOffset":-20},"mobile":{"show":true,"scale":1},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title='╭(°A°`)╮ 页面崩溃啦 ~',clearTimeout(st)):(document.title='(ฅ>ω<*ฅ) 噫又好了~' + OriginTitile,st=setTimeout(function(){document.title=OriginTitile},3e3))})</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -767,5 +771,6 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"position":"right","width":100,"height":200,"hOffset":70,"vOffset":-20},"mobile":{"show":true,"scale":1},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>
