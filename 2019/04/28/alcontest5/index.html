@@ -17,7 +17,7 @@
 <meta property="og:description" content="0x05 排序       太吵了。午睡起来听到轰鸣声，感觉整个人都要死了。安静，安静。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://evolto.xyz/img/alcontest5.jpg">
-<meta property="og:updated_time" content="2019-05-09T14:07:30.018Z">
+<meta property="og:updated_time" content="2019-05-12T03:17:23.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法竞赛进阶指南笔记(五)">
 <meta name="twitter:description" content="0x05 排序       太吵了。午睡起来听到轰鸣声，感觉整个人都要死了。安静，安静。">
@@ -189,7 +189,7 @@
       
         <p><img src="/img/alcontest5.jpg" alt></p>
 <h3 id="0x05-排序"><a href="#0x05-排序" class="headerlink" title="0x05 排序"></a>0x05 排序</h3> 
-    <div id="aplayer-QFEpLbAI" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="30251291" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+    <div id="aplayer-GLriXmVz" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="30251291" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
 <p>太吵了。午睡起来听到轰鸣声，感觉整个人都要死了。<br>安静，安静。</p>
  <a id="more"></a>
 <p>首先是排序的种类：<br>按照算法复杂度分为三种：<br>$n^2$：冒泡排序，插入排序，选择排序<br>$nlgn$： 堆排序，快速排序，归并排序<br>$kn:$  基数排序，计数排序，桶排序</p>
@@ -215,6 +215,9 @@
 <p>因此：<br>1.读入一个数字，判断是否大于当前中位数, 是则放最小堆，否则放最大堆<br>2.检测当前最小堆大小是否等于最大堆大小，或者比其小一，若不是则弹出size大的一方的堆顶，放到另一方的堆里，直到满足条件<br>3.如果当前是奇数个数字，取最大堆堆顶元素，输出</p>
 <p>其中需要注意的是：<br>c++ stl最大堆最小堆的用法</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line">priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, less&lt;<span class="keyword">int</span>&gt;&gt; maxHeap;</span><br><span class="line">priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt;&gt; minHeap;</span><br><span class="line"><span class="comment">//函数有push，pop，top，size，empty等</span></span><br><span class="line"><span class="comment">//另外优先级队列没有clear函数，可以循环pop</span></span><br></pre></td></tr></table></figure>
+<p>代码：<a href="https://www.acwing.com/activity/content/code/content/37510/" target="_blank" rel="noopener">https://www.acwing.com/activity/content/code/content/37510/</a></p>
+<h3 id="第k大数"><a href="#第k大数" class="headerlink" title="第k大数"></a>第k大数</h3><p>想要找第k大数，可以先排序再遍历，但是可以再$O(n)$的时间里找到<br>思路：利用快排的思想。每次从序列中随机选择一个，调用partition.<br><a href="https://evolto.xyz/2019/04/05/algorithm6/#Kth-smallest-element">https://evolto.xyz/2019/04/05/algorithm6/#Kth-smallest-element</a></p>
+<h3 id="逆序对"><a href="#逆序对" class="headerlink" title="逆序对"></a>逆序对</h3><p>对于数组A，若$i &lt; j$且 $A[i]&gt;A[j]$, 那么$i$和$j$ 构成逆序对</p>
 
       
 
@@ -379,7 +382,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-排序"><span class="toc-number">1.</span> <span class="toc-text">0x05 排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离散化"><span class="toc-number">2.</span> <span class="toc-text">离散化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#电影院-Codeforce670C"><span class="toc-number">2.0.1.</span> <span class="toc-text">电影院  Codeforce670C</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#中位数"><span class="toc-number">3.</span> <span class="toc-text">中位数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#货仓选址-CH0501"><span class="toc-number">3.0.1.</span> <span class="toc-text">货仓选址 CH0501</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#七夕祭-BOJ3032-CH0502"><span class="toc-number">3.0.2.</span> <span class="toc-text">七夕祭 BOJ3032/CH0502</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态中位数-POJ3784"><span class="toc-number">3.0.3.</span> <span class="toc-text">动态中位数 POJ3784</span></a></li></ol></li>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-排序"><span class="toc-number">1.</span> <span class="toc-text">0x05 排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离散化"><span class="toc-number">2.</span> <span class="toc-text">离散化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#电影院-Codeforce670C"><span class="toc-number">2.0.1.</span> <span class="toc-text">电影院  Codeforce670C</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#中位数"><span class="toc-number">3.</span> <span class="toc-text">中位数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#货仓选址-CH0501"><span class="toc-number">3.0.1.</span> <span class="toc-text">货仓选址 CH0501</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#七夕祭-BOJ3032-CH0502"><span class="toc-number">3.0.2.</span> <span class="toc-text">七夕祭 BOJ3032/CH0502</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态中位数-POJ3784"><span class="toc-number">3.0.3.</span> <span class="toc-text">动态中位数 POJ3784</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第k大数"><span class="toc-number">4.</span> <span class="toc-text">第k大数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逆序对"><span class="toc-number">5.</span> <span class="toc-text">逆序对</span></a></li>
                     </div>
                 </span>
             </div>
